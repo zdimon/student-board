@@ -1,0 +1,7 @@
+[program:zdimon-2.local]
+directory = /home/zdimon/Desktop/work/django-ci/work/zdimon-2
+command = /home/zdimon/Desktop/work/django-ci/work/zdimon-2/venv/bin/python3 manage.py runserver 0.0.0.0:8080
+autostart = true
+autorestart = true
+environment=PYTHONPATH="/home/zdimon/Desktop/work/django-ci/work/zdimon-2/venv"
+stderr_logfile=/home/zdimon/Desktop/work/django-ci/work/zdimon-2/logs/zdimon-2.local.log
