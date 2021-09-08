@@ -6,7 +6,6 @@ class Student(User):
     fname = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
     lname = models.CharField(max_length=50)
-    email = models.CharField(max_length=100)
     image = models.ImageField(upload_to='student_images')
     account = models.IntegerField()
     phone = models.CharField(max_length=100)
