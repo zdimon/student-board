@@ -14,7 +14,6 @@ social-auth-app-django
 django-mptt
 psycopg2-binary
 bs4
-django-crispy-forms
 python-telegram-bot==12.0.0b1
 wheel
 celery==4.4.6

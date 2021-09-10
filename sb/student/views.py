@@ -1,5 +1,15 @@
 from django.shortcuts import render
 from .models import Student
+from .forms.student import StudentForm
+
+def profile(request):
+    form = StudentForm(instance=request.user.student)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, request.FILES, instance=request.user.student)
+        if form.is_valid():
+            form.save()
+
+    return render(request,'student/profile.html', {"form": form})
 
 def registration(request):
     if request.method == 'POST':

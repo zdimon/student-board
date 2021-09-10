@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{%  block content %}
+
+<div class="p-5">
+    <div class="">
+        <h1 class="h4 text-gray-900 mb-4">My profile</h1>
+
+        <form method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+            {% for field in form %}
+                
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-6 mb-sm-0">
+                               
+                                {{ field|as_crispy_field  }}
+                        </div>
+                    </div>
+
+            {% endfor %}
+
+
+            <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Edit
+            </button>
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}
