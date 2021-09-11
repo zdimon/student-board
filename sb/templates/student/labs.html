@@ -3,32 +3,30 @@
 {%  block content %}
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ course }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">{% trans 'Labs' %}</h1>
     </div>
 
 
 
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">{% trans 'Educational material' %}</h6>
-    </div>
+    
     <div class="card-body">
         <div class="table-responsive">
 
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    
+                </tr>
+            </thead>
            
             <tbody>
-            {% for l in lessons  %}
+            {% for l in labs  %}
                 <tr>
-                   
                     <td>
-                    <a href="{% url 'detail-lesson-student' lesson_id=l.pk %}">
-                        {{ l.number }}. {{ l.title }}
-                    </a>
-                  
+                        !!!                   
                     </td>
-                   
-                 
                    
                 </tr>            
             {% endfor %}

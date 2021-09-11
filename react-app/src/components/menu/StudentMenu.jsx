@@ -22,11 +22,7 @@ export default function StudentMenu() {
         <a
           key={el.id}
           className="nav-link collapsed"
-          href="#"
-          data-toggle="collapse"
-          data-target="#collapseTwo"
-          aria-expanded="true"
-          aria-controls="collapseTwo"
+          href={`/student/detail/course/${el.id}`}
         >
           <i className="fas fa-fw fa-list-alt"></i>
           <span>{el.name}</span>

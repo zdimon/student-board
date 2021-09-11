@@ -5,21 +5,22 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-   
     <div id="js-student-menu"> </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
-        </div>
-    </div>
 </li>
 
 <hr class="sidebar-divider">
 
 <li class="nav-item active">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="{% url 'student-labs' %}">
+        <i class="fas fa-fw fa-bath"></i>
+        <span>{% trans 'Labs' %}</span>
+    </a>
+</li>
+
+<hr class="sidebar-divider">
+
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'replanish' %}">
         <i class="fas fa-fw fa-ruble-sign"></i>
         <span>{% trans 'Replanish account' %}</span></a>
 </li>

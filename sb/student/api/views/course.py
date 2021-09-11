@@ -8,6 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import ugettext_lazy as _
 from student.api.serializers.course import CourseSerializer
 from course.models import Course
+from student.models import Student2Course
 
 class CourseListView(APIView):
     '''
@@ -21,7 +22,7 @@ class CourseListView(APIView):
     )
     def get(self, request):
         out = []
-        for c in Course.objects.all():
-            out.append(CourseSerializer(c).data)
+        for c2s in Student2Course.objects.filter(user=request.user.student):
+            out.append(CourseSerializer(c2s.course).data)
         return Response(out)
 

@@ -13,4 +13,9 @@ pre {
 
 p {
     color: black;
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-size: 20px;
 }
