@@ -3,6 +3,11 @@ ALL_FREE=True
 VIDEO_DIR = '/home/zdimon/Videos/course-data'
 DOMAIN='http://localhost:8001'
 
+
+import os
+from .settings import BASE_DIR
+
+
 '''
 DATABASES = {
     'default': {

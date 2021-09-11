@@ -23,35 +23,9 @@
                 </thead>
             
                 <tbody>
-                {% for c in courses  %}
-                    <tr>
-                        <td style="width: 16.66%">
-                        <img class="img-fluid" src="{{ c.image.url }}" alt="#" />
-                        </td>
-                        <td>
-                            {%  if c.pk not in joined_courses  %}
-                                {{ c.name }}
-                            {% else %}
-                                <a href="{% url 'detail-course-student' course_id=c.pk %}" 
-                                >{{ c.name }}</a>
-                            {% endif %}   
-                            <div class="color-black">{{ c.desc | safe}}</div>  
-                            <p>{% trans 'Mentor' %}: {{ c.mentors }}</p>  
-                            <p>{% trans 'Lessons' %}: {{ c.count_lessons }}</p>               
-                        </td>
-                       
-                        <td>
-                        {%  if c.pk not in joined_courses  %}
-                        <a href="{% url 'join-course-student' course_id=c.pk %}" class="btn btn-sm btn-secondary">{% trans 'Join' %}</a>
-                        {% else %}
-                            <a href="{% url 'detail-course-student' course_id=c.pk %}" 
-                            class="btn btn-sm btn-primary">{% trans 'Detail' %}</a>
-                        {% endif %}
-                        </td>
-                    
-                    </tr>            
-                {% endfor %}
-
+                    {% for item in courses  %}
+                        {% include 'parts/course_item.html' %}          
+                    {% endfor %}
                 </tbody>
             </table>
 
