@@ -1,0 +1,324 @@
+<h2>Чистые функции.</h2>
+
+<p>Чистыми называют те функции которые работают исключительно с передаваемыми в них параметрами.</p>
+
+<p>Если ф-ция работает с переменными, определенными за ее пределами, то она не является чистой и имеет побочный эффект.</p>
+
+<p>Допустим у нас есть список.</p>
+
+<pre><code>var fruits = ['cherries', 'apples', 'bananas']
+</code></pre>
+
+<p>Определим функцию перебора элементов массива.</p>
+
+<pre><code>function forEach(arr,fn){
+    for(let i=0; i&lt;=arr.length-1; i++){
+        fn(arr[i]);
+    }
+}
+</code></pre>
+
+<p>Применим ее для вывода элементов в консоль.</p>
+
+<pre><code>forEach(fruits,(el)=&gt; console.log(el))
+</code></pre>
+
+<p>Сделаем функцию, которая изменяет элементы массива.</p>
+
+<pre><code>function map(arr,fn){
+    for(let i=0; i&lt;=arr.length-1; i++){
+        arr[i] = fn(arr[i]);
+    }
+}
+
+
+map(fruits,(el)=&gt; el.toUpperCase())
+
+console.log(fruits);
+</code></pre>
+
+<h2>Функция every.</h2>
+
+<p>Предположим есть два массива.</p>
+
+<pre><code>var myarr1 = [NaN,2,NaN,NaN];
+
+var myarr2 = [NaN,NaN,NaN,NaN];
+</code></pre>
+
+<p>Необходимо проверить есть ли в массиве хоть один елемент, не соотвествующий условию, которое заключено в функцию, и вернуть true если все соответствуют или false если хотябы один нет.</p>
+
+<pre><code>const every = (arr,fn) =&gt; {
+    let result = true;
+    for(let i=0;i&lt;arr.length;i++){
+        result = result &amp;&amp; fn(arr[i]);
+    }
+    return result;
+};
+</code></pre>
+
+<p>В js есть встроенная функция isNaN, проверяющая является ли значение числом.</p>
+
+<pre><code>console.log(every(myarr1,isNaN)); false
+
+console.log(every(myarr2,isNaN)); true
+</code></pre>
+
+<h2>Функция some.</h2>
+
+<p>Делает наоборот, возвращает true если хотя бы один соответствует и возвращает true, в противном случае возвращается false. </p>
+
+<pre><code>const some = (arr,fn) =&gt; {
+    let result = false;
+    for(let i=0;i&lt;arr.length;i++){
+        result = result || fn(arr[i]);
+    }
+    return result;
+};
+</code></pre>
+
+<p>Необходимо отметить неоптимальную работу функции, при которой она в любом случае пройдет весь массив целиком, даже если первый элемент вернет true и необходимости идти по массиву дальше нет.</p>
+
+<p>При помощи таких функций можно писать программы в функциональном стиле, не используя операторов условий (if else) и циклов (for).</p>
+
+<p>Например чтобы определить присуствует ли в массиве </p>
+
+<pre><code>var myarr1 = [NaN,2,NaN,'Dima'];
+</code></pre>
+
+<p>хоть одно значение 'Dima' можно так</p>
+
+<pre><code>console.log(some(myarr1,(e) =&gt; e === 'Dima'));
+</code></pre>
+
+<h3>Сортировка объектов.</h3>
+
+<p>Предположим у нас есть массив.</p>
+
+<pre><code> var fruits = ['cherries', 'apples', 'bananas']
+</code></pre>
+
+<p>Функция сортировки имееет вид.</p>
+
+<pre><code>arr.sort([функция-сравниватель])
+</code></pre>
+
+<p>Ее можно вызвать без аргументов.</p>
+
+<pre><code>console.log(fruits.sort())
+</code></pre>
+
+<p>Общий вид функции-сравнивателя.</p>
+
+<pre><code>function cmp(a,b) {
+    if ( a &gt; b ) return 1;
+    if ( a &lt; b ) return -1;
+    return 0; 
+}
+
+console.log(fruits.sort(cmp))
+</code></pre>
+
+<p>Предположим у нас есть сложныый объект.</p>
+
+<pre><code>var people = [
+    {firstname: 'Dima', lastname: 'Ivanov'},
+    {firstname: 'Vova', lastname: 'Putin'},
+    {firstname: 'Anna', lastname: 'Karenina'}
+]
+</code></pre>
+
+<p>Мы хотим отсортировать его по полю firstname.</p>
+
+<p>Для этого определим такую функцию.</p>
+
+<pre><code>function cmp(a,b) {
+    return ( a.firstеname &gt; b.firstname )? 1: ( a.firstname &lt; b.firstname )? -1: 0;
+}
+</code></pre>
+
+<p>Усовершенствуем функцию передав параметром значения поля, по которому хотим отсортировать.</p>
+
+<pre><code>function sortBy(field) {
+    return function(a,b) {
+        return ( a[field] &gt; b[field] )? 1: ( a[field] &lt; b[field] )? -1: 0;
+    }
+}
+</code></pre>
+
+<p>Проверка.</p>
+
+<pre><code>console.log(people.sort(sortBy('lastname')))
+</code></pre>
+
+<h2>Замыкания.</h2>
+
+<p>С замыканием связана область памяти, в которую помещаются переменные в момент возврата одной функции из другой.</p>
+
+<p>Проще говоря замыкание - это внутренняя функция с переменными, которые в нее попадают из внешней.</p>
+
+<pre><code>function outer() {
+    function inner() {
+    }
+}
+</code></pre>
+
+<p>Функция inner называется функцией - замыканием.</p>
+
+<p>Вся сила этих функций заключена в механизме доступа к области видимости переменных внутри текущей функции.</p>
+
+<p>Всего их 3.</p>
+
+<ol>
+<li><p>Переменные, обьявленные в своей собственной области текущей функции.</p></li>
+<li><p>Переменные, объявленные в глобальном пространстве (за пределами функций)</p></li>
+<li><p>Переменные, объявленные во внешней функции относительно текущей.</p></li>
+</ol>
+
+<p>Вариант 1.</p>
+
+<pre><code>function outer() {
+    function inner(){
+        let a = 1;
+        console.log(a);
+    }
+    inner();
+}
+</code></pre>
+
+<p>Вариант 2.</p>
+
+<pre><code>var global = 3;
+function outer() {
+    function inner(){
+        let a = 1;
+        console.log(global);
+    }
+    inner();
+}
+</code></pre>
+
+<p>Вариант 3.</p>
+
+<pre><code>function outer() {
+    let outer = 'Outer';
+    function inner(){
+        let a = 1;
+        console.log(outer);
+    }
+    inner();
+}
+</code></pre>
+
+<p>При этом внешняя функция как бы замыкает пространство видимости для внутренней функции-замыкании и делает доступным переменные из нее.</p>
+
+<p>Попробуем возвратить внутреннюю функцию из внешней, которой еще и передадим параметр.</p>
+
+<pre><code>var fn = (arg) =&gt; {
+    let outer = 'Visible';
+    let innerFn = () =&gt; {
+        console.log(outer);
+        console.log(arg);
+    } 
+    return innerFn;
+}
+</code></pre>
+
+<p>Вызов будет следующим.</p>
+
+<pre><code>var closureFn = fn(5);
+closureFn();
+</code></pre>
+
+<p>Вначале мы присваиваем переменной результат выполнения fn которая принимает аргумент и возвращает функцию-замыкание.</p>
+
+<p>И эта функция-замыкание будет иметь доступ как к аргументу arg так и к outer.</p>
+
+<h2>Функция unary.</h2>
+
+<p>Допустим мы хотим преобразовать строки массива в числа.</p>
+
+<pre><code>console.log(['1','2','3'].map((parseInt)))
+</code></pre>
+
+<p>вывод </p>
+
+<pre><code> [1, NaN, NaN]
+</code></pre>
+
+<p>Проблема в том что функция map имеет следующую сигнатуру</p>
+
+<pre><code>array.map(callback(item, index, array))
+</code></pre>
+
+<p><a href="https://learn.javascript.ru/array-iteration">ссылка на перебирающие методы</a></p>
+
+<p>А функция parseInt имеет сигнатуру </p>
+
+<pre><code>parseInt(string, radix);
+</code></pre>
+
+<p>где radix эта основа числа в математике и когда map туда заталкивает порядковый номер элемента index - это изменяет ее работу и не желательно</p>
+
+<p>Поэтому создадим функцию unary, которая отссеит все лишние параметры, передаваемые map.</p>
+
+<pre><code>const unary = function(func) {
+    if (func.length === 1){
+        return func
+    } else {
+        return function(el)  {
+            return func(el);
+        }
+    }
+}
+</code></pre>
+
+<p>Или более которкий вариант со стрелочными функциями и тернарным оператором.</p>
+
+<pre><code>const unary = (func) =&gt; (func.length === 1)? func : (el) =&gt; func(el);
+</code></pre>
+
+<p>И теперь воспользуемся.</p>
+
+<pre><code>console.log(['1','2','3'].map((unary(parseInt))));
+</code></pre>
+
+<h2>Работа с массивами.</h2>
+
+<h3>Функция map</h3>
+
+<p>Смысл - изменить массив функцией.</p>
+
+<pre><code>const map = (array, fn) =&gt; {
+    let results = [];
+    for(const value in array) {
+        results.push(fn(value));
+    }
+    return results;
+}
+</code></pre>
+
+<p>Применение.</p>
+
+<pre><code>console.log(map(['1','2','3'],(el) =&gt; parseInt(el)));
+</code></pre>
+
+<p>Функция filter.</p>
+
+<h3>Функция filter</h3>
+
+<p>Смысл - отсеить элементы массива, не удовлетворяющих условиям в передаваемой функции (колбеке).</p>
+
+<pre><code>const filter = (arr,func) =&gt; {
+    let result = [];
+    for(const value of arr) {
+        (func(value)) ? result.push(value): undefined;
+    }
+    return result;    
+}
+</code></pre>
+
+<p>Отбираем четные числа.</p>
+
+<pre><code>console.log(filter([1,2,3,4,5,6],(el) =&gt; el%2 === 0));
+</code></pre>

@@ -1,0 +1,31 @@
+slug: linux-tasks
+name: Решение типовых задач.
+meta_title: Решение типовых задач.
+meta_keywords: Решение типовых задач.
+meta_description: Решение типовых задач.
+is_active: true
+tags: linux bash
+desc: 
+    Решение типовых задач на BASH.
+
+        
+files:
+
+    -
+        file:    bash-tasks.md
+        title: Решение типовых задач на BASH.
+        meta_title: Решение типовых задач на BASH.
+        meta_description: Решение типовых задач на BASH.
+        meta_keywords: 'bash tasks'
+        desc: 
+        order: 1
+        
+    -
+        file:    dz.md
+        title: Задание.
+        meta_title: Решение типовых задач на BASH.
+        meta_description: Решение типовых задач на BASH.
+        meta_keywords: 'bash tasks'
+        desc: 
+        order: 2
+

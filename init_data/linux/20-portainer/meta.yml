@@ -1,0 +1,20 @@
+slug: linux-portainer
+name: Portainer. Начало работы.
+meta_title: Portainer. Начало работы.
+meta_keywords: Portainer. Начало работы.
+meta_description: Portainer. Начало работы.
+is_active: true
+tags: linux portainer
+desc: 
+    Установка и начальная настройка.
+
+files:
+
+    -
+        file:    linux-portainer.md
+        title: Portainer. Начало работы.
+        meta_title: Portainer. Начало работы.
+        meta_description: Portainer. Начало работы.
+        meta_keywords: 'linux portainer'
+        desc: 
+

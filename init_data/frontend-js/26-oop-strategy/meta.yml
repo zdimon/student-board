@@ -1,0 +1,20 @@
+slug: js-oop-strategy
+name: ООП. Паттерн стратегия.
+meta_title: ООП. Паттерн стратегия.
+meta_keywords: ООП. Паттерн стратегия.
+meta_description: ООП. Паттерн стратегия.
+is_active: true
+tags: js javascript oop strategy pattern
+desc:
+    Открываем первый паттерн стратегия.
+
+files:
+
+    -
+        file:     js-oop-strategy.md
+        title: ООП. Паттерн стратегия.
+        meta_title: ООП. Паттерн стратегия.
+        meta_description: ООП. Паттерн стратегия.
+        meta_keywords: ООП. Паттерн стратегия.
+        desc:
+

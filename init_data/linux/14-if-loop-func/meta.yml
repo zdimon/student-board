@@ -1,0 +1,23 @@
+slug: bash-if-loop-func
+name: BASH. Условия, циклы, функции.
+meta_title: BASH. Условия, циклы, функции.
+meta_keywords: BASH. Условия, циклы, функции.
+meta_description: BASH. Условия, циклы, функции.
+is_active: true
+tags: linux bash if loop func
+desc: 
+    Основные алгоритмы языка. 
+
+        
+files:
+
+    -
+        file:    bash-if-loop-func.md
+        title: BASH. Условия, циклы, функции.
+        meta_title: BASH. Условия, циклы, функции.
+        meta_description: BASH. Условия, циклы, функции.
+        meta_keywords: 'bash if loop func'
+        desc: 
+        youtube: https://www.youtube.com/embed/BCSo0PDu10o
+        
+

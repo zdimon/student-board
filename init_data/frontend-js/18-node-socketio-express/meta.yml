@@ -1,0 +1,28 @@
+slug: js-node
+name: NodeJs Express и socket.io.
+meta_title: NodeJs Express и socket.io.
+meta_keywords: NodeJs Express и socket.io.
+meta_description: NodeJs Express и socket.io.
+is_active: true
+tags: js javascript nodejs socket-io
+desc:
+    Использование express и web-socket-ов для обмена клиент-сервер.
+
+files:
+
+    -
+        file:  js-node-ts-livereload-start.md
+        title: Использование express и web-socket-ов для обмена клиент-сервер.
+        meta_title: Использование express и web-socket-ов для обмена клиент-сервер.
+        meta_description: Использование express и web-socket-ов для обмена клиент-сервер.
+        meta_keywords: NodeJs, Typescript socket.io express
+        desc:
+        youtube: https://www.youtube.com/embed/4JcfFf0zqNw
+
+    -
+        file:  dz.md
+        title: Игра шахматные танки.
+        meta_title: Игра шахматные танки.
+        meta_description: Игра шахматные танки.
+        meta_keywords: NodeJs, Typescript socket.io express
+        desc:

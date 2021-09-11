@@ -1,0 +1,21 @@
+slug: js-openvidu
+name: Передача видео аудио потока с Openvidu.
+meta_title: Передача видео аудио потока с Openvidu.
+meta_keywords: Передача видео аудио потока с Openvidu.
+meta_description: Передача видео аудио потока с Openvidu.
+is_active: true
+tags: dart
+desc:
+    Создаем сайт видеотрансляции с использованием WebRTC.
+
+files:
+
+    -
+        file:     js-openvidu.md
+        title: Передача видео аудио потока с Openvidu.
+        meta_title: Передача видео аудио потока с Openvidu.
+        meta_description: Передача видео аудио потока с Openvidu.
+        meta_keywords: Передача видео аудио потока с Openvidu.
+        desc:
+        order: 1
+        created: 2021-06-23

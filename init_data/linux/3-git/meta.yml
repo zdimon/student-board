@@ -1,0 +1,43 @@
+slug: bash-git
+name: Работа с git.
+meta_title: Работа с git.
+meta_keywords: Работа с git.
+meta_description: Работа с git.
+is_active: true
+tags: linux bash git
+desc: 
+
+
+files:
+            
+    -
+        file:     'bash-git.md'
+        title: 'Консоль. Работа с git.'
+        meta_title: 'Консоль. Работа с git.'
+        meta_description:   'Консоль. Работа с git.'
+        meta_keywords: 'bash git console'
+        desc: 
+        order: 1
+    
+    -
+        file:     'git-bare.md'
+        title: 'Создание репозитория GIT на сервере.'
+        meta_title: 'Создание репозитория GIT на сервере.'
+        meta_description:   'Создание репозитория GIT на сервере.'
+        meta_keywords: 'Создание репозитория GIT на сервере.'
+        desc: 
+        order: 2
+
+
+    -
+        file:  dz.md
+        title: Задание.
+        meta_title: 'Создание репозитория GIT на сервере.'
+        meta_description:   'Создание репозитория GIT на сервере.'
+        meta_keywords: 'Создание репозитория GIT на сервере.'
+        desc: 
+        order: 3
+
+
+
+

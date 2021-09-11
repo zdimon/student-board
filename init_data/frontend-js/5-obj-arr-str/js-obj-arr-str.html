@@ -1,0 +1,280 @@
+<h1>Объекты.</h1>
+
+<p>Объект — это некоторая конкретная реализация какой-то сущности.</p>
+
+<p>Объект в языке JS представлен в виде ассоциативного массива.</p>
+
+<p>Напомним, это массив, который состоит из пар «ключ-значение».</p>
+
+<h2>Создание объекта.</h2>
+
+<pre><code>// создаем пустой объект
+// мы используем ключевое слово new для создания объекта
+var obj = new Object();
+// второй вариант создания объекта
+var obj2 = {};
+// третий вариант
+var student = {
+name: "Daria",
+lastName: "Kislicina",
+age:23
+};
+</code></pre>
+
+<p>При создании объекта можно внутрь вставить другой объект.</p>
+
+<pre><code>var student = {
+name: "Daria",
+lastName: "Kislicina",
+age:23,
+address:{
+        street:"Tiraspolskaya 5",
+        city:"Odessa"
+    }
+};
+</code></pre>
+
+<h2>Добавление пар ключ-значение.</h2>
+
+<pre><code>// создаем пустой объект
+var student=new Object();
+// Добавляем свойство в объект используя обычный
+// синтаксис массивов
+// ["ключ"]
+student["Name"] = "Vasya";
+// вместо двойных кавычек можно использовать одинарные
+student['Age'] = 23;
+alert(student["Name"]);
+alert(student['Age']);
+</code></pre>
+
+<p>второй способ</p>
+
+<pre><code>// создаем пустой объект
+var firm={};
+// создаём свойство внутри объекта
+firm.Name = "Star Inc";
+firm.Address = 'Somewhere street 5';
+alert(firm.Name);
+alert(firm.Address);
+</code></pre>
+
+<h2>Удаление свойств</h2>
+
+<pre><code>delete cat.Name;
+</code></pre>
+
+<h2>Проверка существования свойства внутри объекта</h2>
+
+<pre><code>if("Age" in obj){
+    alert("Exists");
+}
+else{
+    alert("Not exists");
+}
+</code></pre>
+
+<p>Альтернативный способ</p>
+
+<pre><code>if (obj.hasOwnProperty('age')){
+     console.log('Age exists!');
+}
+</code></pre>
+
+<h2>Просмотр всех свойств внутри объекта</h2>
+
+<pre><code>for(var tempProperty in rect){
+    // отображаем название свойства
+    alert(tempProperty);
+    // значение свойства
+    alert(rect[tempProperty]);
+}
+</code></pre>
+
+<p>Помимо свойст в объекте могут присутствовать и методы (функции).</p>
+
+<pre><code>myobj.sayHello = function() { console.log('Hello!') }
+</code></pre>
+
+<p>Вызов метода.</p>
+
+<pre><code>myobj.sayHello()
+</code></pre>
+
+<h2>Массивы</h2>
+
+<p>Массив — это структура данных, которая группирует набор некоторых значений под одним именем. Для
+доступа к конкретному значению используется индекс.
+Массив — это структура данных, которая группирует набор некоторых значений под одним именем. Для
+доступа к конкретному значению используется индекс.</p>
+
+<h3>Создание массивов с помощью конструктора.</h3>
+
+<pre><code>// создаем пустой массив
+var arrayName = new Array();
+// создаем массив заданной длины
+var arrayName= new Array(Number length);
+// создаем массив и сразу инициализируем его значениями
+var arrayName = new Array(el1, el2...)
+</code></pre>
+
+<h3>Создание массивов с помощью литералов.</h3>
+
+<pre><code>var arr = [1,2,3]
+</code></pre>
+
+<h3>Получение значений по индексу</h3>
+
+<p>Индексирование начинается с 0.</p>
+
+<pre><code>var g = arr[0]
+</code></pre>
+
+<h3>Заполнение массива</h3>
+
+<pre><code>arr[1] = 'value'
+</code></pre>
+
+<h3>Длинна массива.</h3>
+
+<pre><code>arr.lenght
+</code></pre>
+
+<p>Уменьшить массив можно изменением свойсва lenght при этом данные будут потеряны.</p>
+
+<h3>Проход по массиву циклом.</h3>
+
+<pre><code>for(var i = 0;i&lt;arr.length;i++){
+    alert(arr[i]);
+}
+</code></pre>
+
+<h3>Двумерные массивы.</h3>
+
+<pre><code>var arr = [
+    [1,3,5],
+    [2,7,8]
+];
+</code></pre>
+
+<p>Получение значений.</p>
+
+<pre><code>alert(arr[1][2]);
+</code></pre>
+
+<h2>Методы массивов.</h2>
+
+<h3>Поиск значений.</h3>
+
+<p>indexOf lastIndexOf в прямую и обратную сторону.</p>
+
+<pre><code>name_of_array.indexOf(what_to_search[, fromIndex])
+</code></pre>
+
+<p>Возвращается индекс либо -1 если не нашел.</p>
+
+<h3>Сортировка sort</h3>
+
+<p>Сигнатура.</p>
+
+<pre><code>name_of_array.sort([compareFunc])
+</code></pre>
+
+<p>Сигнатура функции для сортировки.</p>
+
+<pre><code>function name_of_function(name_of_var1, name_of_var2){
+body_of_function
+}
+</code></pre>
+
+<p>name<em>of</em>var1, name<em>of</em>var2 - два параметра, которые будут сравниваться.</p>
+
+<p>В результате сравнения функция может возвращать 0, 1 или -1 в зависимости от того больше меньше или равно.</p>
+
+<p>Пример.</p>
+
+<pre><code>function compareFunc(a,b){
+    if(a&gt;b)
+        return 1;
+    else if(b&gt;a)
+        return -1;
+    else
+        return 0;
+}
+var arr = [10,1,3,33,6];
+// 1 3 6 10 33
+arr.sort(compareFunc);
+</code></pre>
+
+<h2>Строки и их методы.</h2>
+
+<p>Определение строк.</p>
+
+<pre><code>var s = "Hello";
+var name = 'Dima';
+var phrase = `Hello \t ${name}`
+</code></pre>
+
+<p>\t - табуляция</p>
+
+<p>Вставка кавычек</p>
+
+<pre><code>var str2 = "\"Yes\"";
+</code></pre>
+
+<p>Доступ к элементу.</p>
+
+<pre><code>str2[2]
+</code></pre>
+
+<p>Cтрока это неизменяемый объект поэтому чтобы ее изменить нужно пользоваться методами или пересоздавать целиком.</p>
+
+<h3>Конкатенация строк.</h3>
+
+<pre><code>"Hello"+"Dima"
+</code></pre>
+
+<h3>Split - разбиение на части.</h3>
+
+<pre><code>name_of_string.split(separator)
+</code></pre>
+
+<p>separator — разделитель с его помощью мы разбиваем строку на элементы массива. В результате работы метода возвращается массив результата.</p>
+
+<h3>Join - объединение через разделитель.</h3>
+
+<pre><code>var arr = ["bmw","audi","opel"];
+var str = arr.join(";");
+</code></pre>
+
+<p>Методы toLowerCase и toUpperCase изменяют регистр букв. При этом возвращается новая строка.</p>
+
+<pre><code>var str = "FootbalL";
+var newStr = str.toLowerCase();
+</code></pre>
+
+<h3>Методы substr, substring.</h3>
+
+<p>Используются для получения подстроки из строки.</p>
+
+<pre><code>substring( start, [end])
+</code></pre>
+
+<p>Метод возвращает подстроку начиная с индекса start, но не включая индекс end. </p>
+
+<p>Если end не указан, то возвращаем подстроку до конца строки.</p>
+
+<pre><code>var str = "Some value";
+// end — необязательный параметр, который можно опустить
+var newStr = str.substring(2);
+// me value
+alert(newStr);
+newStr = str.substring(1,3);
+// om
+alert(newStr);
+</code></pre>
+
+<p>Метод substr( start, [length]) возвращает подстроку начиная с start, при этом
+можно указать длину подстроки во втором параметре.
+Если же длина не указана, то возвращается подстрока до
+конца оригинальной строки.</p>

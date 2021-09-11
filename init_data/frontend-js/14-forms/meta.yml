@@ -1,0 +1,29 @@
+slug: js-forms
+name: Работа с формами на JQuery.
+meta_title: Работа с формами на JQuery.
+meta_keywords: Работа с формами на JQuery.
+meta_description: Работа с формами на JQuery.
+is_active: true
+tags: js javascript form
+desc:
+        
+    Поля формы. Валидация. Регулярные выражения.
+
+files:
+
+    -
+        file:     js-forms.md
+        title: Поля формы. Валидация. Регулярные выражения.
+        meta_title: Поля формы. Валидация. Регулярные выражения.
+        meta_description: Поля формы. Валидация. Регулярные выражения.
+        meta_keywords: Поля формы. Валидация. Регулярные выражения.
+        desc:
+
+
+    -
+        file:     dz.md
+        title: Домашнее задание.
+        meta_title: Домашнее задание.
+        meta_description: Домашнее задание.
+        meta_keywords: Домашнее задание.
+        desc:

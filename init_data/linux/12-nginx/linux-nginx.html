@@ -1,0 +1,241 @@
+<h1>Настройка виртуальных хостов nginx.</h1>
+
+<p>Итак, виртуальный хост — это разделение адресного пространства web-сервера, например, по имени сайта, позволяющее запускать несколько web-сайтов/приложений на одном физическом сервере.</p>
+
+<p>Если говорить в терминологии документации nginx, виртуальный хост также называется «Server Block».</p>
+
+<h2>Установка.</h2>
+
+<pre><code>sudo apt-get install -y nginx
+</code></pre>
+
+<h2>Запуск, останов, проверка конфигурации</h2>
+
+<pre><code>service nginx start|stop
+nginx -t
+</code></pre>
+
+<h2>Посмотреть под кем работают вокеры nginx</h2>
+
+<pre><code>ps -eo "%U %G %a" | grep nginx
+</code></pre>
+
+<h2>Создание веб-директории и назначение ей прав.</h2>
+
+<pre><code>sudo mkdir -p /home/webmaster/www/django
+
+sudo chown -R www-data:www-data /home/webmaster/www/mysite
+</code></pre>
+
+<p>Вы можете заменить пользователя «www-data», используемого ниже, на другого, но по умолчанию nginx работает от имени именно этого пользователя.</p>
+
+<p>Теперь сделаем так, чтобы все пользователи могли читать наши новые файлы:</p>
+
+<pre><code>sudo chmod 755 /home/webmaster/www
+</code></pre>
+
+<h3>Создаем стартовую страницу /home/webmaster/www/mysite/index.html.</h3>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;mysite.ru&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Virtual Host в nginx!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2>Создание конфигурации виртуального хоста</h2>
+
+<p>В nginx в директории /etc/nginx/sites-available есть шаблон для создаваемых конфигураций. </p>
+
+<pre><code>sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/mysite.ru
+</code></pre>
+
+<h2>Минимальная конфигурация.</h2>
+
+<pre><code>server {
+    listen   80;
+    root /home/webmaster/www/mysite;
+    index index.html index.htm;
+    server_name mysite.ru www.mysite.ru;
+}
+</code></pre>
+
+<p>В качестве server_name вы также можете задать IP-адрес или несколько имён через пробел, по которым будет доступен хост, как мы и сделали.</p>
+
+<p>Вариант использования listen</p>
+
+<pre><code>listen *:80;
+</code></pre>
+
+<p>root директива говорит nginx взять url и добавить его к root пути.</p>
+
+<p>В nginx есть папки sites-available и sites-enabled. В первой хранятся конфигурации ВСЕХ виртуальных хостов, которые могут быть на данном сервере, а в директории sites-enabled символические ссылки на активные. </p>
+
+<p>Никто не запрещает в sites-enabled размещать оригинал файла конфигурации, а не ссылку, но это будет менее удобно, т.к. в случае необходимости отключения придётся либо удалять файл (тогда будет проблематично включить обратно), либо перемещать его в другую директорию (тогда мы должны помнить, куда мы перенесли). Гораздо проще грохнуть символическую ссылку!</p>
+
+<h2>Создание символической ссылки.</h2>
+
+<pre><code>sudo ln -s /etc/nginx/sites-available/mysite.ru /etc/nginx/sites-enabled/mysite.ru
+</code></pre>
+
+<p>Проверка правильности конфигурации.</p>
+
+<pre><code>sudo nginx -t
+</code></pre>
+
+<p>Перезапуск сервера.</p>
+
+<pre><code>sudo service nginx restart
+</code></pre>
+
+<h2>Настройки локальных хостов.</h2>
+
+<p>Если вы хотите работать с вашим виртуальным хостом без реального доменного имени, вы можете настроить локальные хосты на вашей машине и обращатся к ним по имени а не по localhost.</p>
+
+<pre><code>sudo nano /etc/hosts
+</code></pre>
+
+<p>Пример конфигурации.</p>
+
+<pre><code>127.0.0.1 starter.php
+127.0.0.1 market.local
+</code></pre>
+
+<p>В блоке server могут быть дополнительные блочные директивы. Например location.</p>
+
+<p>Все директивы, которые используются в блоке server, могут использоваться и в блоках location. Но нам не обязательно указывать root и index в каждом location. Если их опустить, то будут наследоваться те, которые были указаны в родительском блоке.</p>
+
+<p>Пример блока location</p>
+
+<pre><code>server {
+    listen *:80;
+    server_name example.ru;
+    root /usr/share/nginx/html;
+    index index.html index.htm;
+    location / {}
+}
+</code></pre>
+
+<p>localion можно направить в другую директорию.</p>
+
+<pre><code>location / {
+    root   /var/www;
+    index  index.html index.htm;
+}
+</code></pre>
+
+<p>Если у нас есть каталог /home/zdimon/www/nginx/web2 и мы хотим натравить в него все запросы по адресу </p>
+
+<p>http://v1.nginx.loc/web2/</p>
+
+<p>Пишем такой локейшин</p>
+
+<pre><code>location /web2 {
+    root /home/zdimon/www/nginx;
+}
+</code></pre>
+
+<p>Такой пример работать не будет</p>
+
+<pre><code>location /web2 {
+    root /home/zdimon/www/nginx/web2;
+}
+</code></pre>
+
+<p>т.к. root будет искать в таком каталоге /home/zdimon/www/nginx/web2/web2</p>
+
+<p>Для того чтобы этого избежать можно применить директиву alias.</p>
+
+<p>alias - говорит nginx что заменить в пути location-а на то, что указано в alias.</p>
+
+<h2>Обработка 404 и директива try_files.</h2>
+
+<pre><code>try_files $uri $uri/ =404;
+</code></pre>
+
+<h2>Проксирование через порт.</h2>
+
+<p>Пример проксирования с порта, на котором висит другой веб сервер.</p>
+
+<pre><code>location / {
+    proxy_pass http://localhost:8080;
+}
+</code></pre>
+
+<p>При отсутствии процесса на указанном порту получим.</p>
+
+<p><img src="https://webmonstr.com/media/course/linux/12-nginx/images/2.png" alt="nginx" /></p>
+
+<p>Запуск простого сервера на python.</p>
+
+<pre><code>python3 -m http.server 8080
+</code></pre>
+
+<p>Пример проксирования всеx файлов php</p>
+
+<pre><code>    location ~ \.php$ {
+        fastcgi_pass    127.0.0.1:8002;
+        include snippets/fastcgi-php.conf;
+    }
+</code></pre>
+
+<p>Пример проксирования статичных файлов.</p>
+
+<pre><code>location ^~ /images {
+    alias /var/www/static;
+    try_files $uri $uri/ =404;
+}
+
+location ^~ /css {
+    alias /var/www/static;
+    try_files $uri $uri/ =404;
+}
+</code></pre>
+
+<h2>Настройка логов.</h2>
+
+<pre><code>access_log /var/log/nginx/access.log;
+error_log /var/log/nginx/error.log;
+</code></pre>
+
+<h2>Запуск python uwsgi процесса.</h2>
+
+<pre><code>apt-get install uwsgi uwsgi-plugin-python3
+</code></pre>
+
+<p>Создание настроечного файла.</p>
+
+<h2>Запуск процессов из под supervisor.</h2>
+
+<p>Установка uwsgi и supervisor.</p>
+
+<pre><code>apt-get install build-essential python3-dev
+
+apt-get install uwsgi supervisor
+
+sudo apt-get install uwsgi-plugin-python3
+</code></pre>
+
+<p>Настроечный файл /etc/uwsgi/apps-enabled/mysite.ini.</p>
+
+<pre><code>[uwsgi]
+socket = /tmp/pl.sock
+buffer-size=32768
+chmod-socket = 666
+processes = 1
+threads = 2
+virtualenv = /home/zdimon/Desktop/projects/pl/venv/
+chdir = /home/zdimon/Desktop/projects/pl/pl
+module = pl.wsgi:application
+plugins = python3
+</code></pre>
+
+<h2>Проксирование с unix сокета.</h2>
+
+<pre><code>location / {
+    proxy_pass  http://unix:/tmp/pl.sock;
+}
+</code></pre>

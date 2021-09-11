@@ -1,0 +1,369 @@
+<h1>Работа с формами на JQuery.</h1>
+
+<p>Чтобы понимать роль и место форм, особенности их
+атрибутов и элементов, давайте рассмотрим общую схему
+организации интернет-ресурса.</p>
+
+<p><img src="https://webmonstr.com/media/course/frontend-js/14-forms/images/1.png" alt="start page" /></p>
+
+<p>Обычно в организации ресурса выделяют три уровня:
+пользователь, клиент и сервер.</p>
+
+<p><strong>Уровень пользователя</strong> — это визуальный интерфейс
+ресурса. Именно его, как правило, и называют сайтом.
+Это то, что мы видим на экране браузера после успешной
+загрузки ресурса. Для создания интерфейса применяется
+язык разметки HTML.</p>
+
+<p><strong>Уровень клиента</strong> — это программное обеспечение,
+которое создает и прорисовывает интерфейс. Оно также
+их истории посещений и сообщений, и многое другое.</p>
+
+<p>Особую роль в обмене играет канал связи как средство
+передачи данных от клиента серверу и обратно. Как прави-
+ло, это обобщается словом «сеть» — кабели, коммутаторы,
+Wi-Fi-модули и т. д. Однако канал связи накладывает опре-
+деленные ограничения на взаимодействие клиента и сервера.
+Например, канал не позволяет передавать произвольные
+символы, а требует их преобразования в специальный
+вид — транспортную кодировку.</p>
+
+<p>Если ввести в гугл слово на кирилице, то в адресной строке можно увидеть следующее:</p>
+
+<pre><code>https://www.google.com.ua/?q=%D0%B0%D0%BA%D0%B0%....
+</code></pre>
+
+<p>Это и есть транспортное кодирование, необходимое
+для канала связи. Обычно, кодирование совершает сам
+браузер и нам дополнительных действий для кодирования совершать не нужно. Тем не менее, помнить об этом
+надо тогда, когда мы встраиваем ссылки в наш сайт. Их
+желательно сразу создавать в кодированной форме, чтобы
+упредить возможные ошибки передачи данных.</p>
+
+<h2>Что такое форма.</h2>
+
+<p>Это механизм автоматизированной отправки данных,
+введенных пользователем, на серверную сторону сайта.</p>
+
+<p>Группа элементов интерфейса может быть привязана
+к форме при помощи средств разметки HTML и отправлена на сервер, будучи обработанной и декодированной
+автоматически, без необходимости вмешательства в эти
+процессы со стороны разработчика.
+Создается форма тегом <form>, закрывающий тег
+</form> обязателен.</p>
+
+<h3>Атрибуты формы</h3>
+
+<p>Соответственно своему предназначению, форма должна обеспечивать отправку данных на сервер.\</p>
+
+<p>Имя адресата задается атрибутом формы action:</p>
+
+<pre><code>&lt;form action="add_user.php"&gt;
+</code></pre>
+
+<p>Вторым важным атрибутом формы является метод
+(или способ) отправки сообщения серверу.</p>
+
+<p>Существует несколько методов HEAD OPTIONS PUT POST PATCH GET DELETE.</p>
+
+<p>Поскольку формы являются упрощенным способом
+автоматизированной доставки данных на сервер, для них
+доступны лишь два метода запроса — GET и POST. Для
+реализации других методов необходимо создавать собственные функции для отправки сообщений на серверы.</p>
+
+<p>С указанием метода, объявление формы будет выглядеть как </p>
+
+<pre><code>&lt;form action="add_user.php"method="GET"&gt;
+</code></pre>
+
+<p>Если action оставить пустым (action=''). В таком случае данные будут передаваться по тому же адресу, по которому создана форма.</p>
+
+<p>Согласно спецификации желательно большими буквами, хотя HTML к регистру равнодушен.</p>
+
+<p>Различие между методами GET и POST заключается
+в следующем. </p>
+
+<p>Метод GET включает данные в состав URI (в адресную строку).</p>
+
+<p>И выглядит как</p>
+
+<pre><code>example.itstep.org?А=1&amp;В=2
+</code></pre>
+
+<p>Данные, передаваемые POST, включаются в тело сообщения и адресная строка в браузере не меняется.</p>
+
+<p>Передача параметров пользователю непосредственно не
+видна. Однако, если страница построена с применением
+POST-данных, то есть страница появилась после отправки
+формы, то обновление страницы потребует повторной
+передачи тех же параметров. Пользователь получит предупреждение: </p>
+
+<p><img src="https://webmonstr.com/media/course/frontend-js/14-forms/images/2.png" alt="start page" /></p>
+
+<p>С GET-данными такой проблемы не возникает, т.к.
+данные автоматически передаются из самой адресной
+строки.</p>
+
+<p>Форм на одной странице может быть несколько. У каждой может быть свой метод и свой адресат. Для работы
+с формами при помощи JavaScript, объект document имеет
+специальную коллекцию (массив) document.forms.</p>
+
+<p>Например, если на
+данной HTML-странице размещено две формы, то в коллекции document.forms будет два элемента (document.
+forms[0] и document.forms[1])</p>
+
+<p>Порядок форм в коллекции соответствует
+порядку из объявления в HTML-коде.</p>
+
+<p>Следует отметить, что не все то, что содержит форма,
+считается ее элементами. К ним не относятся «статические»
+объекты HTML — надписи, рисунки, блоки и т.д. Поэтому чтобы их отличать есть две коллекции.</p>
+
+<ul>
+<li><p>коллекция elements содержит только элементы формы;</p></li>
+<li><p>коллекция children — все дочерние объекты.</p></li>
+</ul>
+
+<p>Большинство элементов формы создаются тегом input
+и отличаются различными значениями атрибута type.</p>
+
+<p><strong>button</strong> - кнопка</p>
+
+<p><strong>text</strong> - текстовое поле</p>
+
+<p><strong>checkbox</strong> - флажок выбора</p>
+
+<p><strong>radio</strong> - радио-кнопка</p>
+
+<p><strong>file</strong> - диалог открытия файла</p>
+
+<p><strong>submit</strong> - кнопка отправки формы</p>
+
+<p><strong>password</strong> - ввод пароля</p>
+
+<p><strong>number</strong> - ввод числа</p>
+
+<p><strong>select</strong>  - выпадающий список</p>
+
+<p><strong>textarea</strong> - многострочный текст</p>
+
+<p><strong>date</strong>  - дата</p>
+
+<p><img src="https://webmonstr.com/media/course/frontend-js/14-forms/images/3.png" alt="start page" /></p>
+
+<p>Пример формы.</p>
+
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta http-equiv="Content-Type"
+        content="text/html; charset=UTF-8"&gt;
+        &lt;title&gt;Phone book&lt;/title&gt;
+        &lt;style&gt;
+        body{font-family:"Courier New",
+        Courier, monospace;}
+        &lt;/style&gt;
+    &lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Add new contact&lt;/h2&gt;
+        &lt;form method='GET'&gt;
+            &lt;b&gt;Name&lt;/b&gt;
+            &lt;input type="text" placeholder="Enter name"/&gt;
+            &lt;br/&gt;&lt;br/&gt;
+            &lt;input type="submit" value="Save"/&gt;
+            &lt;input type="button" value="One more phone"
+            onclick="add_click()"
+            style="margin-left:50px" /&gt;
+            &lt;br/&gt;&lt;br/&gt;
+            Phone number
+            &lt;input type="text" name="phone" id="ph"
+            placeholder="Enter phone number" /&gt;
+            Phone type
+            &lt;select name="type"&gt;
+                &lt;option value="1" selected&gt;Cellular&lt;/option&gt;
+                &lt;option value="2"&gt;Home&lt;/option&gt;
+                &lt;option value="3"&gt;Work&lt;/option&gt;
+            &lt;/select&gt;
+            Priority
+            &lt;input type="radio" name="main"
+            value="1" checked /&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p><img src="https://webmonstr.com/media/course/frontend-js/14-forms/images/4.png" alt="start page" /></p>
+
+<p>Создадим базу данных с вопросами db.json в корне проекта.</p>
+
+<pre><code>[
+
+        {
+            "question": "Как вас зовут?",
+            "type": "text",
+            "name": "question1"
+        },
+
+        {
+            "question": "Кто победил в ВОВ?",
+            "type": "radio",
+            "name": "question2",
+            "answers": [
+                          {"text": "CCCР", "is_valid": true },
+                          {"text": "США", "is_valid": false }
+                       ]
+        },
+        {
+            "question": "Есть ли бог на свете?",
+            "type": "select",
+            "name": "question3",
+            "answers": [
+                          {"text": "Да", "is_valid": true },
+                          {"text": "Нет", "is_valid": false },
+                          {"text": "Наука не в курсе дела", "is_valid": false }
+                       ]
+        },
+
+        {
+            "question": "Любимое животное",
+            "type": "checkbox",
+            "name": "question4",
+            "answers": [
+                          {"text": "Кот" },
+                          {"text": "Собака барабака"},
+                          {"text": "Конь"}
+                       ]
+        }
+
+
+    ]
+</code></pre>
+
+<p>Затащим базу запросом в приложении.</p>
+
+<h2>AJAX запросы в JQuery</h2>
+
+<p><a href="https://api.jquery.com/jquery.ajax/">способ 1</a></p>
+
+<pre><code>$.ajax({
+    url: "bd.json",
+    complete: (responce)=&gt;{
+        console.log(responce);
+    }
+  });
+</code></pre>
+
+<p><img src="https://webmonstr.com/media/course/frontend-js/14-forms/images/5.png" alt="start page" /></p>
+
+<p>Заберем текст ответа и конвертируем его в объект массива.</p>
+
+<pre><code>$.ajax({
+    url: "bd.json",
+    complete: (responce)=&gt;{
+
+        var data = JSON.parse(responce.responseText);
+        console.log(data);
+
+    }
+});
+</code></pre>
+
+<p>Создадим обьект приложения и переместим туда базу данных.</p>
+
+<pre><code>app = {
+    db: null,
+    init: function() {
+        $.ajax({
+            url: "bd.json",
+            complete: (responce)=&gt;{
+
+                var data = JSON.parse(responce.responseText);
+                this.db = data
+                console.log(this);
+
+            }
+        });
+    }
+}
+
+app.init();
+</code></pre>
+
+<p>Обратите внимания, что внутри объекта в методе init мы не используем стрелочную функцию чтобы не потерять контекст this.</p>
+
+<p>Создадим в шабоне тег для содержимого приложения.</p>
+
+<pre><code>&lt;div id="appTag"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>Добавим в метод init получение этого элемента.</p>
+
+<pre><code>...
+appTag: null,
+init: function() {
+    this.appTag = $('#appTag');
+...
+</code></pre>
+
+<p>Добавим текстовое поле.</p>
+
+<pre><code>    for (let item of this.db) {
+        if(item.type === 'text') {
+            this.appTag.append($('&lt;input type="text" name="text" /&gt;'))
+        }
+    }
+</code></pre>
+
+<p>Добавим вопрос и сделаем переменную наборного поля.</p>
+
+<pre><code>    if(item.type === 'text') {
+        let field = $('&lt;div class="field"&gt;&lt;/div&gt;');
+        field.append($(`&lt;span&gt;${item.question}&lt;/span&gt;`));
+        field.append($('&lt;input type="text" name="text" /&gt;'));
+        this.appTag.append(field);
+    }
+</code></pre>
+
+<p>Добавим поле radio.</p>
+
+<pre><code>    if(item.type === 'radio') {
+        let field = $('&lt;div class="field"&gt;&lt;/div&gt;');
+        field.append($(`&lt;span&gt;${item.question}&lt;/span&gt;`));
+        for (let r of item.answers) {
+            field.append($(`&lt;span&gt;${r.text}&lt;/span&gt;`))
+            field.append($(`&lt;input type="radio" name="${item.name}" /&gt;`));
+        }
+        this.appTag.append(field);
+    }
+</code></pre>
+
+<p>Добавим поле select.</p>
+
+<pre><code>        if(item.type === 'select') {
+            let field = $('&lt;div class="field"&gt;&lt;/div&gt;');
+            field.append($(`&lt;span&gt;${item.question}&lt;/span&gt;`));
+            let select = $(`&lt;select name="${item.name}"&gt;${item.question}&lt;/select&gt;`);
+
+            for (let r of item.answers) {
+                select.append($(`&lt;option&gt;${r.text}&lt;/option&gt;`))
+
+            }
+            field.append(select);
+            this.appTag.append(field);
+        }
+</code></pre>
+
+<p>Добавим поле checkbox.</p>
+
+<pre><code>        if(item.type === 'checkbox') {
+            let field = $('&lt;div class="field"&gt;&lt;/div&gt;');
+            field.append($(`&lt;span&gt;${item.question}&lt;/span&gt;`));
+            for (let r of item.answers) {
+                field.append($(`&lt;span&gt;${r.text}&lt;/span&gt;`))
+                field.append($(`&lt;input type="checkbox" name="${item.name}" /&gt;`));
+            }
+            this.appTag.append(field);
+        }
+</code></pre>
+
+<p><img src="https://webmonstr.com/media/course/frontend-js/14-forms/images/6.png" alt="start page" /></p>

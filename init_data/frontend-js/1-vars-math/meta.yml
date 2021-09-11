@@ -1,0 +1,36 @@
+slug: js-var-math
+name: Переменные. Математические операции.
+meta_title: Переменные. Математические операции.
+meta_keywords: Переменные. Математические операции.
+meta_description: Переменные. Математические операции.
+is_active: true
+tags: js math javascript
+desc: |
+
+    Ввод данных. Арифметика.
+        
+files:
+    -
+        file:     var-math.md
+        title: Ввод данных. Арифметика.
+        meta_title: Ввод данных. Арифметика.
+        meta_description:  Ввод данных. Арифметика.
+        meta_keywords: Ввод данных. Арифметика.
+        desc: 
+
+    -
+        file:     dz.md
+        title: Домашнее задание.
+        meta_title: Домашнее задание.
+        meta_description: Домашнее задание.
+        meta_keywords: Домашнее задание.
+        desc: 
+
+    -
+        file:     dz-resolve.md
+        title: Домашнее задание. Решение.
+        meta_title: Домашнее задание. Решение.
+        meta_description: Домашнее задание. Решение.
+        meta_keywords: Домашнее задание. Решение.
+        desc:
+      

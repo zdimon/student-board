@@ -1,0 +1,356 @@
+<h1>Библиотека JQuery.</h1>
+
+<p>JSON (JavaScript Object Notation) — текстовый формат
+для хранения и передачи данных по сети. JSON — это
+представление объектов JavaScript в текстовом
+формате.</p>
+
+<p>Для работы с JSON форматом в JavaScript есть объект
+JSON. </p>
+
+<p>Основные функции это серилиазация и десериализации.</p>
+
+<h2>Сериализация.</h2>
+
+<p>stringify() сериализует объекты в строку</p>
+
+<p>В сериализованном объекте не должно быть циклических ссылок.</p>
+
+<p>Синтаксис.</p>
+
+<p>JSON.stringify(value [, replacer[, space]])</p>
+
+<p>Replacer — параметр, который позволяет влиять
+на сериализацию объекта. Значением параметра может
+быть функция, массив или null, если параметр не нужен.</p>
+
+<p>Функция в параметре replace используется, если нам
+необходимо определить значения, которые не будут
+включаться в сериализацию по определенному условию. </p>
+
+<pre><code>function checkAge(key, value) {
+
+     if (key === "age" &amp;&amp; value &gt;= 18) {
+        return undefined;
+     }
+    return value;
+ }
+</code></pre>
+
+<p>И третий параметр в функции JSON.stringify(value,
+replacer, space) — это space, который принимает строку
+или число и позволяет придать более читаемый вид строке
+JSON, добавляя отступы.</p>
+
+<pre><code>alert(JSON.stringify(person, null, 2));
+</code></pre>
+
+<h2>Десериализация.</h2>
+
+<p>Чтобы строку JSON преобразовать в объект, нужно
+выполнить над ней метод парсинга. Парсинг, в данном
+случае, означает процесс десериализации строки в объект.
+Функция parse() — функция, которая десериализирует
+JSON строку и возвращает объект JavaScript.</p>
+
+<p>Синтаксис.</p>
+
+<pre><code>JSON.parse(str, [reviver])
+</code></pre>
+
+<p>Также есть еще необязательный параметр reviver,
+с ним все практически то же, что и в функции stringify()</p>
+
+<h2>toJSON</h2>
+
+<p>Метод toJSON() может быть методом любого объекта.
+Он позволяет определить собственное представление
+объекта в JSON. </p>
+
+<p>Таким образом, можно заменить стандартное поведение сериализации на собственное. </p>
+
+<pre><code>let model = {
+ name: "BMW",
+ autopilot : undefined,
+ toJSON(){
+         let jsonStr = '{"name": "${this.name}",
+         "autopilot": ';
+         if(this.autopilot === undefined){
+         jsonStr += '"Not"}'
+     }
+         else{
+         jsonStr += '"${this.autopilot}"}'
+     }
+     return jsonStr;
+ }
+}
+</code></pre>
+
+<h2>Синхронные и асинхронные запросы</h2>
+
+<p>Синхронные запросы — запросы, при отправке
+которых нужно дождаться ответа с сервера. 
+Например, при авторизации на сайте, пользователю не нужно выполнять другие действия
+на странице, и в этом случае можно использовать синхронный запрос.</p>
+
+<p>Асинхронные запросы — запросы, которые позволяют не дожидаться ответа с сервера. Результат запроса
+будет обработан в момент, как только ответ будет принят
+с сервера. </p>
+
+<p>Ajax — технология для взаимодействия с сервером
+без перезагрузки страницы.</p>
+
+<p>Для использования Ajax в JavaSctript есть специальный объект  XMLHttpRequest. </p>
+
+<p>Для того чтобы послать запрос, нужно использовать его
+методы open() и send(). </p>
+
+<h2>Объект FormData</h2>
+
+<p>FormData — позволяет формировать данные из форм
+в пары ключ-значение автоматически.</p>
+
+<pre><code> let form = document.getElementById("form");
+ let formData = new FormData(form)
+ formData.append("date", new Date().toLocaleString());
+</code></pre>
+
+<p>Пример низкоуровневой отправки формы.</p>
+
+<pre><code>let subbliBtn = document.getElementById("submit-btm");
+subbliBtn.onclick = function () {
+     let form = document.getElementById("form");
+     let formData = new FormData(form)
+     formData.append("date", new Date().toLocaleString());
+     let request;
+     if (window.XMLHttpRequest) {
+        request = new XMLHttpRequest();
+     }
+     else {
+        request = new ActiveXObject("Microsoft.XMLHTTP");
+     }
+     request.open("POST", "server.php");
+     request.onreadystatechange = function () {
+         if (request.readyState ==
+         4 &amp;&amp; request.status == 200) {
+             alert("Здравствуйте " + nameValue +
+             "! Мы перезвоним вам через 1 минуту");
+         }
+    }
+     request.setRequestHeader('Content-Type',
+     'multipart/form-data');
+     request.send(formData);
+ }
+</code></pre>
+
+<h2>Методы AJAX в JQuery.</h2>
+
+<p>Все они возвращают обертку вокруг объекта XMLHTTPRequest (jqXHR), используя промисы.</p>
+
+<h3>jQuery.ajax()</h3>
+
+<p>Низкоуровневый запрос с тонкой конфигурацией.</p>
+
+<pre><code>$.ajax({
+  method: "POST",
+  url: "some.php",
+  data: { name: "John", location: "Boston" }
+})
+  .done(function( msg ) {
+    alert( "Data Saved: " + msg );
+  });
+</code></pre>
+
+<p>Это позволяет делать запросы синхронно.</p>
+
+<pre><code>var result = $.ajax({
+                type: "GET",
+                url: remote_url,
+                async: false
+            }).responseText
+</code></pre>
+
+<h3>Запрос GET</h3>
+
+<pre><code>jQuery.get( url [, data ] [, success ] [, dataType ] )
+</code></pre>
+
+<p>Загружает данные с сервера используя запрос GET.</p>
+
+<p>data - объект или стока, отправляемая серверу.</p>
+
+<p>success - колбек, принимающий результат.</p>
+
+<p>dataType - тип данных, ожидаемых от сервера.</p>
+
+<pre><code>$.get( "ajax/test.html", function( data ) {
+  $( ".result" ).html( data );
+  alert( "Load was performed." );
+});
+</code></pre>
+
+<p>Т.к. jqXHR использует промисы, это позволяет строить цепочки (конвееры) и выполнять дополнительные действия после запроса.</p>
+
+<pre><code>var jqxhr = $.get( "example.php", function() {
+  alert( "success" );
+})
+  .done(function() {
+    alert( "second success" );
+  })
+  .fail(function() {
+    alert( "error" );
+  })
+  .always(function() {
+    alert( "finished" );
+  });
+</code></pre>
+
+<p>Примеры.</p>
+
+<p>Простой тест страницы с игнорированием результата.</p>
+
+<pre><code>$.get( "test.php" );
+</code></pre>
+
+<p>С передачей параметров.</p>
+
+<pre><code>$.get( "test.php", { name: "John", time: "2pm" } );
+</code></pre>
+
+<p>Вывод результата.</p>
+
+<pre><code>$.get( "test.php", function( data ) {
+  alert( "Data Loaded: " + data );
+});
+
+$.get( "test.cgi", { name: "John", time: "2pm" } )
+  .done(function( data ) {
+    alert( "Data Loaded: " + data );
+  });
+</code></pre>
+
+<h3>$.post()</h3>
+
+<pre><code>$.post(URL,data,callback);
+</code></pre>
+
+<p>Пример отправки запроса по клику на кнопку.</p>
+
+<pre><code>$("button").click(function(){
+  $.post("demo_test_post.asp",
+  {
+    name: "Donald Duck",
+    city: "Duckburg"
+  },
+  function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+});
+</code></pre>
+
+<h3>Анимация.</h3>
+
+<p>Часто используемые эффекты встроены в jQuery как методы, которые вы можете вызвать для любого объекта jQuery:</p>
+
+<p>.show() — показать выбранные элементы;</p>
+
+<p>.hide() — скрыть выбранные элементы;</p>
+
+<p>.fadeIn() — анимация прозрачности выбранных элементов до 0%;</p>
+
+<p>.fadeOut() — анимация прозрачности выбранных элементов до 100%;</p>
+
+<p>.slideDown() — отображение выбранных элементов с помощью вертикального скользящего движения;</p>
+
+<p>.slideUp() — сокрытие выбранные элементы с помощью вертикального скользящего движения;</p>
+
+<p>.slideToggle() — показать или скрыть выбранные элементы с вертикальным скользящим движением в зависимости от того, видны элементы в данный момент или нет.</p>
+
+<p>Можно использовать предопределенные аргументы например скорости.</p>
+
+<pre><code>$( '.hidden' ).show( 'slow' );
+</code></pre>
+
+<p>Можно переустановить предопределенную скорость.</p>
+
+<pre><code>jQuery.fx.speeds.fast = 50;
+</code></pre>
+
+<p>Вы можете предоставить функцию обратного вызова для методов анимации, если желаете указать, что должно произойти после завершения эффекта. </p>
+
+<pre><code>$( 'p.old' ).fadeOut( 300, function() {
+  $( this ).remove();
+});
+</code></pre>
+
+<h3>Произвольные эффекты с .animate()</h3>
+
+<pre><code>.animate(properties, [duration], [easing], [callback]):jQuery
+</code></pre>
+
+<p>У метода .animate() есть несколько аргумента:</p>
+
+<ul>
+<li><p>объект, определяющий свойства для анимации;</p></li>
+<li><p>продолжительность анимации в миллисекундах;</p></li>
+<li><p>easing — изменение скорости анимации (будет ли она замедляется к концу выполнения или наоборот ускорится).</p></li>
+<li><p>функция обратного вызова, которая будет вызываться после окончания анимации.</p></li>
+</ul>
+
+<p>Метод .animate() может анимировать до указанного конечного значения или увеличить существующее значение.</p>
+
+<pre><code>$( '.funtimes' ).animate({
+    left: '+=50', // увеличить на 50
+    opacity: 0.25,
+    fontSize: '12px'
+  },
+  300,
+  function() {
+    // выполняется, когда анимация завершена
+  }
+);
+</code></pre>
+
+<p>jQuery предлагает два важных метода для управления анимацией.</p>
+
+<p>.stop() — останавливает выполняемую в данное время анимацию для выбранных элементов.</p>
+
+<p>.delay() — пауза перед выполнением следующей анимации. В качестве аргумента передаётся желаемое время ожидания в миллисекундах.</p>
+
+<p>Пример.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+    div { 
+      background-color:#bca; 
+      width:100px; 
+      border:1px solid green;
+    }
+  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id="go"&gt;» Съешь пирожок&lt;/button&gt;
+
+  &lt;div id="block"&gt;Алиса&lt;/div&gt;
+  &lt;script&gt;
+    // Произведем изменение нескольких css-величин в ходе одной анимации.
+    $("#go").click(function(){
+      $("#block").animate({ 
+        width: "70%",         // ширина станет 70%
+        opacity: 0.4,         // прозрачность будет 40%
+        marginLeft: "0.6in",  // отступ от левого края элемента станет равным 6 дюймам
+        fontSize: "3em",      // размер шрифта увеличится в 3 раза
+        borderWidth: "10px"   // толщина рамки станет 10 пикселей
+      }, 1500);               // анимация будет происходить 1,5 секунды
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3>JQuery плагины</h3>
+
+<p>https://www.jqueryscript.net/slider/nivo-slider.html</p>

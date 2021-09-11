@@ -1,0 +1,12 @@
+is_active: true
+title: Сервис для видео-трансляций. WebRTC Django socket.io.
+desc: |
+
+    <p>Курс знакомит c приципами работы WebRTC.</p> 
+    Рассматривает способы установки соединения peer-to-peer и передачи видео-потока между двумя браузерами.
+
+meta_title: Сервис для видео-трансляций. WebRTC Django socket.io.
+meta_keywords: Сервис для видео-трансляций. WebRTC Django socket.io.
+meta_description: Сервис для видео-трансляций. WebRTC Django socket.io.
+order: 1
+

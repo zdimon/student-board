@@ -1,0 +1,20 @@
+slug: js-vue-start
+name: Vue.js. Начало работы.
+meta_title: Vue.js. Начало работы.
+meta_keywords: Vue.js. Начало работы.
+meta_description: Vue.js. Начало работы.
+is_active: true
+tags: js javascript vue
+desc:
+    Создаем простой проект.
+
+files:
+
+    -
+        file:     vue-start.md
+        title: Vue.js. Начало работы.
+        meta_title: Vue.js. Начало работы.
+        meta_description: Vue.js. Начало работы.
+        meta_keywords: Vue.js. Начало работы.
+        desc:
+

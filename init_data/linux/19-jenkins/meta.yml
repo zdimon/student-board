@@ -1,0 +1,38 @@
+slug: linux-jenkins-start
+name: Jenkins. Начало работы.
+meta_title: Jenkins. Начало работы.
+meta_keywords: Jenkins. Начало работы.
+meta_description: Jenkins. Начало работы.
+is_active: true
+tags: linux jenkins git
+desc: 
+    Установка и начальная настройка.
+
+files:
+
+    -
+        file:    linux-jenkins-start.md
+        title: Jenkins. Начало работы.
+        meta_title: Jenkins. Начало работы.
+        meta_description: Jenkins. Начало работы.
+        meta_keywords: 'linux scan jenkins'
+        desc: 
+        order: 1
+
+    -
+        file:    jenkins-git.md
+        title: Jenkins. Работа с GIT.
+        meta_title: Jenkins. Работа с GIT.
+        meta_description: Jenkins. Работа с GIT.
+        meta_keywords: 'jenkins git'
+        desc:
+        order: 2
+        
+    -
+        file:    jenkins-pipeline.md
+        title: Jenkins. Скрипты на groovy.
+        meta_title: Jenkins. Скрипты на groovy.
+        meta_description: Jenkins. Скрипты на groovy.
+        meta_keywords: 'jenkins groovy'
+        desc:
+        order: 3

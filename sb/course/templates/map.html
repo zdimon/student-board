@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block carousel %} {% endblock %}
+
+{% block meta_title %}  Карта сайта. Разработка сайтов на python.{% endblock %}
+
+{% block meta_description %} Разработка сайтов на python. {% endblock %}
+
+{% block meta_keywords %} Разработка сайтов на python. {% endblock %}
+
+{% block content %}
+
+<div class="section margin-top_50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 layout_padding_2">
+                {% for course in courses %}
+                <div class="">
+                   <h2><a href="{{ course.get_absolute_url }}">{{ course.name }}</a></h2>
+                   {% for lesson in course.lessons %}
+                    <div style="padding-left: 20px;">
+                        <a href="{{ lesson.get_absolute_url }}">
+                            {{ lesson.number }}. 
+                            {{ lesson.title }}
+                        </a>
+                        {% for topic in lesson.topic_set.all %}
+                            <div style="padding-left: 20px;">   
+                                {{ topic.title }}   
+                            </div>                 
+                        {% endfor %}
+                    </div>
+                   {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% endblock %}

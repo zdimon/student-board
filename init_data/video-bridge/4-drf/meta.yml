@@ -1,0 +1,30 @@
+slug: python-video-bridge-drf
+name: Построение API запросов с Django Rest Framework.
+meta_title: Построение API запросов с Django Rest Framework.
+meta_keywords: Построение API запросов с Django Rest Framework.
+meta_description: Построение API запросов с Django Rest Framework.
+is_active: true
+tags: python video django drf
+created: 2021-02-27
+desc:
+      Используем интерфейс swagger.
+files:
+
+    -
+        file:  5-drf.md
+        title: Построение API запросов с Django Rest Framework.
+        meta_title: Построение API запросов с Django Rest Framework.
+        meta_description: Построение API запросов с Django Rest Framework.
+        meta_keywords: Построение API запросов с Django Rest Framework.
+        desc: 
+        order: 1
+    
+    -
+        file:  5-get-usermedia-ts.md
+        title: Получение видеопотока.
+        meta_title: Получение видеопотока.
+        meta_description: Получение видеопотока.
+        meta_keywords: Получение видеопотока.
+        desc: 
+        order: 2
+        youtube: https://www.youtube.com/embed/pIWL0wtUMCw

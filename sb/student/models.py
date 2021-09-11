@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from course.models import Course
 
 class StudentGroup(models.Model):
     name = models.CharField(max_length=50)
@@ -23,5 +23,9 @@ class Student(User):
         try:
             return self.image.url
         except:
-            return '/static/images/noimage.png'
+            return '/static/img/user.svg'
 
+
+class Student2Course(models.Model):
+    user = models.ForeignKey(Student,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)

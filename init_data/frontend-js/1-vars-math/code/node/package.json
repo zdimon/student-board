@@ -1,0 +1,19 @@
+{
+  "name": "graber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "grab": "./node_modules/typescript/bin/tsc && node dist/graber.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.0.12"
+  },
+  "dependencies": {
+    "@types/request": "^2.48.1",
+    "request": "^2.88.0",
+    "typescript": "^4.0.2"
+  }
+}

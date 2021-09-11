@@ -1,0 +1,21 @@
+slug: python-socketio-celery
+name: Установка веб-сокет сервера socket.io и менеджера задач celery.
+meta_title:  Установка веб-сокет сервера socket.io и менеджера задач celery.
+meta_keywords:  Установка веб-сокет сервера socket.io и менеджера задач celery.
+meta_description:  Установка веб-сокет сервера socket.io и менеджера задач celery.
+is_active: true
+tags: python video django celery socketio
+created: 2021-02-25
+desc:
+      Создаем контейнеры с socket.io и celery.
+files:
+
+    -
+        file:  3-socketio-celery.md
+        title: Установка веб-сокет сервера socket.io и менеджера задач celery.
+        meta_title: Установка веб-сокет сервера socket.io и менеджера задач celery.
+        meta_description: Установка веб-сокет сервера socket.io и менеджера задач celery.
+        meta_keywords: Установка веб-сокет сервера socket.io и менеджера задач celery.
+        desc: 
+        order: 1
+    

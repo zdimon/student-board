@@ -1,0 +1,20 @@
+slug: linux-fs
+name: Работа с файловой системой.
+meta_title: Работа с файловой системой.
+meta_keywords: Работа с файловой системой.
+meta_description: Работа с файловой системой.
+is_active: true
+tags: linux bash file-system
+desc: |
+
+        
+files:
+
+    -
+        file:    linux-fs.md
+        title: Работа с файловой системой.
+        meta_title: Работа с файловой системой.
+        meta_description: Работа с файловой системой.
+        meta_keywords: 'bash vbox'
+        desc: 
+

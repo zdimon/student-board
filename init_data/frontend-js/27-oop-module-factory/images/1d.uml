@@ -1,0 +1,22 @@
+@startuml
+
+class Card {
+    Number card
+    Number pin
+    Number account
+    bool constructor(card,pin,account)
+}
+
+class Bankomat {
+
+cards: Card[]
+bool check(number,pin)
+number replanish()
+number sum()
+void show()
+
+}
+
+Bankomat o-- Card
+
+@enduml

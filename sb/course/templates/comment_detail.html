@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block carousel %} {% endblock %}
+{% block content %}
+
+<div class="section margin-top_50">
+    <div class="container"> 
+        <div class="row">
+            <div class="col-md-12 layout_padding_2">
+                <h1>Вопрос</h1>
+                
+                <strong>{{ comment.content }}</strong>
+                <p style="text-align: right;">Автор: {{ comment.user }}</p>
+                <p style="text-align: right;">{{ comment.created }} </p>                 
+
+                <h2>Ответы</h2>
+
+                {% for item in comment.get_children %}
+                    <p>{{ item.content }}</p>
+                    <p style="text-align: right;">Автор: {{ item.user }}</p>
+                    <p style="text-align: right;">{{ item.created }} </p>
+                {% endfor %}
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% endblock %}

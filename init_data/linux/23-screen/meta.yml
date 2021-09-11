@@ -1,0 +1,20 @@
+slug: linux-screen 
+name: Работа со скринами.
+meta_title: Работа со скринами.
+meta_keywords: Работа со скринами.
+meta_description: Работа со скринами.
+is_active: true
+tags: linux screen
+desc: 
+    Полезные приемы работы со скринами.
+
+files:
+
+    -
+        file:    linux-screen.md
+        title: Работа со скринами.
+        meta_title: Работа со скринами.
+        meta_description: Работа со скринами.
+        meta_keywords: 'linux screen'
+        desc: 
+

@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block carousel %} {% endblock %}
+{% block content %}
+
+<div class="section margin-top_50">
+    <div class="container"> 
+        <div class="row">
+            <div class="col-md-12 layout_padding_2">
+                <h1>Обсуждение</h1>
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Сообщение</th>
+                        <th scope="col">Название урока</th>
+                        
+                        <th scope="col">Автор</th>
+                        <th scope="col">Ответов</th>
+                        <th scope="col">Дата</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     
+                        {% for message in comments %}
+                        <tr>
+                            <th scope="row">{{ message.id }}</th>
+                            <td><a href="{{ message.get_absolute_url }}">{{ message.content }}</a></td>
+                            <td><a href="{{ message.lesson.get_absolute_url }}">{{ message.lesson }}</a></td>
+                            <td>{{ message.user }}</td>
+                            <td>{{ message.get_count }}</td>
+                            <td>{{ message.created }} </td>
+                        </tr>
+                        {% endfor %}
+                      
+                    </tbody>
+                  </table>
+                 
+
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% endblock %}

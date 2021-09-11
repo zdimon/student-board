@@ -1,0 +1,27 @@
+slug: js-func
+name: Функции.
+meta_title: Функции.
+meta_keywords: Функции.
+meta_description: Функции.
+is_active: true
+tags: js javascript function
+desc:
+        
+files:
+    -
+        file:     js-func.md
+        title: Функции.
+        meta_title: Функции.
+        meta_description: Функции.
+        meta_keywords: Функции.
+        desc: 
+
+    -
+        file:     dz.md
+        title: Домашнее задание.
+        meta_title: Домашнее задание.
+        meta_description: Домашнее задание.
+        meta_keywords: Домашнее задание.
+        desc: 
+
+      

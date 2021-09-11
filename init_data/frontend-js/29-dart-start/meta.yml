@@ -1,0 +1,20 @@
+slug: dart-start
+name: Dart. Начало работы.
+meta_title: Dart. Начало работы.
+meta_keywords: Dart. Начало работы.
+meta_description: Dart. Начало работы.
+is_active: true
+tags: dart
+desc:
+    Создаем простой проект.
+
+files:
+
+    -
+        file:     dart-start.md
+        title: Dart. Начало работы.
+        meta_title: Dart. Начало работы.
+        meta_description: Dart. Начало работы. работы.
+        meta_keywords: Dart. Начало работы.
+        desc:
+

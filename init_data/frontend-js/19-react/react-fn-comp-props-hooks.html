@@ -1,0 +1,228 @@
+<h1>Функциональные компоненты.</h1>
+
+<h2>Простой компонент и его рендеринг.</h2>
+
+<p>LikeLink.tsx</p>
+
+<pre><code>import * as React from "react";
+import * as ReactDOM from 'react-dom';
+
+function LikeLink() {
+    return (
+      &lt;h1&gt;Hello from react!&lt;/h1&gt;
+    );
+}
+
+export default LikeLink;
+</code></pre>
+
+<p>index.tsx</p>
+
+<pre><code>import LikeLink from './LikeLink';
+import * as ReactDOM from 'react-dom';
+import * as React from 'react';
+
+
+ReactDOM.render(
+     &lt;LikeLink /&gt;, 
+     document.getElementById('react-app')
+)
+</code></pre>
+
+<h3>Рендеринг нескольких элементов по классу.</h3>
+
+<pre><code>var likeLinks = document.querySelectorAll('.bd-like-button');
+likeLinks.forEach((item) =&gt; 
+{
+  ReactDOM.render(
+    &lt;LikeLink /&gt;,
+    item
+  );
+});
+</code></pre>
+
+<h2>Применение колбека на событие клика.</h2>
+
+<pre><code>var doClick = (evt) =&gt; {
+    console.log(evt);
+}
+
+function LikeLink() {
+    return (
+      &lt;a onClick={doClick}&gt;Click me&lt;/a&gt;
+    );
+}
+</code></pre>
+
+<h2>HTTP запросы.</h2>
+
+<pre><code>npm install axios  --save
+</code></pre>
+
+<p>Класс для GET запроса.</p>
+
+<pre><code>import axios from "axios";
+
+
+export class Request {
+    baseUrl = 'http://localhost:7777/v1/';
+    async get(url: string) {
+        let response = await axios.get(`${this.baseUrl}${url}`)
+        return response.data;
+    }
+}
+</code></pre>
+
+<p>Использование класса по событию клика.</p>
+
+<pre><code>import * as React from "react";
+import * as ReactDOM from 'react-dom';
+import {Request} from '../libs/Request';
+var req = new Request();
+
+var doClick = async (evt) =&gt; {
+    req.get('account/user_list').then((data) =&gt; {
+        console.log(data);
+    });
+}
+
+function LikeLink() {
+    return (
+      &lt;a onClick={doClick}&gt;Click me&lt;/a&gt;
+    );
+}
+</code></pre>
+
+<p>Вы можете сделать AJAX-запрос в componentDidMount. </p>
+
+<p>Когда вы получите данные, вызовем setState, чтобы передать их компоненту.</p>
+
+<h3>Кастомизация заголовков запроса.</h3>
+
+<pre><code>export class Request {
+    baseUrl = 'http://localhost:7777/v1/';
+    async get(url: string) {
+        let response = await axios.get(`${this.baseUrl}${url}`,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'blabla'
+            }
+        })
+        return response.data;
+    }
+}
+</code></pre>
+
+<h2>Свойства.</h2>
+
+<p>Переменные, объявленные внутри функции становятся доступными в JSX.</p>
+
+<pre><code>function App() {
+    const name = 'Dima';
+    return (  
+      &lt;h1&gt;Hello {name}!&lt;/h1&gt;
+    );
+}
+</code></pre>
+
+<p>Комбинирование компонентов и передача свойств в дочерние.</p>
+
+<pre><code>function App() {
+    const name = 'Dima';
+    return (
+      &lt;&gt;
+      &lt;h1&gt;Hello {name} from react!!!!!!!&lt;/h1&gt;
+      &lt;Test name={ name } /&gt;
+      &lt;/&gt;
+    );
+}
+
+function Test(props) {
+  return (
+    &lt;p&gt;{ props.name }&lt;/p&gt;
+  );
+}
+</code></pre>
+
+<p>Конструкция &lt;&gt;</> служит для создания корневого контейнета т.к. компонент должен рендерить только один тег.</p>
+
+<h2>Вставка компонентов циклом.</h2>
+
+<pre><code>function App() {
+    const name = 'Dima';
+    const arr = [1,2,3,4];
+    return (
+      &lt;&gt;
+      &lt;h1&gt;Hello {name} from react!!!!!!!&lt;/h1&gt;
+      {arr.map((el, i) =&gt; &lt;Test name={name} key={i} number={i} /&gt;)}
+      &lt;/&gt;
+    );
+}
+
+function Test(props) {
+  return (
+    &lt;p&gt;{ props.number } { props.name }&lt;/p&gt;
+  );
+}
+</code></pre>
+
+<p>key={i} - обязательное условие уникального ключа компонента для реакта.</p>
+
+<h2>Хуки.</h2>
+
+<p>Позволяют использовать состояния без написания классов.</p>
+
+<p>Хуки — это функции, с помощью которых вы можете «подцепиться» к состоянию и методам жизненного цикла React из функциональных компонентов. </p>
+
+<p>Хуки не работают внутри классов — они дают вам возможность использовать React без классов.</p>
+
+<p>Хук состояния useState </p>
+
+<p>Возвращает 2 вещи (кортеж): начальное состояние и функцию его изменения.</p>
+
+<p>Единственный аргумент useState — это начальное состояние.</p>
+
+<p>Пример.</p>
+
+<pre><code>const [count, setName] = useState(0);
+</code></pre>
+
+<p>Теперь мы можем использовать setName везде, чтобы изменить состояние и реакт прересует компоненты, которые его используют.</p>
+
+<pre><code>function App() {
+    const arr = [1,2,3,4];
+    const [name, setName] = useState('Dima');
+    var doSetName = (val) =&gt; {
+      setName('Vova');
+    }
+    return (
+      &lt;&gt;
+      &lt;h1&gt;Hello {name} from react!!!!!!!&lt;/h1&gt;
+      {arr.map((el, i) =&gt; &lt;Test name={name} key={i} number={i} /&gt;)}
+      &lt;a onClick={doSetName}&gt;Change name&lt;/a&gt;
+      &lt;/a&gt;
+    );
+}
+</code></pre>
+
+<h2>Хук эффекта useEffect.</h2>
+
+<p>Эффект - это какоето изменение за пределами компонента.</p>
+
+<p>Когда вы вызываете useEffect, React получает указание запустить вашу функцию с «эффектом» после того, как он отправил изменения в DOM. </p>
+
+<p>Поскольку эффекты объявляются внутри компонента, у них есть доступ к его пропсам и состоянию. </p>
+
+<p>По умолчанию, React запускает эффекты после каждого рендера, включая первый рендер. </p>
+
+<pre><code>import { useEffect } from 'react';
+
+function App() {
+
+    ....
+
+    useEffect(() =&gt; {
+      // Обновляем заголовок документа, используя API браузера
+      document.title = `Вас зовут ${name}`;
+    });
+</code></pre>

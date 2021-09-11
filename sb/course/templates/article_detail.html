@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block carousel %} {% endblock %}
+
+{% block meta_title %} {{ article.meta_title }} {% endblock %}
+
+{% block meta_description %} {{ article.meta_description }} {% endblock %}
+
+{% block meta_keywords %} {{ article.meta_keywords }} {% endblock %}
+
+
+{% block content %}
+
+<div class="section margin-top_50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 layout_padding_2">
+               
+                <div class="full">
+                    <div class="heading_main text_align_left">
+                       <h2>{{ article }}</h2>
+
+                    </div>
+                    <div class="text_align_right">
+                        <a href="{% url 'articles' %}">Назад</a>
+                     </div>
+                    
+                     {{ article.content }}
+               
+                </div>
+              
+
+                <div class="text_align_right">
+                    <a href="{% url 'articles' %}">Назад</a>
+                 </div> 
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% endblock %}
+
+{% block customjs %} 
+    <script>
+            $(window).on('load', function() { 
+            $('img').each(function(){
+                $(this).addClass('img-responsive');
+            }) 
+            
+        });
+    </script>
+{% endblock %}

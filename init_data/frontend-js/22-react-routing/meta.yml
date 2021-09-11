@@ -1,0 +1,20 @@
+slug: js-react-routing
+name: React система роутинга.
+meta_title:  React система роутинга.
+meta_keywords:  React система роутинга.
+meta_description:  React система роутинга.
+is_active: true
+tags: js javascript react-routing
+desc:
+    Бьем приложение по компонентам при помощи маршрутизации.
+
+files:
+
+    -
+        file:     js-react-routing.md
+        title: React система роутинга.
+        meta_title: React система роутинга.
+        meta_description: React система роутинга.
+        meta_keywords: React система роутинга.
+        desc:
+        

@@ -1,0 +1,6 @@
+@startuml
+Animal <|-- Dog
+Animal <|-- Cat
+Animal <|-- WoodenCat
+
+@enduml

@@ -1,0 +1,28 @@
+slug: linux-bash
+name: Bash. Начало использования.
+meta_title: Bash. Начало использования.
+meta_keywords: Bash. Начало использования.
+meta_description: Bash. Начало использования.
+is_active: true
+tags: linux bash start tail head join wc sort sed
+desc: |
+
+        
+files:
+
+    -
+        file:    bash-in-out-err.md
+        title: Bash. Начало использования. Ввод-вывод.
+        meta_title: Bash. Начало использования.  Ввод-вывод.
+        meta_description: Bash. Начало использования.  Ввод-вывод.
+        meta_keywords: 'bash vbox'
+        desc: 
+
+    -
+        file:    bash-tail-head-join-wc-sort-sed.md
+        title: Bash. Работа со строками. Команды tail head join wc sort sed.
+        meta_title: Bash. Работа со строками. Команды tail head join wc sort sed.
+        meta_description: Bash. Работа со строками. Команды tail head join wc sort sed.
+        meta_keywords: 'bash vbox'
+        desc: 
+

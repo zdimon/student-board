@@ -1,0 +1,43 @@
+slug: linux-start
+name: Команды bash.
+meta_title: Команды bash.
+meta_keywords: Команды bash.
+meta_description: Команды bash.
+is_active: true
+tags: linux bash start
+desc: |
+
+    Работа в консоле.
+        
+files:
+    
+        
+    -
+        file:     'bash-console.md'
+        title: 'Работа в консоле. Команды bash.'
+        meta_title: 'Работа в консоле. Команды bash'
+        meta_description:   'Работа в консоле.'
+        meta_keywords: 'Работа в консоле.'
+        desc: |
+        
+            - смена директории
+            
+            - просмотр директории
+            
+            - создание директории\файлов
+    
+            - системные переменные
+            
+            - запуск скриптов
+  
+    -
+        file:  bash-custom-command.md
+        title: Пишем команду склеивания видео файлов.
+        meta_title: Пишем команду склеивания видео файлов.
+        meta_description:  Пишем команду склеивания видео файлов.
+        meta_keywords: Пишем команду склеивания видео файлов.
+        desc: 
+            
+                
+            
+      

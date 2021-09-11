@@ -3,3 +3,5 @@ node_modules
 8*.pyc
 __pycache__
 sb/db.sqlite3
+sb/media/**
+sb/sb/local.py

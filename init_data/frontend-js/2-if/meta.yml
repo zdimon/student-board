@@ -1,0 +1,36 @@
+slug: js-var-if-loop
+name: Условия.
+meta_title: Условия.
+meta_keywords: Условия.
+meta_description: Условия.
+is_active: true
+tags: js javascript if var
+desc: |
+
+    Операвторы if swith и тернарный оператор.
+        
+files:
+    -
+        file:     js-if.md
+        title: Условия.
+        meta_title: Условия.
+        meta_description: Условия.
+        meta_keywords: Условия.
+        desc: 
+
+    -
+        file:     dz.md
+        title: Домашнее задание.
+        meta_title: Домашнее задание.
+        meta_description: Домашнее задание.
+        meta_keywords: Домашнее задание.
+        desc: 
+
+    -
+        file:     dz-resolve.md
+        title: Домашнее задание. Решение.
+        meta_title: Домашнее задание. Решение.
+        meta_description: Домашнее задание. Решение.
+        meta_keywords: Домашнее задание. Решение.
+        desc:
+      

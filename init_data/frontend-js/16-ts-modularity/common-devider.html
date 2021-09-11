@@ -1,0 +1,115 @@
+<h2>Нахождение общего делителя.</h2>
+
+<p>Создаем поток</p>
+
+<pre><code>import { range } from 'rxjs';
+
+const CONST1 = 20;
+
+const stream1 = range(1,CONST1);
+</code></pre>
+
+<p>Преобразуем в массив и сортируем.</p>
+
+<pre><code>...
+import { toArray, map } from 'rxjs/operators';
+
+stream1
+.pipe(toArray(),map(arr=&gt;arr.sort((a,b) =&gt; b-a)))
+.subscribe((el) =&gt; {
+    console.log(el);
+})
+</code></pre>
+
+<p>Переключаемся на второй поток из масива и выбираем из него все что делится без остатка.</p>
+
+<pre><code>stream1
+.pipe(
+    toArray(),
+    map(arr=&gt;arr.sort((a,b) =&gt; b-a)),
+    switchMap( (rez) =&gt; from(rez)
+                        .pipe(filter((el: any) =&gt; CONST1%el === 0))
+    )
+)
+.subscribe((el) =&gt; {
+    console.log(el);
+})
+</code></pre>
+
+<p>Оформляем 2 потока.</p>
+
+<pre><code>const CONST1 = 20;
+const CONST2 = 50;
+
+const stream1 = range(1,CONST1)
+.pipe(
+    toArray(),
+    map(arr=&gt;arr.sort((a,b) =&gt; b-a)),
+    switchMap( (rez) =&gt; from(rez)
+                        .pipe(filter((el: any) =&gt; CONST1%el === 0))
+    )
+);
+
+const stream2 = range(1,CONST2)
+.pipe(
+    toArray(),
+    map(arr=&gt;arr.sort((a,b) =&gt; b-a)),
+    switchMap( (rez) =&gt; from(rez)
+                        .pipe(filter((el: any) =&gt; CONST2%el === 0))
+    )
+);
+
+
+stream1.subscribe((el) =&gt; {
+    console.log(`stream1 = ${el}`);
+})
+
+stream2.subscribe((el) =&gt; {
+    console.log(`stream2 = ${el}`);
+})
+</code></pre>
+
+<p>Создаем 3 поток где выбираем совпадающие элементы, переключаясь на второй поток, переводим их в массив и получаем наибольшее.</p>
+
+<pre><code>const stream3 = stream1.pipe(
+    switchMap((el1) =&gt; stream2.pipe(filter((el2) =&gt; el2 === el1))),
+    toArray()
+).subscribe((el) =&gt; {
+    console.log(Math.max(...el));
+})
+</code></pre>
+
+<p>Полный код примера.</p>
+
+<pre><code>import { from } from 'rxjs';
+import { range } from 'rxjs';
+import { toArray, map, switchMap, filter } from 'rxjs/operators';
+
+const CONST1 = 20;
+const CONST2 = 50;
+
+const stream1 = range(1,CONST1)
+.pipe(
+    toArray(),
+    map(arr=&gt;arr.sort((a,b) =&gt; b-a)),
+    switchMap( (rez) =&gt; from(rez)
+                        .pipe(filter((el: any) =&gt; CONST1%el === 0))
+    )
+);
+
+const stream2 = range(1,CONST2)
+.pipe(
+    toArray(),
+    map(arr=&gt;arr.sort((a,b) =&gt; b-a)),
+    switchMap( (rez) =&gt; from(rez)
+                        .pipe(filter((el: any) =&gt; CONST2%el === 0))
+    )
+);
+
+const stream3 = stream1.pipe(
+    switchMap((el1) =&gt; stream2.pipe(filter((el2) =&gt; el2 === el1))),
+    toArray()
+).subscribe((el) =&gt; {
+    console.log(Math.max(...el));
+})
+</code></pre>

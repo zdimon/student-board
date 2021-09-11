@@ -1,0 +1,20 @@
+slug: js-obj-get-set
+name: Дескрипторы свойств.
+meta_title: Дескрипторы свойств.
+meta_keywords: Дескрипторы свойств.
+meta_description: Дескрипторы свойств.
+is_active: true
+tags: js javascript get-set
+desc:
+        
+files:
+    -
+        file:     js-obj-get-set.md
+        title: Дескрипторы свойств.
+        meta_title: Дескрипторы свойств.
+        meta_description: Дескрипторы свойств.
+        meta_keywords: Дескрипторы свойств.
+        desc: 
+
+   
+      

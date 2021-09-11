@@ -18,11 +18,38 @@ from django.urls import path, include
 from dash.views import index
 from student.views import registration
 
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
+
+schema_view = get_schema_view(
+   openapi.Info(title="Student board API",
+                default_version='v1',
+                description='''
+
+                    [admin page](/admin).
+
+                    Authors: zdimon77@gmail.com;
+
+                ''',
+                license=openapi.License(name="BSD License"),
+                ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
+
 urlpatterns = [
     path('', include('dash.urls')),
-    path('', include('student.urls')),
-    path('registration', registration),
+    path('mentor/', include('mentor.urls')),
+    path('student/', include('student.urls')),
     path('admin/', admin.site.urls),
+    path('api', schema_view.with_ui('swagger', cache_timeout=0), 
+    name='schema-swagger-ui'),
+
+    path('v1/api/', include([
+        path('', include('student.api.urls'))
+    ])),
+
 ]
 
 from django.conf import settings

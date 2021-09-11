@@ -1,0 +1,19 @@
+slug: python-wsgi-asgi
+name: Протоколы для веб-приложений wsgi и asgi.
+meta_title:  Протоколы для веб-приложений wsgi и asgi.
+meta_keywords:  Протоколы для веб-приложений wsgi и asgi.
+meta_description:  Протоколы для веб-приложений wsgi и asgi.
+is_active: true
+tags: linux uwsgi asgi
+desc:
+      Рассматриваем применение протоколов обмена между приложениями и сервером.
+files:
+
+    -
+        file:  python-wsgi-asgi.md
+        title: Протоколы для веб-приложений wsgi и asgi.
+        meta_title: Протоколы для веб-приложений wsgi и asgi.
+        meta_description: Протоколы для веб-приложений wsgi и asgi.
+        meta_keywords: Протоколы для веб-приложений wsgi и asgi.
+        desc: 
+        youtube: https://www.youtube.com/embed/Pt0Eywk8VOc

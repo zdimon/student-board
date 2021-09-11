@@ -1,0 +1,77 @@
+<h2>Начало работы с rxjs.</h2>
+
+<p>rxjs - одня из наиболее новых и популярных библиотек для функционального и реактивного программирования.</p>
+
+<p>Она включает около 50 функций (операторов) и имеет имплементации для всех популярных языков.</p>
+
+<h3>Основные положения.</h3>
+
+<p>Все данные представляются потоками событий с началом, цепью событий и концом.</p>
+
+<p>Реактивное программирование - это приемы оперирования этим потоком событий.</p>
+
+<p>Вот как представляеся поток, в котором сгенерированы 3 элемента и поток завершен удачно.</p>
+
+<p><img src="https://webmonstr.com/media/course/frontend-js/14-forms/images/3.png" alt="start page" /></p>
+
+<p>Вот как представляеся поток, в котором сгенерированы 3 элемента и поток завершен неудачно.</p>
+
+<p><img src="https://webmonstr.com/media/course/frontend-js/14-forms/images/34png" alt="start page" /></p>
+
+<p>Вот как представляеся поток, в котором сгенерированы 3 элемента (события) и поток не завершен.</p>
+
+<p><img src="https://webmonstr.com/media/course/frontend-js/14-forms/images/2.png" alt="start page" /></p>
+
+<p>Включаем на страницу в загрузчик SystemJS.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;&lt;title&gt;TypeScript Greeter&lt;/title&gt;
+        &lt;script src="node_modules/systemjs/dist/system.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script&gt;
+            SystemJS.config({
+                defaultJSExtensions: true,
+                map: {
+                    'rxjs': '../node_modules/rxjs'
+                },
+                packages: {
+                    'rxjs': {
+                        main: './index.js'
+                    }
+                }
+            });
+            SystemJS.import('dist/app.js');        
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2>Оператор of.</h2>
+
+<p><a href="https://www.learnrxjs.io/learn-rxjs/operators/creation/of">ссылка на документацию</a></p>
+
+<p>Создает наблюдаемый объект из любой коллекции.</p>
+
+<pre><code>import {of} from 'rxjs';
+
+const source = [1,2,3,4,5];
+
+of(source).subscribe((el) =&gt; {
+    console.log(el);
+})
+</code></pre>
+
+<p>Так же можно из событий.</p>
+
+<h2>fromEvent</h2>
+
+<p><a href="https://www.learnrxjs.io/learn-rxjs/operators/creation/fromevent">ссылка на документацию</a></p>
+
+<pre><code>const move$ = fromEvent(document, 'mousemove');
+
+move$.subscribe((e)=&gt;{
+    console.log(e);
+})
+</code></pre>

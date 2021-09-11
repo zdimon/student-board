@@ -1,0 +1,35 @@
+slug: js-timer-interval
+name: Таймер. События.
+meta_title: Таймер. События.
+meta_keywords: Таймер. События.
+meta_description: Таймер. События.
+is_active: true
+tags: js javascript timer event
+desc:
+        
+files:
+    -
+        file:     js-timer.interval.md
+        title: Таймер. Интервалы.
+        meta_title: Таймер. Интервалы.
+        meta_description: Таймер. Интервалы.
+        meta_keywords: Таймер. Интервалы.
+        desc: 
+
+    -
+        file:     js-events.md
+        title: События.
+        meta_title: События.
+        meta_description: События.
+        meta_keywords: События.
+        desc:
+
+    -
+        file:    dz.md
+        title: Домашнее задание.
+        meta_title: Домашнее задание.
+        meta_description: Домашнее задание.
+        meta_keywords: Домашнее задание.
+        desc:
+   
+      

@@ -1,0 +1,21 @@
+slug: linux-port-scan
+name: Сканируем порты на хостах.
+meta_title: Сканируем порты на хостах.
+meta_keywords: Сканируем порты на хостах.
+meta_description: Сканируем порты на хостах.
+is_active: true
+tags: linux bash scan
+desc: 
+    Проводим разведку открытых портов.
+
+files:
+
+    -
+        file:    linux-port-scan.md
+        title: Сканируем порты на хостах.
+        meta_title: Сканируем порты на хостах.
+        meta_description: Сканируем порты на хостах.
+        meta_keywords: 'linux scan bash'
+        desc: 
+        youtube: https://www.youtube.com/embed/FR35eS5065k
+
