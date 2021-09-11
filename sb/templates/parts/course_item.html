@@ -16,7 +16,7 @@
     </td>
     
     <td>
-    {%  if c.pk not in joined_courses  %}
+    {%  if item.pk not in joined_courses  %}
     <a href="{% url 'join-course-student' course_id=item.pk %}" class="btn btn-sm btn-secondary">{% trans 'Join' %}</a>
     {% else %}
         <a href="{% url 'detail-course-student' course_id=item.pk %}" 

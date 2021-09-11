@@ -55,6 +55,7 @@ class Course(models.Model):
     def get_last_lessons(self):
         return Lesson.objects.filter(course=self).order_by('-number')[0:2]
 
+
     def get_absolute_url(self):
         return reverse('course_detail', kwargs={'slug': self.name_slug })
 
