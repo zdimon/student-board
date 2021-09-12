@@ -14,11 +14,21 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'courses' %}">
-                    <i class="fas fa-fw fa-university"></i>
-                    <span>{% trans 'Courses' %}</span></a>
-            </li>
+            {% if role == 'student' %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'courses' %}">
+                        <i class="fas fa-fw fa-university"></i>
+                        <span>{% trans 'Courses' %}</span></a>
+                </li>
+            {% endif %}
+
+            {% if role == 'mentor' %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'mentor-students' %}">
+                        <i class="fas fa-fw fa-blind"></i>
+                        <span>{% trans 'Students' %}</span></a>
+                </li>
+            {% endif %}
 
             <!-- Divider -->
             <hr class="sidebar-divider">

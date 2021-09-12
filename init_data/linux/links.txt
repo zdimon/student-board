@@ -1,4 +1,0 @@
-https://runnable.com/docker/docker-compose-networking
-
-https://linuxgeeks.ru/bash-1.htm
-

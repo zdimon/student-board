@@ -45,7 +45,7 @@ class Course(models.Model):
     @property
     def mentors(self):
         from mentor.models import Mentor2Course
-        mts = Mentor2Course.objects.filter(course=self)
+        mts = Mentor2Course.objects.filter(course=self, is_approved=True)
         out = ''
         for m in mts:
             out = out + ' ' + '%s %s %s' % (m.user.fname, m.user.lname, m.user.surname)

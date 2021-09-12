@@ -16,5 +16,5 @@ def registration(request):
         s.is_active = True
         s.save()
         login(request, s)
-        return redirect('cabinet')
+        return redirect('mentor-cabinet')
     return render(request,'mentor/registration.html')

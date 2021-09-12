@@ -22,3 +22,4 @@ class Mentor(User):
 class Mentor2Course(models.Model):
     user = models.ForeignKey(Mentor,on_delete=models.CASCADE)
     course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    is_approved = models.BooleanField(default=False)
