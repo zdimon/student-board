@@ -1,4 +1,8 @@
 git add --all
 git commit -m 'auto'
 git push
+cd /home/zdimon/Desktop/work/hntu-material
+git add --all
+git commit -m 'auto'
+git push
 ssh zdimon@116.203.96.54 -t 'cd student-board; git pull; cd react-app; npm run build; cd ../sb; . ./venv/bin/activate;pip install -r ./requirements.txt; python3 manage.py migrate; python3 manage.py load_course'
