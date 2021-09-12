@@ -24,3 +24,7 @@ files:
         meta_description:  Активируем виртуальное окружени Python.
         meta_keywords: 'bash alias'
         desc: 
+
+    -
+        file:  lab.md
+        variants: 1,2

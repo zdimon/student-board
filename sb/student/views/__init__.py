@@ -5,4 +5,5 @@ from .join_course import *
 from .detail_course import *
 from .detail_lesson import *
 from .labs import *
-from .replanish import * 
+from .replanish import *
+from .detail_lab import * 

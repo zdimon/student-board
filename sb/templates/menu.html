@@ -4,7 +4,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 
-                <div class="sidebar-brand-text mx-3">HNTU Student <sup>board</sup></div>
+                <div class="sidebar-brand-text mx-3">
+                <img style="padding-bottom: 5px" width="30" height="30" src="/static/img/globe.svg" />
+                HNTU  <br /><sup>Student board</sup></div>
             </a>
 
             <!-- Divider -->
@@ -24,6 +26,20 @@
 
             {% if role == 'student' %}
                 {% include 'student_menu.html' %}
+            {% endif %}
+
+            {% if not user.us_authenticated %}
+            
+                <a 
+                class="btn btn-sm btn-primary"
+                href="{% url 'student-registration' %}">
+                    {% trans 'Student registration' %}
+                </a>
+                <a 
+                class="btn btn-sm btn-primary"
+                href="{% url 'mentor-registration' %}">
+                    {% trans 'Mentor registration' %}
+                </a>
             {% endif %}
            
 

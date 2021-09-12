@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from course.models import Course
+from course.models import Course, Lab
 
 class StudentGroup(models.Model):
     name = models.CharField(max_length=50)
@@ -29,3 +29,11 @@ class Student(User):
 class Student2Course(models.Model):
     user = models.ForeignKey(Student,on_delete=models.CASCADE)
     course = models.ForeignKey(Course,on_delete=models.CASCADE)
+
+class Student2Lab(models.Model):
+    user = models.ForeignKey(Student,on_delete=models.CASCADE)
+    lab = models.ForeignKey(Lab,on_delete=models.CASCADE)
+    gitlink = models.CharField(max_length=250)
+    file = models.FileField(upload_to="labs")
+    is_approved = models.BooleanField(default=False)
+    mark = models.IntegerField(default=0)

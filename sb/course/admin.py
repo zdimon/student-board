@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from course.models import Course, Lesson, Topic, LessonPayments, Comments, Subscription
+from course.models import Course, Lesson, Topic, LessonPayments, Comments, Subscription, Lab
 from django.http import HttpResponse
 from django.urls import reverse
 from django.core.mail import send_mail
@@ -175,3 +175,6 @@ class NewsLetterAdmin(admin.ModelAdmin):
 
 
 
+@admin.register(Lab)
+class LabAdmin(admin.ModelAdmin):
+    list_display = ['course','lesson']

@@ -28,3 +28,4 @@ package-lock.json
 packages/api/etc/
 
 .vercel
+src/config.js

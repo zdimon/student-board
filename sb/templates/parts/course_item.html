@@ -8,7 +8,7 @@
             {{ item.name }}
         {% else %}
             <a href="{% url 'detail-course-student' course_id=item.pk %}" 
-            >{{ c.name }}</a>
+            >{{ item.name }}</a>
         {% endif %}   
         <div class="color-black">{{ item.desc | safe}}</div>  
         <p>{% trans 'Mentor' %}: {{ item.mentors }}</p>  

@@ -261,6 +261,32 @@ class Topic(models.Model):
         return txt
 
 
+
+class Lab(models.Model):
+    title = models.CharField(max_length=250, blank=True, verbose_name=_(u'Name'))
+    variants = models.CharField(max_length=250, blank=True, verbose_name=_(u'Variants'))
+    lesson = models.ForeignKey(Lesson,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+
+
+    def get_clear_lesson_slug(self):
+        return self.lesson.name_slug.split('--')[1]
+
+    @property
+    def content(self):
+        path = '%s/%s/%s/lab.md' % (DATA_DIR,self.lesson.course.name_slug,self.get_clear_lesson_slug())
+        #return path
+        if os.path.isfile(path):
+            f = open(path,'r')
+            txt = f.read()
+            return parse_md(txt)
+            f.close()
+        else:
+            return 'File %s does not exist!' % path
+
+    def __str__(self):
+        return self.title
+
 # PAYMENT MODEL
 
 from django.contrib.auth.models import User

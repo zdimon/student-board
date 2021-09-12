@@ -1,4 +1,4 @@
-from course.models import  Course, Lesson, Topic
+from course.models import  Course, Lesson, Topic, Lab
 from sb.settings import DATA_DIR, VIDEO_DIR
 from os import listdir
 from os.path import isfile, join, isdir
@@ -7,6 +7,19 @@ from tagging.models import Tag
 
 import yaml
 from django.core.files import File
+
+def save_lab(lesson,variants):
+    print('Saving lab')
+    try:
+        lab = Lab.objects.get(lesson=lesson)
+    except:
+        lab = Lab()
+        lab.lesson = lesson
+        lab.course = lesson.course
+        lab.title = 'Лабораторная работа #%s' % lesson.number
+    lab.variants = variants
+    lab.save()
+
 
 class CourseLoader(object):
 
@@ -100,6 +113,9 @@ class CourseLoader(object):
                         Tag.objects.add_tag(lesson, tag)
                 print('Saving lesson...%s' % data['slug'])
                 for f in data['files']:
+                    if f['file'] == 'lab.md':
+                        save_lab(lesson,f['variants'])
+                        continue
                     try:
                         topic = Topic.objects.get(lesson=lesson,filename=f['file'])
                     except Exception as e:

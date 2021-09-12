@@ -38,6 +38,11 @@ files:
         meta_keywords: Пишем команду склеивания видео файлов.
         desc: 
             
+
+    -
+        file:  lab.md
+        variants: 1,2
+        
                 
             
       

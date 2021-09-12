@@ -7,25 +7,29 @@
     </div>
 
 
+{% for course in courses  %}
 
 <div class="card shadow mb-4">
-    
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{{ course.name }}</h6>
+    </div>
+
     <div class="card-body">
         <div class="table-responsive">
-
+          
+          
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    
-                </tr>
-            </thead>
            
             <tbody>
-            {% for l in labs  %}
+            {% for l in course.lab_set.all  %}
                 <tr>
                     <td>
-                        !!!                   
+                        {{ l.lesson }}                   
+                    </td>
+                    <td>
+                        <a href="{% url 'detail-lab-student' lab_id=l.pk %}">
+                        {{ l.title }}     
+                        </a>              
                     </td>
                    
                 </tr>            
@@ -34,9 +38,12 @@
             </tbody>
           </table>
 
+          
+
+
         </div>
     </div>
 </div>
-
+{% endfor %}
 
 {% endblock %}
