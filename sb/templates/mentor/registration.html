@@ -1,10 +1,10 @@
 {% extends 'layout.html' %}
-
+{% load i18n %}
 {%  block content %}
 
 <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Mentor registration.</h1>
+                                <h1 class="h4 text-gray-900 mb-4">{% trans 'Mentor registration' %}</h1>
                             </div>
                             <form class="user" method="POST" action="{% url 'mentor-registration' %}">
                             {% csrf_token %}

@@ -22,3 +22,4 @@ django-tagging
 django-crispy-forms
 djangorestframework
 drf-yasg
+django-rosetta

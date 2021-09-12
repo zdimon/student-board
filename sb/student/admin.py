@@ -6,7 +6,7 @@ from .models import Student, StudentGroup, Student2Course, Student2Lab
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['username', 'fname', 'lname', 'group']
 
 @admin.register(StudentGroup)
 class StudentGroupAdmin(admin.ModelAdmin):

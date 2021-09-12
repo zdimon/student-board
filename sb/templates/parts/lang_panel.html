@@ -1,0 +1,30 @@
+
+
+<div class="lang-block">
+    {% if LANGUAGE_CODE == 'en' %}
+        <a href="{% url 'set-lang' lang='ru' %}" class="lang-link">
+        <img src="/static/img/ru.svg" />
+        </a>
+        <a href="{% url 'set-lang' lang='uk' %}" class="lang-link">
+        <img src="/static/img/ua.svg" />
+        </a>
+    {% endif %}
+
+    {% if LANGUAGE_CODE == 'ru' %}
+        <a href="{% url 'set-lang' lang='en' %}" class="lang-link">
+        <img src="/static/img/en.svg" />
+        </a>
+        <a href="{% url 'set-lang' lang='uk' %}" class="lang-link">
+        <img src="/static/img/ua.svg" />
+        </a>
+    {% endif %}
+
+    {% if LANGUAGE_CODE == 'uk' %}
+        <a href="{% url 'set-lang' lang='ru' %}" class="lang-link">
+        <img src="/static/img/ru.svg" />
+        </a>
+        <a href="{% url 'set-lang' lang='en' %}" class="lang-link">
+        <img src="/static/img/en.svg" />
+        </a>
+    {% endif %}
+</div>

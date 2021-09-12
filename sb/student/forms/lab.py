@@ -5,4 +5,5 @@ from django import forms
 class Student2LabForm(ModelForm):
     class Meta:
         model = Student2Lab
-        fields = [ 'gitlink', 'file']
+        fields = [ 'gitlink', 'file', 'lab', 'user']
+        widgets = {'lab': forms.HiddenInput(), 'user': forms.HiddenInput()}

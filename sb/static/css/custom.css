@@ -19,3 +19,20 @@ p {
 h1 {
     font-size: 20px;
 }
+
+.color-red {
+    color:  red;
+}
+
+.color-green {
+    color:  green;
+}
+
+.lang-link img {
+    width: 30px;
+    height: 30px;
+}
+
+.lang-block {
+    text-align: center;
+}

@@ -24,14 +24,29 @@
             {% for l in course.lab_set.all  %}
                 <tr>
                     <td>
-                        {{ l.lesson }}                   
+                    <a href="{% url 'detail-lesson-student' lesson_id=l.pk %}">
+                        {{ l.lesson }}      
+                    </a>             
                     </td>
                     <td>
                         <a href="{% url 'detail-lab-student' lab_id=l.pk %}">
                         {{ l.title }}     
                         </a>              
                     </td>
-                   
+                     <td> 
+                        {% if l.pk not in exist_labs %}
+                        <i class="fas fa-fw fa-times-circle">
+                        </i>
+                        <span class="color-red">{% trans 'Empty!' %}</span>
+                        <a class="btn btn-sm btn-primary" href="{% url 'detail-lab-student' lab_id=l.pk %}">
+                        {% trans 'Pass off' %}  
+                        </a>  
+                        {% else %}
+                        <i class="fas fa-fw fa-thumbs-up">
+                        </i>
+                        <span class="color-green">{% trans 'Done!' %}</span>
+                        {% endif %}
+                     </td>
                 </tr>            
             {% endfor %}
 

@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -45,7 +44,8 @@ INSTALLED_APPS = [
     'course',
     'drf_yasg',
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'rosetta'
 ]
 
 MIDDLEWARE = [
@@ -107,8 +107,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
+LANGUAGES = [
+    ('en','English'),
+    ('ru', 'Russian'),
+    ('uk', 'Ukranian')
+]
+ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
+YANDEX_TRANSLATE_KEY = 'trnsl.1.1.20140521T130035Z.1014ae2799c685e3.97b1345108ab3a8520d96f730016a9dac947049b'
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE = 'en'
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME = 'English'
+
+LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

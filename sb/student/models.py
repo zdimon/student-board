@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from course.models import Course, Lab
+from django.utils.translation import ugettext as _
 
 class StudentGroup(models.Model):
     name = models.CharField(max_length=50)
@@ -33,7 +34,7 @@ class Student2Course(models.Model):
 class Student2Lab(models.Model):
     user = models.ForeignKey(Student,on_delete=models.CASCADE)
     lab = models.ForeignKey(Lab,on_delete=models.CASCADE)
-    gitlink = models.CharField(max_length=250)
-    file = models.FileField(upload_to="labs")
+    gitlink = models.CharField(max_length=250, help_text=_('Link to the git repo'))
+    file = models.FileField(upload_to="labs", help_text=_('File or zip archive'), null=True, blank=True)
     is_approved = models.BooleanField(default=False)
     mark = models.IntegerField(default=0)
