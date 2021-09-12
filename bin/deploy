@@ -1,4 +1,4 @@
 git add --all
 git commit -m 'auto'
 git push
-ssh zdimon@116.203.96.54 -t 'cd student-board; git pull'
+ssh zdimon@116.203.96.54 -t 'cd student-board; git pull; cd react-app; npm run build'
