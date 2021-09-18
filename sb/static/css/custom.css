@@ -17,8 +17,26 @@ p {
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
 }
+
+h2 {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    padding-top: 10px;
+    border-bottom: 1px solid silver;
+}
+
+h3 {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+
 
 .color-red {
     color:  red;
