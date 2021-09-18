@@ -8,5 +8,4 @@ def index(request):
     txt = f.read()
     f.close()
     index = parse_md(txt)    
-    print(index)
     return render(request, 'dash/index.html', {'text': index})
