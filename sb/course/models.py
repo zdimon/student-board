@@ -125,6 +125,24 @@ class Lesson(models.Model):
           return True    
 
     @property
+    def has_lab(self):
+        from course.models import Lab
+        try:
+            lab = Lab.objects.get(lesson=self)
+            return True
+        except:
+            return False
+
+    @property
+    def get_lab(self):
+        from course.models import Lab
+        try:
+            return Lab.objects.get(lesson=self)
+        except:
+            return False
+
+
+    @property
     def video_icon(self):
         cnt = Topic.objects.filter(lesson=self,has_video=True).count()
         if cnt > 0:

@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as l
+from django.shortcuts import redirect
+from django.contrib import messages
+from django.utils.translation import ugettext_lazy as _
 
 
 def login(request):
@@ -11,7 +14,10 @@ def login(request):
         if user is not None:
             if user.is_active:
                 l(request, user)   
+                messages.info(request, _('You was joined to this course.'))
         else:
-            print('Error data!')     
+            print('Error data!')  
+            messages.warning(request, _('Wrong email or password!'))  
 
-    return render(request, 'dash/welcome.html', {})
+
+    return redirect('/')

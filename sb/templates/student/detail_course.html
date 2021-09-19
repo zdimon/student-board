@@ -31,10 +31,20 @@
                     <a href="{% url 'detail-lesson-student' lesson_id=l.pk %}">
                         {{ l.number }}. {{ l.title }}
                     </a>
-                  
+                    {% if l.desc %}
+                        <p>
+                            {{ l.desc|safe }}
+                        </p>
+                    {% endif %}
                     </td>
                    
-                 
+                    <td>
+                      {% if l.has_lab %}
+                          <a href="{% url 'detail-lab-student' lab_id=l.get_lab.pk %}" class="btn btn-primary">
+                            {% trans 'Pass of the lab'%}
+                          </a>
+                      {% endif %}
+                    </td>
                    
                 </tr>            
             {% endfor %}

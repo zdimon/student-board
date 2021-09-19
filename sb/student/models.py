@@ -34,6 +34,7 @@ class Student2Course(models.Model):
 class Student2Lab(models.Model):
     user = models.ForeignKey(Student,on_delete=models.CASCADE)
     lab = models.ForeignKey(Lab,on_delete=models.CASCADE)
+    text = models.TextField(blank=True, null=True, help_text=_('Text answer. For example your source code.'))
     gitlink = models.CharField(max_length=250, help_text=_('Link to the git repo'))
     file = models.FileField(upload_to="labs", help_text=_('File or zip archive'), null=True, blank=True)
     is_approved = models.BooleanField(default=False)
