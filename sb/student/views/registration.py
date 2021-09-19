@@ -29,5 +29,5 @@ def registration(request):
             login(request, s)
             messages.info(request, _('You have been successfuly registrated. Now you can join to any courses you need.'))
             return redirect('student-cabinet')
-        return render(request,'student/registration.html',{"groups": groups})
+    return render(request,'student/registration.html',{"groups": groups})
 
