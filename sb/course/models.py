@@ -43,6 +43,11 @@ class Course(models.Model):
         return Lesson.objects.filter(course=self).count()
 
     @property
+    def count_labs(self):
+        from course.models import Lab
+        return Lab.objects.filter(course=self).count()
+
+    @property
     def mentors(self):
         from mentor.models import Mentor2Course
         mts = Mentor2Course.objects.filter(course=self, is_approved=True)
