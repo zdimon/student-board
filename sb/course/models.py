@@ -64,6 +64,9 @@ class Course(models.Model):
     def get_absolute_url(self):
         return reverse('course_detail', kwargs={'slug': self.name_slug })
 
+    def get_student_absolute_url(self):
+        return reverse('detail-course-student', kwargs={'course_id': self.pk })
+
     def __str__(self):
         return self.name
 
