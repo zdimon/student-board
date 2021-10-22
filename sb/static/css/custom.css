@@ -54,6 +54,10 @@ h3 {
     color: white;
 }
 
+.text-bold {
+ font-weight: bold;
+}
+
 .link-small {
     font-size: 12px;
     font-weight: bold;
