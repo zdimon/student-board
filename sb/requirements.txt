@@ -23,3 +23,4 @@ django-crispy-forms
 djangorestframework
 drf-yasg
 django-rosetta
+md2pdf

@@ -181,4 +181,4 @@ class LabAdmin(admin.ModelAdmin):
 
 @admin.register(Kursak)
 class KursakAdmin(admin.ModelAdmin):
-    list_display = ['course','title']
+    list_display = ['course','title', 'file']
