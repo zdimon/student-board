@@ -436,3 +436,9 @@ class NewsLetter(models.Model):
             unlink = '<p><a target=_blank  href="%s%s">Отписаться от рассылки</a></p>' % (DOMAIN,self.get_absolute_url())
             out = out +'<br />' + html
         return mark_safe(out + '<br />' + self.desc + '<br /><br /><br />' + unlink )
+
+
+class Kursak(models.Model):
+    title = models.CharField(max_length=250, blank=True, verbose_name=_(u'Name'))
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    file = models.FileField(upload_to='kursak')
