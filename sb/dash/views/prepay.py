@@ -12,7 +12,7 @@ def prepay(request,course_id):
         p.mark = request.POST.get("mark",'')
         p.course = course
         if p.mark == '3':
-            p.cost = 1300
+            p.cost = 15
         if p.mark == '4':
             p.cost = 1400
         if p.mark == '5':
