@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from pl.settings import LESSON_PRICE
 from django.contrib.auth.decorators import login_required
-
+from django.shortcuts import redirect
 from liqpay.liqpay3 import LiqPay
 from pl.settings import LIQPAY_PRIVATE_KEY, LIQPAY_PUBLIC_KEY, LIQPAY_PROCESS_URL, DOMAIN, LESSON_PRICE
 import time
@@ -76,9 +76,13 @@ def course_detail(request,slug):
 
 @csrf_exempt
 def lesson_detail(request,slug):
+    if not request.user.is_authenticated:
+        return redirect('login')
     lesson = Lesson.objects.get(name_slug=slug)
     topics = Topic.objects.filter(lesson=lesson).order_by('order')
     is_free = lesson.is_paid(request.user)
+    #if 
+    #return redirect('buy-course', order_id=p.id)
     try:
         try:
             LogShow.objects.get(lesson=lesson,user=request.user.userprofile)

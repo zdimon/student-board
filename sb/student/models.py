@@ -52,3 +52,4 @@ class StudentPayment(models.Model):
     group = models.CharField(max_length=250,null=True,blank=True)
     cost = models.IntegerField()
     email = models.CharField(max_length=250,null=True,blank=True)
+

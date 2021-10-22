@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{%  block content %}
+        <h1>{% trans 'Вы не оплатили курс' %}</h1>
+        <h2>{{ course.name }}</h2>
+        <h2>{% trans 'Стоимость покупки' %}: {{ order.cost }} грн.</h2>
+        
+                {{ form_html|safe }}
+  
+{% endblock %}

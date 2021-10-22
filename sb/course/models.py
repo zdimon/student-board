@@ -78,6 +78,15 @@ class Course(models.Model):
     def image_tag(self):
         return mark_safe('<img width="60" src="%s" />' % self.image.url)
 
+    @staticmethod
+    def is_paid(user,course):
+        from student.models import StudentPayment
+        try:
+            StudentPayment.objects.get(user=user, course=course, is_done=True)
+            return True
+        except:
+            return False
+            
 class Lesson(models.Model):
     title = models.CharField(max_length=250, blank=True, verbose_name=_(u'Name'))
     number = models.IntegerField(default=0, verbose_name=_(u'Number'))
