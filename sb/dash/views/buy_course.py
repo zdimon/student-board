@@ -2,7 +2,7 @@ from django.shortcuts import render
 from course.models import Course
 from student.models import Student2Course, StudentPayment
 from liqpay.liqpay3 import LiqPay
-from sb.settings import LIQPAY_PRIVATE_KEY, LIQPAY_PUBLIC_KEY, LIQPAY_PROCESS_URL, DOMAIN
+from sb.settings import LIQPAY_PRIVATE_KEY, LIQPAY_PUBLIC_KEY, DOMAIN
 from django.urls import reverse
 
 
