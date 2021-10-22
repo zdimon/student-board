@@ -29,7 +29,7 @@ class Command(BaseCommand):
                 
                 pathpdf = f'{DATA_DIR}/{lesson.course.name_slug}/{less[1]}/{t.id}.pdf'
                 print(pathmd)
-                bashCommand = f'md2pdf {pathmd} {pathpdf}'
+                bashCommand = f'md2pdf {pathmd}'
                 print(bashCommand)
                 arrf.append(pathpdf)
 
