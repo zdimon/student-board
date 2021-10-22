@@ -30,7 +30,7 @@ class Command(BaseCommand):
                 pathpdf = f'{DATA_DIR}/{lesson.course.name_slug}/{less[1]}/{t.id}.pdf'
                 print(pathmd)
                 bashCommand = f'md2pdf {pathmd} {pathpdf}'
-
+                print(bashCommand)
                 arrf.append(pathpdf)
 
                 process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
