@@ -44,4 +44,11 @@ class StudentPayment(models.Model):
     user = models.ForeignKey(Student,on_delete=models.SET_NULL,null=True,blank=True)
     course = models.ForeignKey(Course,on_delete=models.SET_NULL,null=True,blank=True)
     is_done = models.BooleanField(default=False)
+
     mark = models.CharField(max_length=50,null=True,blank=True)
+    fname = models.CharField(max_length=250,null=True,blank=True)
+    lname = models.CharField(max_length=250,null=True,blank=True)
+    sname = models.CharField(max_length=250,null=True,blank=True)
+    group = models.CharField(max_length=250,null=True,blank=True)
+    cost = models.IntegerField()
+    email = models.CharField(max_length=250,null=True,blank=True)

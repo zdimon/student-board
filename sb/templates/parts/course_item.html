@@ -37,12 +37,9 @@
             class="btn btn-sm btn-primary">{% trans 'Detail' %}</a>
             {% endif %}        
         {% endif %}
-
-    {% else %}
-        <p class="color-red">{% trans 'You are not registered!' %}</p>
     {% endif %}
 
-        <a href="/buy/course/{{item.pk}}" class="btn btn-success">{% trans 'Купить курс' %}</a>
+        <a href="/prepay/{{item.pk}}" class="btn btn-success">{% trans 'Купить курс' %}</a>
 
     </td>
 
