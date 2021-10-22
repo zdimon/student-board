@@ -18,7 +18,7 @@ def buy_course(request,course_id):
         'amount': 1500,
         'currency': 'UAH',
         'description': 'Payment for the course',
-        'order_id': '%s-%s' % (request.user.id,course_id),
+        'order_id': '%s' % p.id,
         'version': '3',
         'result_url': DOMAIN+reverse('pay-success'),
         'server_url':  DOMAIN+reverse('pay-process')
