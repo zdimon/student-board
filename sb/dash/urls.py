@@ -1,8 +1,9 @@
 from django.urls import path, include
-from .views import index, login, logout, courses, set_lang, buy_course, pay_success, pay_process, prepay, oferta, delivery, confident
+from .views import index, login, logout, courses, set_lang, buy_course, pay_success, pay_process, prepay, oferta, delivery, confident, about
 
 
 urlpatterns = [ 
+   path('about',about, name="about"),
    path('oferta',oferta, name="oferta"),
    path('delivery',delivery, name="delivery"),
    path('confident',confident, name="confident"),

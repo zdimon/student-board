@@ -10,3 +10,4 @@ from .prepay import *
 from .oferta import *
 from .delivery import *
 from .confident import *
+from .about import about

@@ -61,6 +61,11 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
+
+            <div class="text-center d-none d-md-inline">
+                <a class="nav-link color-white link-small" href="{% url 'about' %}">О НАС</a>
+            </div>
+
             <div class="text-center d-none d-md-inline">
                 <a class="nav-link color-white link-small" href="{% url 'oferta' %}">ПУБЛИЧНАЯ ОФЕРТА</a>
             </div>
@@ -72,6 +77,24 @@
             <div class="text-center d-none d-md-inline">
                 <a class="nav-link color-white link-small" href="{% url 'confident' %}">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
             </div>
+
+            <div class="text-center d-none d-md-inline">
+                <div class="color-white">
+                Контактные данные
+                </div>
+
+                <div class="color-white">
+                 email: zdimon77@gmail.com
+                </div>
+                <div class="color-white">
+                 телефон: +380507750630
+                </div>
+
+                <div class="color-white">
+                  <img width="150" src="/static/img/liq.png" />
+                </div>                
+
+            </div>            
 
            {% include 'parts/lang_panel.html' %}
 
