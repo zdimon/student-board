@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from liqpay.liqpay3 import LiqPay
 from sb.settings import LIQPAY_PRIVATE_KEY, LIQPAY_PUBLIC_KEY
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def pay_process(request):
     liqpay = LiqPay(LIQPAY_PUBLIC_KEY, LIQPAY_PRIVATE_KEY)
     data = request.POST.get('data')
