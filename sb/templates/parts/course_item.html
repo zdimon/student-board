@@ -18,7 +18,7 @@
     
     <td>
     {% if user.is_authenticated %}
-        
+        <!-- 
         {% if user.student %}
             {%  if item.pk not in joined_courses  %}
                 <a href="{% url 'join-course-student' course_id=item.pk %}" class="btn btn-sm btn-secondary">{% trans 'Join' %}</a>
@@ -27,6 +27,7 @@
             class="btn btn-sm btn-primary">{% trans 'Detail' %}</a>
             {% endif %}        
         {% endif %}
+        -->
 
         {% if user.mentor %}
             {%  if item.pk not in joined_courses  %}
@@ -40,6 +41,8 @@
     {% else %}
         <p class="color-red">{% trans 'You are not registered!' %}</p>
     {% endif %}
+
+        <a href="/buy/course/{{item.pk}}" class="btn btn-success">{% trans 'Купить курс' %}</a>
 
     </td>
 

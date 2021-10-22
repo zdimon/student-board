@@ -39,3 +39,9 @@ class Student2Lab(models.Model):
     file = models.FileField(upload_to="labs", help_text=_('File or zip archive'), null=True, blank=True)
     is_approved = models.BooleanField(default=False)
     mark = models.IntegerField(default=0)
+
+class StudentPayment(models.Model):
+    user = models.ForeignKey(Student,on_delete=models.SET_NULL,null=True,blank=True)
+    course = models.ForeignKey(Course,on_delete=models.SET_NULL,null=True,blank=True)
+    is_done = models.BooleanField(default=False)
+    mark = models.CharField(max_length=50,null=True,blank=True)

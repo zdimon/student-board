@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Student, StudentGroup, Student2Course, Student2Lab
+from .models import Student, StudentGroup, Student2Course, Student2Lab, StudentPayment
 
 # Register your models here.
 
@@ -20,3 +20,7 @@ class Student2CourseGroupAdmin(admin.ModelAdmin):
 @admin.register(Student2Lab)
 class Student2LabAdmin(admin.ModelAdmin):
     list_display = ['lab', 'user', 'file', 'gitlink']
+
+@admin.register(StudentPayment)
+class StudentPaymentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'course', 'is_done']

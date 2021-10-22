@@ -2,6 +2,17 @@
 {% load i18n %} 
 {%  block content %}
 
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+             
+            
+                <tbody>
+                    {% for item in courses  %}
+                        {% include 'parts/course_item.html' %}          
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{% trans 'System of the remote education.' %}</h1>
     </div>

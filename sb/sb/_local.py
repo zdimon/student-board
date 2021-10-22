@@ -30,3 +30,9 @@ DATABASES = {
     }
 }
 '''
+
+
+LIQPAY_PUBLIC_KEY   = '...'
+LIQPAY_PRIVATE_KEY  = '...'
+LIQPAY_PROCESS_URL  = 'https://learning.webmonstr.com/liqpay/process'
+DOMAIN = 'http://localhost'
