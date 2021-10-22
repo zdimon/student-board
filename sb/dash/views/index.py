@@ -5,7 +5,7 @@ from course.models import Course
 
 def index(request):
     courses = Course.objects.all()
-    path = DATA_DIR+f'/index_{request.LANGUAGE_CODE}.md'
+    path = DATA_DIR+f'/index_ru.md'
     f = open(path, 'r')
     txt = f.read()
     f.close()
