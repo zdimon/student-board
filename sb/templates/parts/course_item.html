@@ -12,7 +12,7 @@
         {% endif %}   
         <div class="color-black">{{ item.desc | safe}}</div>  
 
-        <p>{% trans 'Уроков' %}: {{ item.count_lessons }} {% trans 'Лабораторных работ' %}: {{ item.count_labs }}</p>          
+        <p>{% trans 'Уроков' %}: <span class="text-bold">{{ item.count_lessons }}</span>. {% trans 'Лабораторных работ' %}: <span class="text-bold">{{ item.count_labs }}</span>.</p>          
         <p>{% trans 'Стоимость' %}: <span class="text-bold">1 500 грн.</span></p>     
     </td>
     
