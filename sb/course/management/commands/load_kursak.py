@@ -26,8 +26,8 @@ class Command(BaseCommand):
                 l = less[1]
                 pathmd = f'{DATA_DIR}/{lesson.course.name_slug}/{l}/{t.filename}'
                 
-                
-                pathpdf = f'{DATA_DIR}/{lesson.course.name_slug}/{less[1]}/{t.id}.pdf'
+                fnpdf = t.filename.replace('.md','.pdf')
+                pathpdf = f'{DATA_DIR}/{lesson.course.name_slug}/{less[1]}/{fnpdf}'
                 print(pathmd)
                 bashCommand = f'md2pdf {pathmd}'
                 print(bashCommand)
