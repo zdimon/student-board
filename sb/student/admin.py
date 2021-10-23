@@ -23,4 +23,4 @@ class Student2LabAdmin(admin.ModelAdmin):
 
 @admin.register(StudentPayment)
 class StudentPaymentAdmin(admin.ModelAdmin):
-    list_display = ['user', 'course','fname','lname','cost','mark','is_done']
+    list_display = ['user', 'course','fname','lname','cost','mark', 'type', 'is_done']

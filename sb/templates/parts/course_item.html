@@ -13,7 +13,7 @@
         <div class="color-black">{{ item.desc | safe}}</div>  
 
         <p>{% trans 'Уроков' %}: <span class="text-bold">{{ item.count_lessons }}</span>. {% trans 'Лабораторных работ' %}: <span class="text-bold">{{ item.count_labs }}</span>.</p>          
-        <p>{% trans 'Стоимость' %}: <span class="text-bold">1 500 грн.</span></p>     
+        <p>{% trans 'Стоимость' %}: <span class="text-bold">1 300 - 1 500 грн.</span></p>     
     </td>
     
     <td>
@@ -39,7 +39,7 @@
         {% endif %}
     {% endif %}
 
-        <a href="/prepay/{{item.pk}}" class="btn btn-success">{% trans 'Купить' %}</a>
+        <a href="/prepay/{{item.pk}}" class="btn btn-primary btn-user btn-block">{% trans 'Купить' %}</a>
 
     </td>
 

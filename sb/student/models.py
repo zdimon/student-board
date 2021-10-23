@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from course.models import Course, Lab
+from course.models import Course, Lab, Kursak
 from django.utils.translation import ugettext as _
 
 class StudentGroup(models.Model):
@@ -41,8 +41,17 @@ class Student2Lab(models.Model):
     mark = models.IntegerField(default=0)
 
 class StudentPayment(models.Model):
+
+    TYPE_CHOICES = (
+        ("course", "course"),
+        ("kursak", "kursak"),
+    )
+    type = models.CharField(max_length=9,
+                  choices=TYPE_CHOICES,
+                  default="course")
     user = models.ForeignKey(Student,on_delete=models.SET_NULL,null=True,blank=True)
     course = models.ForeignKey(Course,on_delete=models.SET_NULL,null=True,blank=True)
+    kursak = models.ForeignKey(Kursak,on_delete=models.SET_NULL,null=True,blank=True)
     is_done = models.BooleanField(default=False)
 
     mark = models.CharField(max_length=50,null=True,blank=True)
