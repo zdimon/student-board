@@ -4,16 +4,20 @@
         {% if not user.is_authenticated %}
                 
                 <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" 
-                        name="first_name"
-                        id="exampleFirstName" placeholder="{% trans 'First Name' %}">
-                        </div>
+
+
                         <div class="col-sm-4">
                         <input type="text" class="form-control form-control-user" 
                         name="surname"
                         id="exampleLastName" placeholder="{% trans 'Surname' %}">
                         </div>
+                        
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" 
+                        name="first_name"
+                        id="exampleFirstName" placeholder="{% trans 'First Name' %}">
+                        </div>
+
                         <div class="col-sm-4">
                         <input type="text" class="form-control form-control-user" 
                         name="last_name"
