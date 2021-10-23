@@ -8,6 +8,8 @@ from student.models import Student2Lab
 
 
 def detail_lab(request, lab_id):
+    if not request.user.is_authenticated:
+        return redirect('user-login')
     lab = Lab.objects.get(pk=lab_id)
     try:
         exists = Student2Lab.objects.get(user=request.user.student, lab=lab)
