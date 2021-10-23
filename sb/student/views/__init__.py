@@ -8,3 +8,4 @@ from .labs import *
 from .replanish import *
 from .detail_lab import * 
 from .login import *
+from .detail_kursak import *

@@ -40,6 +40,11 @@ class Student2Lab(models.Model):
     is_approved = models.BooleanField(default=False)
     mark = models.IntegerField(default=0)
 
+class Student2Kursak(models.Model):
+    user = models.ForeignKey(Student,on_delete=models.CASCADE)
+    kursak = models.ForeignKey(Kursak,on_delete=models.CASCADE)
+    
+
 class StudentPayment(models.Model):
 
     TYPE_CHOICES = (
@@ -62,3 +67,24 @@ class StudentPayment(models.Model):
     cost = models.IntegerField()
     email = models.CharField(max_length=250,null=True,blank=True)
 
+    def make_payment(self):
+        from student.models import Student2Kursak, Student2Course
+        self.is_done = True
+        self.save()
+        if self.type == 'kursak':
+            try:
+                s2k = Student2Kursak.objects.get(user=self.user,kursak=self.kursak)
+            except:
+                s2k = Student2Kursak()
+                s2k.user = self.user
+                s2k.kursak = self.kursak
+                s2k.save()
+
+        if self.type == 'course':
+            try:
+                s2k = Student2Course.objects.get(user=self.user,course=self.course)
+            except:
+                s2c = Student2Course()
+                s2c.user = self.user
+                s2c.course = self.course
+                s2c.save()

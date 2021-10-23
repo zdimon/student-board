@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Student, StudentGroup, Student2Course, Student2Lab, StudentPayment
+from .models import Student, Student2Kursak, StudentGroup, Student2Course, Student2Lab, StudentPayment
 
 # Register your models here.
 
@@ -15,6 +15,10 @@ class StudentGroupAdmin(admin.ModelAdmin):
 
 @admin.register(Student2Course)
 class Student2CourseGroupAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Student2Kursak)
+class Student2KursakGroupAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(Student2Lab)

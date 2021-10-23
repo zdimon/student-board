@@ -19,3 +19,10 @@ def pay_process(request):
     order.save()
     print('callback data', response)
     return render(request, 'dash/pay_success.html')
+
+
+@csrf_exempt
+def test_pay(request,order_id):
+    o =  StudentPayment.objects.get(pk=order_id)
+    o.make_payment()
+    return render(request, 'dash/pay_success.html')
