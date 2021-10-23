@@ -105,7 +105,7 @@ class Lesson(models.Model):
     @property
     def get_image(self):
         clear_name = self.name_slug.split('--')[1]
-        path = '%s%s/%s/images/1.png' % (DATA_DIR,self.course.name_slug,clear_name)
+        path = '%s/%s/%s/images/1.png' % (DATA_DIR,self.course.name_slug,clear_name)
         url = '/static/course/%s/%s/images/1.png' % (self.course.name_slug,clear_name)
         if isfile(path):
             # return path
