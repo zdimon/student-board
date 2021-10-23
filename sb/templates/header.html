@@ -80,47 +80,10 @@
                         <li class="nav-item dropdown no-arrow mx-1">
 
                             {% if not user.is_authenticated %}
-                            <a class="nav-link" href="#" id="messagesDropdown" role="button"
-                                
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" href="{% url 'user-login' %}" >
                                <i class="fas fa-sign-in-alt fa-lg fa-fw mr-2 text-gray-400"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Login
-                                </h6>
-                                <div class="p-5">
-                                    <form method="POST" action="{% url 'login' %}" class="user">
-                                    {% csrf_token %}
-                                            <div class="form-group">
-                                                <input type="email" 
-                                                name="username"
-                                                class="form-control form-control-user"
-                                                    id="exampleInputEmail" aria-describedby="emailHelp"
-                                                    placeholder="Enter Email Address...">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password"
-                                                 name="password"
-                                                 class="form-control form-control-user"
-                                                    id="exampleInputPassword" placeholder="Password">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox small">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label" for="customCheck">Remember
-                                                        Me</label>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-user btn-block">
-                                                Login
-                                            </button>
-                                            
-                                        </form>
-                                    </div>
-                            </div>
+                           
                                                            
                             {% endif %}
                         </li>
