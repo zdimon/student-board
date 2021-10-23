@@ -26,7 +26,9 @@
             <tbody>
             {% for l in lessons  %}
                 <tr>
-                   
+                   <td>
+                     {{ l.get_image }}
+                   </td>
                     <td>
                     <a href="{% url 'detail-lesson-student' lesson_id=l.pk %}">
                         {{ l.number }}. {{ l.title }}
