@@ -4,12 +4,10 @@
     <img class="img-fluid" src="{{ item.image.url }}" alt="#" />
     </td>
     <td>
-        {%  if item.pk not in joined_courses  %}
-            {{ item.name }}
-        {% else %}
+        
             <a href="{% url 'detail-course-student' course_id=item.pk %}" 
             >{{ item.name }}</a>
-        {% endif %}   
+        
         <div class="color-black">{{ item.desc | safe}}</div>  
 
         <p>{% trans 'Уроков' %}: <span class="text-bold">{{ item.count_lessons }}</span>. {% trans 'Лабораторных работ' %}: <span class="text-bold">{{ item.count_labs }}</span>.</p>          
