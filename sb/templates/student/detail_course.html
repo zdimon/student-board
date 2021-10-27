@@ -38,6 +38,9 @@
                             {{ l.desc|safe }}
                         </p>
                     {% endif %}
+                    {% if l.has_lab %}
+                        <a href="{% url 'detail-lab-student' lab_id=l.get_lab.pk %}">Лабораторные работы</a>
+                    {% endif %}
                     </td>
                    
                     <td>

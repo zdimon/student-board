@@ -143,7 +143,7 @@ class CourseLoader(object):
         out = []
         onlydirs = [f for f in listdir(DATA_DIR) if isdir(join(DATA_DIR, f))]
         for d in onlydirs:
-            if d.find('.') == -1 and d != 'articles':
+            if d.find('.') == -1 and d != 'articles' and d != 'kursak':
                 out.append(d)
         return out
 
