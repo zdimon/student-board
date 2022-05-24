@@ -444,3 +444,5 @@ class Kursak(models.Model):
     course = models.ForeignKey(Course,on_delete=models.CASCADE)
     file = models.FileField(upload_to='kursak')
     name_slug = models.CharField(max_length=250, blank=True, verbose_name=_(u'Slug'))
+
+

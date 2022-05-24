@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{% load crispy_forms_tags %}
+{%  block content %}
+
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{{ exam.name }}</h1>
+    </div>
+
+    {% if not obj %}
+    <div class="alert alert-danger">
+        <strong>{%  trans 'Экзамен не активен!' %}</strong>
+    </div>
+    <div class="alert alert-danger">
+        <strong>{%  trans 'Начало экзамена:' %} {{exam.date}}</strong>
+    </div>
+    {% else %}
+
+    <div class="card-body">
+        <div class="table-responsive">
+          
+                <h1 class="h3 mb-0 text-gray-800">
+                    {% trans 'Ваш билет' %}</h1>
+                      
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+           
+            <tbody>
+            {% for q in questions  %}
+                <tr>
+                    <td>{{ q.question.text }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">{% trans 'Ответ' %}</h1>
+        </div>
+        <form action="" enctype="multipart/form-data" method="POST">
+            {% csrf_token %} 
+        {{ form }}
+        <input type="submit" value="{% trans 'Загрузить файл' %}"  />
+        </form>
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %} 
+                <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+     {% endif %}
+        </div>
+    </div>
+
+    {% endif %}
+
+
+{% endblock %}

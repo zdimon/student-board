@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Student, Student2Kursak, StudentGroup, Student2Course, Student2Lab, StudentPayment
+from .models import Student, Student2Kursak, StudentGroup, Student2Course, Student2Lab, StudentPayment, Exam, Student2ExamQuestion, ExamQuestion, Student2ExamAnswer
 
 # Register your models here.
 
@@ -28,3 +28,23 @@ class Student2LabAdmin(admin.ModelAdmin):
 @admin.register(StudentPayment)
 class StudentPaymentAdmin(admin.ModelAdmin):
     list_display = ['user', 'course','fname','lname','cost','mark', 'type', 'is_done']
+
+
+@admin.register(Exam)
+class ExamAdmin(admin.ModelAdmin):
+    list_display = ['name', 'group', 'alias', 'date']
+
+@admin.register(ExamQuestion)
+class ExamQuestionAdmin(admin.ModelAdmin):
+    list_display = ['text', 'exam']
+
+
+@admin.register(Student2ExamQuestion)
+class Student2ExamQuestionAdmin(admin.ModelAdmin):
+    list_display = ['question', 'user']
+
+@admin.register(Student2ExamAnswer)
+class Student2ExamAnswerAdmin(admin.ModelAdmin):
+    list_display = ['user', 'exam', 'answer']
+
+    

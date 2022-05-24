@@ -1,5 +1,5 @@
 from course.models import  Course, Lesson, Topic
-from pl.settings import DATA_DIR, VIDEO_DIR
+from sb.settings import DATA_DIR, VIDEO_DIR
 from os import listdir
 from os.path import isfile, join, isdir
 

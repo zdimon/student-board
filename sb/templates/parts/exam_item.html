@@ -1,0 +1,28 @@
+ {% load i18n %} 
+<tr>
+    <td style="width: 16.66%">
+        {{ item.name }}
+        <br />
+        <a class="btn btn-success" href="{% url 'exam-pass-student' exam_id=item.id %}" 
+        >{% trans 'Сдать экзамен' %}
+        </a>
+    </td>
+    <td>
+        <h6 class="m-0 font-weight-bold text-primary">{% trans 'Вопросы' %}</h6>
+
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+ 
+          <tbody>
+                  {% for q in item.examquestion_set.all  %}
+                  <tr>
+                      <td style="width: 100%">
+                          {{ q.text }}
+                      </td>
+                     
+                  </tr>           
+                  {% endfor %}
+          </tbody>
+        </table>
+    </td>
+   
+</tr>  

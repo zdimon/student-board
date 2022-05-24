@@ -88,3 +88,30 @@ class StudentPayment(models.Model):
                 s2c.user = self.user
                 s2c.course = self.course
                 s2c.save()
+
+class Exam(models.Model):
+    name = models.CharField(max_length=250, blank=True, verbose_name=_(u'Name'))
+    alias = models.CharField(max_length=250, blank=True, verbose_name=_(u'Alias'))
+    date = models.DateTimeField()
+    group = models.ForeignKey(StudentGroup, on_delete=models.SET_NULL, null=True, blank=True) 
+
+    def __str__(self):
+        return self.name
+
+class ExamQuestion(models.Model):
+    text = models.TextField(max_length=250, blank=True, verbose_name=_(u'Text'))
+    exam = models.ForeignKey(Exam, on_delete=models.SET_NULL, null=True, blank=True) 
+
+    def __str__(self):
+        return self.text
+
+
+class Student2ExamQuestion(models.Model):
+    user = models.ForeignKey(Student,on_delete=models.CASCADE)
+    question = models.ForeignKey(ExamQuestion,on_delete=models.CASCADE)
+    exam = models.ForeignKey(Exam,on_delete=models.CASCADE, null=True, blank=True)
+
+class Student2ExamAnswer(models.Model):
+    user = models.ForeignKey(Student,on_delete=models.CASCADE)
+    answer = models.FileField(upload_to="exam_answer", null=True, blank=True)
+    exam = models.ForeignKey(Exam,on_delete=models.SET_NULL, null=True, blank=True)
