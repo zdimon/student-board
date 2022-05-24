@@ -5,10 +5,10 @@ from course.models import Course, Kursak
 
 def index(request):
     courses = Course.objects.all()
-    kursaks = Kursak.objects.all()
+    # kursaks = Kursak.objects.all()
     path = DATA_DIR+f'/index_ru.md'
-    f = open(path, 'r')
-    txt = f.read()
-    f.close()
-    index = parse_md(txt)    
-    return render(request, 'dash/index.html', {'text': index, "courses": courses, "kursaks": kursaks})
+    #f = open(path, 'r')
+    #txt = f.read()
+    #f.close()
+    #index = parse_md(txt)    
+    return render(request, 'dash/index.html', {"courses": courses})
