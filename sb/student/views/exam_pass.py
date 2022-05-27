@@ -51,6 +51,7 @@ def exam_pass(request, exam_id):
     if request.method == 'POST':
         form = Student2ExamAnswerForm(request.POST,request.FILES)
         if form.is_valid():
+            Student2ExamAnswer.objects.filter(user=student, exam=exam).delete()
             form.save()
             messages.info(request, _('Thank you. Your work has saved and sended to the mentor.'))
         else:
