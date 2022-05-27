@@ -42,7 +42,7 @@ def exam_pass(request, exam_id):
     try:
         obj = Student2ExamAnswer.objects.get(user=request.user.student, exam=exam)
     except:
-        cnt = ExamQuestion.objects.filter(user=request.user.student, exam=exam).count()
+        cnt = Student2ExamQuestion.objects.filter(user=request.user.student, exam=exam).count()
         if cnt == 0:
             bilet_gen(exam,student)
         obj = Student2ExamAnswer.objects.create(user=student, exam=exam)
