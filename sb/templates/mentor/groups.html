@@ -24,12 +24,19 @@
                             <th class="sorting sorting_asc" >
                                 {% trans 'ФИО' %}
                             </th>
-                        
+                            <th class="sorting sorting_asc" >
+                                {% trans 'Экзамен' %}
+                            </th>                        
                         </tr>
                     </thead>
                     {% for student in group.group.student_set.all  %}
                         <tr>
-                            <td>{{ student.surname }} {{ student.fname }} {{ student.lname }}</td>
+                            <td>
+                                {{ student.surname }} {{ student.fname }} {{ student.lname }}
+                            </td>
+                            <td>
+                                {{ student.get_exam_link }}
+                            </td>
                         </tr>
                     {% endfor %}                     
                 </tbody>

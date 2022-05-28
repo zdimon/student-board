@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from course.models import Course, Lab, Kursak
 from django.utils.translation import ugettext as _
+from django.utils.safestring import mark_safe
 
 class StudentGroup(models.Model):
     name = models.CharField(max_length=50)
@@ -25,6 +26,22 @@ class Student(User):
             return self.image.url
         except:
             return '/static/img/user.svg'
+            
+    @property
+    def get_exam_link(self):
+        try:
+            exam = Exam.objects.get(group=self.group)
+        except:
+            return _('Экзамена нет')
+        links = []
+        for a in Student2ExamAnswer.objects.filter(exam=exam, user=self):
+            if a.answer:
+                links.append('<a target=_blank href="%s" >%s</a>' % (a.answer.url,"Ответ"))
+            else:
+                links.append('<span style="color: red">Ответа нет</span>' % (a.answer.url,"Ответ"))
+        out = '</br>'.join(links)
+        return mark_safe(out)
+
 
 
 class Student2Course(models.Model):
