@@ -9,6 +9,10 @@ class StudentGroup(models.Model):
 
     def __str__(self):
         return self.name
+    
+    @property
+    def count(self):
+        return Student.objects.filter(group=self).count()
 
 
 class Student(User):

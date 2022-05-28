@@ -10,7 +10,7 @@ class StudentAdmin(admin.ModelAdmin):
 
 @admin.register(StudentGroup)
 class StudentGroupAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['name', 'count']
 
 
 @admin.register(Student2Course)
