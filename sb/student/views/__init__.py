@@ -10,3 +10,4 @@ from .detail_lab import *
 from .login import *
 from .detail_kursak import *
 from .exam_pass import *
+from .mygroup import *
