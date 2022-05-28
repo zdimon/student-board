@@ -24,14 +24,16 @@
 
             {% if role == 'mentor' %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'mentor-students' %}">
-                        <i class="fas fa-fw fa-blind"></i>
-                        <span>{% trans 'Students' %}</span></a>
+                    <a class="nav-link" href="{% url 'mentor-groups' %}">
+                        <i class="fas fa-fw fa-sitemap"></i>
+                        <span>{% trans 'Группы' %}</span></a>
                 </li>
             {% endif %}
 
-            <!-- Divider -->
+            <!-- Divider 
+
             <hr class="sidebar-divider">
+            -->
 
             <!-- Heading -->
 

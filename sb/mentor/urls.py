@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import registration, cabinet, join_course, students
+from .views import registration, cabinet, join_course, students, groups
 
 urlpatterns = [ 
 
@@ -8,4 +8,5 @@ urlpatterns = [
     path('cabinet',cabinet, name="mentor-cabinet"),
     path('join/course/<int:course_id>',join_course, name="join-course-mentor"),
     path('students',students, name="mentor-students"),
+    path('groups',groups, name="mentor-groups"),
 ]

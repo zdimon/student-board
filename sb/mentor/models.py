@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from course.models import Course
+from student.models import StudentGroup
 
 
 class Mentor(User):
@@ -22,4 +23,9 @@ class Mentor(User):
 class Mentor2Course(models.Model):
     user = models.ForeignKey(Mentor,on_delete=models.CASCADE)
     course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    is_approved = models.BooleanField(default=False)
+
+class Mentor2Group(models.Model):
+    group = models.ForeignKey(StudentGroup,on_delete=models.CASCADE)
+    user = models.ForeignKey(Mentor,on_delete=models.CASCADE, null=True, blank=True)
     is_approved = models.BooleanField(default=False)
