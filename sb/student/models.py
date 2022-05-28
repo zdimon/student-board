@@ -35,9 +35,10 @@ class Student(User):
             return _('Экзамена нет')
         links = []
         for a in Student2ExamAnswer.objects.filter(exam=exam, user=self):
-            if a.answer:
+            
+            try:
                 links.append('<a target=_blank href="%s" >%s</a>' % (a.answer.url,"Ответ"))
-            else:
+            except:
                 links.append('<span style="color: red">Ответа нет</span>' % (a.answer.url,"Ответ"))
         out = '</br>'.join(links)
         return mark_safe(out)
