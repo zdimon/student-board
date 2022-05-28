@@ -39,7 +39,7 @@ class Student(User):
             if a.answer:
                 links.append('<a target=_blank href="%s" >%s</a>' % (a.answer.url,"Ответ"))
             else:
-                links.append('<span style="color: red">Ответа нет</span>' % (a.answer.url,"Ответ"))
+                links.append('<span style="color: red">Ответа нет</span>')
         out = '</br>'.join(links)
         return mark_safe(out)
 
