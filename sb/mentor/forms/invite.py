@@ -5,4 +5,4 @@ from django import forms
 class InviteForm(ModelForm):
     class Meta:
         model = Invitation
-        fields = [ 'email', 'name', 'group']
+        fields = [ 'email', 'name', 'group', 'course']

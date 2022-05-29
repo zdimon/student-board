@@ -27,6 +27,7 @@ def invite(request):
             link = '%s' % url
             content = tpl.content
             t = Template(content)
+            cmname = '%s (%s)' % (invitation.course.name, invitation.group.name)
             c = Context({"name": invitation.name, 
                          "coursename": invitation.group.name,
                          "link": link})

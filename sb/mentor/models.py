@@ -39,6 +39,7 @@ class Invitation(models.Model):
     email = models.CharField(max_length=250)
     name = models.CharField(max_length=250)
     group = models.ForeignKey(StudentGroup,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE, null=True, blank=True)
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     is_approved = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
