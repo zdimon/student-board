@@ -24,7 +24,7 @@ def invite(request):
             tpl =  EmailTemplate.objects.get(alias='invitation')
             title = tpl.title
             url = '%s/%s/%s' % (DOMAIN,'student/invite',invitation.uuid)
-            link = '<a href="%s">%s</a>' % (url,url)
+            link = '%s' % url
             content = tpl.content
             t = Template(content)
             c = Context({"name": invitation.name, 
