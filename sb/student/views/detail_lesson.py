@@ -12,9 +12,9 @@ def detail_lesson(request, lesson_id):
         return redirect('user-login')
     
     lesson = Lesson.objects.get(pk=lesson_id)
-    if not Course.is_paid(request.user.student,lesson.course):
-        messages.info(request, 'Для просмотра необходимо оплатить курс.')
-        return redirect('prepay', course_id=lesson.course.pk)
+    if not Course.is_paid(request.user.student,lesson):
+        messages.info(request, 'Для просмотра урока необходима оплата.')
+        return redirect('prepay', course_id=lesson.course.pk, lesson_id=lesson_id)
 
     topics = Topic.objects.filter(lesson=lesson)
     try:

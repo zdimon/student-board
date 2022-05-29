@@ -11,3 +11,6 @@ from .login import *
 from .detail_kursak import *
 from .exam_pass import *
 from .mygroup import *
+from .invite import *
+from .newlesson import *
+from .paylesson import *

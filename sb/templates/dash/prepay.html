@@ -1,13 +1,27 @@
 {% extends 'layout.html' %}
 {% load i18n %} 
 {%  block content %}
-        <h1>{% trans 'Покупка курса. Шаг 1' %}</h1>
-        <h2>{{ course.name }}</h2>
-          <div class="text-center">
-            <h1 class="h4 text-gray-900 mb-4">
-              {% trans 'Заполните форму' %}
-            </h1>
-            </div>
-        {% include 'parts/pay_form.html' %}
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">{% trans 'Покупка урока' %}</h1>
+  <h1 class="h6 mb-0"> {{ lesson.title }} </h6>
+</div>
+
+<div class="card shadow mb-4">
+   
+  <div class="card-body">
+    <h1 class="h5 mb-0">
+      {% trans 'У вас на счету' %}: {{  user.student.account }} грн.
+    </h1>
+    <a href="" class="btn btn-primary btn-user btn-block">
+      {% trans 'Пополнить счет' %}
+    </a>   
+    <a href="{% url 'student-paylesson' lesson_id=lesson.pk %}" class="btn btn-primary btn-user btn-block">
+      {% trans 'Оплатить урок со счета.' %}
+    </a>   
+  </div>
+</div>
+
+        
           
 {% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{%  block content %}
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% trans 'Пригласить студента' %}</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+   
+        <div class="card-body">
+            <div class="">
+                <form class="user" method="POST" action="">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <div>{% trans 'Email' %}</div> {{ form.email }}
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <div>{% trans 'Имя' %}</div> {{ form.name }}
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <div>{% trans 'Группа' %}</div> {{ form.group }}
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                {% trans 'Отправить приглашение' %}
+                            </button>                        
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

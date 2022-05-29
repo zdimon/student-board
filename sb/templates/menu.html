@@ -23,11 +23,7 @@
             {% endif %}
 
             {% if role == 'mentor' %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'mentor-groups' %}">
-                        <i class="fas fa-fw fa-sitemap"></i>
-                        <span>{% trans 'Группы' %}</span></a>
-                </li>
+                {% include 'mentor_menu.html' %}
             {% endif %}
 
             <!-- Divider 
@@ -68,30 +64,10 @@
                 <a class="nav-link color-white link-small" href="{% url 'about' %}">ОБ АВТОРЕ</a>
             </div>
 
-            <div class="text-center d-none d-md-inline">
-                <a class="nav-link color-white link-small" href="{% url 'oferta' %}">ПУБЛИЧНАЯ ОФЕРТА</a>
-            </div>
+           
 
             <div class="text-center d-none d-md-inline">
-                <a class="nav-link color-white link-small" href="{% url 'delivery' %}">ДОГОВОР О ДОСТАВКЕ</a>
-            </div>
-
-            <div class="text-center d-none d-md-inline">
-                <a class="nav-link color-white link-small" href="{% url 'confident' %}">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
-            </div>
-
-            <div class="text-center d-none d-md-inline">
-                <div class="color-white">
-                Контактные данные
-                </div>
-
-                <div class="color-white">
-                 email: zdimon77@gmail.com
-                </div>
-                <div class="color-white">
-                 телефон: +380507750630
-                </div>
-
+                
                 <div class="color-white">
                   <img width="150" src="/static/img/liq.png" />
                 </div>                

@@ -1,8 +1,14 @@
+from statistics import mode
 from django.db import models
 from django.contrib.auth.models import User
-from course.models import Course, Lab, Kursak
+from course.models import Course, Lab, Kursak, Lesson
 from django.utils.translation import ugettext as _
 from django.utils.safestring import mark_safe
+import uuid
+class EmailTemplate(models.Model):
+    title = models.CharField(max_length=250)
+    content = models.TextField()
+    alias = models.CharField(max_length=50)
 
 class StudentGroup(models.Model):
     name = models.CharField(max_length=50)
@@ -16,6 +22,7 @@ class StudentGroup(models.Model):
 
 
 class Student(User):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     fname = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
     lname = models.CharField(max_length=50)
@@ -23,6 +30,11 @@ class Student(User):
     account = models.IntegerField(default=0)
     phone = models.CharField(max_length=100)
     group = models.ForeignKey(StudentGroup, on_delete=models.SET_NULL, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    @property
+    def full_name(self):
+        return '%s %s %s' % (self.surname, self.fname, self.lname)
 
     @property
     def get_image_url(self):
@@ -137,3 +149,12 @@ class Student2ExamAnswer(models.Model):
     user = models.ForeignKey(Student,on_delete=models.CASCADE)
     answer = models.FileField(upload_to="exam_answer", null=True, blank=True)
     exam = models.ForeignKey(Exam,on_delete=models.SET_NULL, null=True, blank=True)
+
+class StudentGroup2Course(models.Model):
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    group = models.ForeignKey(StudentGroup,on_delete=models.CASCADE)
+
+class LessonPayment(models.Model):
+    user = models.ForeignKey(Student,on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson,on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)

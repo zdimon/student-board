@@ -1,0 +1,18 @@
+{% load i18n %} 
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'mentor-groups' %}">
+        <i class="fas fa-fw fa-sitemap"></i>
+        <span>{% trans 'Группы' %}</span></a>
+</li>
+
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'mentor-students' %}">
+        <i class="fas fa-fw fa-user"></i>
+        <span>{% trans 'Студенты' %}</span></a>
+</li>
+
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'mentor-courses' %}">
+        <i class="fas fa-fw fa-briefcase"></i>
+        <span>{% trans 'Курсы' %}</span></a>
+</li>

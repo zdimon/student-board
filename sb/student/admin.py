@@ -1,12 +1,14 @@
 from django.contrib import admin
-from .models import Student, Student2Kursak, StudentGroup, Student2Course, Student2Lab, StudentPayment, Exam, Student2ExamQuestion, ExamQuestion, Student2ExamAnswer
+from .models import Student, Student2Kursak, StudentGroup, Student2Course, Student2Lab, StudentPayment, Exam, Student2ExamQuestion, ExamQuestion, Student2ExamAnswer, EmailTemplate, StudentGroup2Course, LessonPayment
 
 # Register your models here.
 
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ['username', 'fname', 'lname', 'group']
+    change_form_template = 'loginas/change_form.html'
+    list_display = ['username', 'surname', 'fname', 'lname', 'group', 'account']
+    list_editable = ['account']
 
 @admin.register(StudentGroup)
 class StudentGroupAdmin(admin.ModelAdmin):
@@ -47,4 +49,14 @@ class Student2ExamQuestionAdmin(admin.ModelAdmin):
 class Student2ExamAnswerAdmin(admin.ModelAdmin):
     list_display = ['user', 'exam', 'answer']
 
+@admin.register(EmailTemplate)
+class EmailTemplateAdmin(admin.ModelAdmin):
+    list_display = ['title', 'alias']
     
+@admin.register(StudentGroup2Course)
+class StudentGroup2CourseAdmin(admin.ModelAdmin):
+    list_display = ['course', 'group']
+
+@admin.register(LessonPayment)
+class LessonPaymentAdmin(admin.ModelAdmin):
+    list_display = ['lesson', 'user']
