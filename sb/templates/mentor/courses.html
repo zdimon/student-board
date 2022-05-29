@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{%  block content %}
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% trans 'Курсы' %}</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+   
+        <div class="card-body">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr role="row">
+                        <th>
+                            {% trans 'Название' %}
+                        </th>     
+                        <th>
+                            {% trans 'Действия' %}
+                        </th>                    
+                    </tr>
+                </thead>           
+                <tbody>
+                    {% for course in courses  %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'mentor-course-detail' course_id=course.pk %}">{{ course.course.name }}</a>
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+              </table>            
+        </div>
+    </div>
+{% endblock %}

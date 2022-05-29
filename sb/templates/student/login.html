@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{%  block content %}
+        <h1>{% trans 'Вход на сайт' %}</h1>
+        
+<div class="dropdown-list shadow animated--grow-in">
+                               
+<div class="p-5">
+        <form method="POST" action="" class="user">
+        {% csrf_token %}
+                <div class="form-group">
+                <input type="email" 
+                name="username"
+                class="form-control form-control-user"
+                        id="exampleInputEmail" aria-describedby="emailHelp"
+                        placeholder="Enter Email Address...">
+                </div>
+                <div class="form-group">
+                <input type="password"
+                        name="password"
+                        class="form-control form-control-user"
+                        id="exampleInputPassword" placeholder="Password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                Login
+                </button>
+                
+        </form>
+        </div>
+</div>
+
+  
+{% endblock %}

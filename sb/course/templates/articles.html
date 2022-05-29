@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block carousel %} {% endblock %}
+{% block content %}
+
+<div class="section margin-top_50">
+    <div class="container"> 
+        <div class="row">
+            <div class="col-md-12 layout_padding_2">
+                <h1>Статьи</h1>
+                    {% for cat in catalog %}
+                        <div>
+                            <h2>{{ cat }}</h2>
+                            {% for article in cat.article_set.all %}
+                                <p><a href="{{ article.get_absolute_url }}">{{ article }}</a></p>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% endblock %}

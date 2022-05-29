@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block carousel %} {% endblock %}
+{% block content %}
+
+<div class="section margin-top_50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 layout_padding_2">
+                <div class="full">
+                    <div class="heading_main text_align_left">
+                       <h2>Покупка урока</h2>
+
+                    </div>
+                    <div class="full">
+                        <p class="big-text">Курс: 
+                            <a href="{{ lesson.course.get_absolute_url }}">
+                                {{ lesson.course }}
+                            </a>
+                        </p>
+                        <p class="big-text">Урок: 
+                            <a href="{{ lesson.get_absolute_url }}">
+                                {{ lesson }}
+                            </a>
+                        </p>
+                        <p class="big-text">Стоимость: 
+                           {{ price }} грн.
+                        </p>
+                    </div>
+                    <div class="full center">
+                        
+                        <a>{{ button | safe }}</a>
+                    </div>
+                    
+                    <div class="full" style="padding-top: 40px; text-align: center;">
+
+                        <a href="{% url 'oferta' %}"> ПУБЛИЧНАЯ ОФЕРТА </a> &nbsp;
+                        <a href="{% url 'delivery' %}"> ДОГОВОР О ДОСТАВКЕ </a>
+                        <a href="{% url 'confident' %}"> ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ </a>
+                       
+                    </div>
+
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% endblock %}

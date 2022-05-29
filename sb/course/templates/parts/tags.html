@@ -1,0 +1,8 @@
+{% if lesson.tags %}
+<div class="tag-block">
+    Теги:
+    {% for tag in lesson.tags %}
+        <a href="{% url 'show-tag' tag=tag%}">{{ tag }}</a>
+    {% endfor %}
+</div>
+{% endif %}

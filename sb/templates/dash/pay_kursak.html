@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{%  block content %}
+
+         <h1>{% trans 'Покупка курсовой работы.' %}</h1>
+         <h2>  {{ kursak.title }} </h2>
+
+         {% include 'parts/pay_form.html' %}
+
+{% endblock %}

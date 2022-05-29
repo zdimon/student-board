@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block carousel %} {% endblock %}
+
+{% block meta_title %} {{ course.meta_title }} {% endblock %}
+
+{% block meta_description %} {{ course.meta_description }} {% endblock %}
+
+{% block meta_keywords %} {{ course.meta_keywords }} {% endblock %}
+
+{% block content %}
+
+<div class="section margin-top_50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 layout_padding_2">
+                <div class="full">
+                    <div class="heading_main text_align_left">
+                       <h2>{{ course.name }}</h2>
+                    </div>
+                    <div class="full">
+                        <div class="row">
+                            {{ course.desc | safe }}
+                        </div>
+                    </div>
+                    {% for lesson in lessons %}
+                    <div style="clear: both;"></div>
+                    <div class="lesson-item">
+                        
+                        <div class="lesson-image">{{ lesson.get_image }}</div>
+                        <div class="lesson-desc">
+                        <p><strong><a  href="{{ lesson.get_absolute_url }}">
+                            Урок {{ lesson.number }}.
+                        </a> </strong></p>
+                        
+                        <a  href="{{ lesson.get_absolute_url }}">{{ lesson.title }}</a>
+                        <p> {{ lesson.desc }}</p>
+                        <p>
+                            {% if not lesson.has_video %}
+                               
+                            {% else %}
+                                <span class="green"> 
+                                    <img src="/static/images/video.png"> &nbsp; Есть видео. 
+                                </span>
+                            {% endif %}
+                        </p>      
+                        {% include 'parts/tags.html' with lesson=lesson %}
+                        </div>
+                        <!--
+                        <div class="buy-button">
+                            {% if lesson.id in paid %}
+                            <a href="{{ lesson.get_absolute_url }}" class="btn btn-primary btn-sm">
+                                Смотреть
+                            </a>
+                            {% else %}
+                            <a href="{% url 'pay' lesson_id=lesson.id  %}" class="btn btn-warning btn-sm">
+                                Купить за {{ price }} грн.
+                            </a>
+                            {% endif %}
+                        </div>
+                        -->
+                    </div>
+                    <div style="clear: both;"></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% endblock %}

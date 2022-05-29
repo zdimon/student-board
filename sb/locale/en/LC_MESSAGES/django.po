@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-12 10:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: course/models.py:28 course/models.py:74 course/models.py:156
+#: course/models.py:266 course/models.py:329 templates/dash/courses.html:20
+msgid "Name"
+msgstr ""
+
+#: course/models.py:29 course/models.py:80
+msgid "Description"
+msgstr ""
+
+#: course/models.py:30 course/models.py:77
+msgid "Image"
+msgstr ""
+
+#: course/models.py:35
+msgid "Is published?"
+msgstr ""
+
+#: course/models.py:75
+msgid "Number"
+msgstr ""
+
+#: course/models.py:76
+msgid "Is active?"
+msgstr ""
+
+#: course/models.py:78 course/models.py:159
+msgid "Course"
+msgstr ""
+
+#: course/models.py:84
+msgid "Is new?"
+msgstr ""
+
+#: course/models.py:158
+msgid "Lesson"
+msgstr ""
+
+#: course/models.py:267
+msgid "Variants"
+msgstr ""
+
+#: course/models.py:325
+msgid "Email"
+msgstr ""
+
+#: course/models.py:335 course/models.py:372
+msgid "Title"
+msgstr ""
+
+#: course/models.py:373
+msgid "Content"
+msgstr ""
+
+#: course/templates/admin/newsletter_list.html:150
+msgid "Home"
+msgstr ""
+
+#: course/templates/admin/newsletter_list.html:169
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: course/templates/admin/newsletter_list.html:198
+msgid "Filter"
+msgstr ""
+
+#: course/templates/admin/newsletter_list.html:232
+msgid "Please correct the error below."
+msgstr ""
+
+#: course/templates/admin/newsletter_list.html:232
+msgid "Please correct the errors below."
+msgstr ""
+
+#: course/templates/admin/newsletter_list.html:259
+msgid "Save"
+msgstr ""
+
+#: student/models.py:37
+msgid "Link to the git repo"
+msgstr ""
+
+#: student/models.py:38
+msgid "File or zip archive"
+msgstr ""
+
+#: student/views/detail_lab.py:26
+msgid "You already sent this lab!"
+msgstr ""
+
+#: student/views/detail_lab.py:29
+msgid "Thank you. Your work has saved and sended to the mentor."
+msgstr ""
+
+#: student/views/join_course.py:15
+msgid "You was joined to this course."
+msgstr ""
+
+#: student/views/labs.py:29
+msgid "Your report was deleted."
+msgstr ""
+
+#: templates/dash/courses.html:6
+msgid "All courses"
+msgstr ""
+
+#: templates/dash/courses.html:21
+msgid "Actions"
+msgstr ""
+
+#: templates/dash/index.html:6
+msgid "System of the remote education."
+msgstr ""
+
+#: templates/menu.html:10
+msgid "HNTU"
+msgstr ""
+
+#: templates/menu.html:10
+msgid "Student board"
+msgstr ""
+
+#: templates/menu.html:20
+msgid "Courses"
+msgstr ""
+
+#: templates/menu.html:37
+msgid "Student registration"
+msgstr ""
+
+#: templates/menu.html:42
+msgid "Mentor registration"
+msgstr ""
+
+#: templates/parts/course_item.html:14
+msgid "Mentor"
+msgstr ""
+
+#: templates/parts/course_item.html:15
+msgid "Lessons"
+msgstr ""
+
+#: templates/parts/course_item.html:20
+msgid "Join"
+msgstr ""
+
+#: templates/parts/course_item.html:23
+msgid "Detail"
+msgstr ""
+
+#: templates/student/detail_course.html:10 templates/student/detail_lab.html:12
+#: templates/student/labs.html:6 templates/student_menu.html:16
+msgid "Labs"
+msgstr ""
+
+#: templates/student/detail_course.html:18
+msgid "Educational material"
+msgstr ""
+
+#: templates/student/detail_lab.html:26
+msgid "Report"
+msgstr ""
+
+#: templates/student/detail_lab.html:31
+msgid "This lab was sent."
+msgstr ""
+
+#: templates/student/detail_lab.html:35
+msgid "Delete"
+msgstr ""
+
+#: templates/student/detail_lab.html:56
+msgid "Submit Lab"
+msgstr ""
+
+#: templates/student/detail_lesson.html:9
+msgid "Pass of the lab"
+msgstr ""
+
+#: templates/student/labs.html:40
+msgid "Empty!"
+msgstr ""
+
+#: templates/student/labs.html:42
+msgid "Pass off"
+msgstr ""
+
+#: templates/student/labs.html:47
+msgid "Done!"
+msgstr ""
+
+#: templates/student/registration.html:15
+msgid "First Name"
+msgstr ""
+
+#: templates/student/registration.html:20
+msgid "Surname"
+msgstr ""
+
+#: templates/student/registration.html:25
+msgid "Last Name"
+msgstr ""
+
+#: templates/student/registration.html:35
+msgid "Select the group"
+msgstr ""
+
+#: templates/student/replanish.html:6 templates/student_menu.html:25
+msgid "Replanish account"
+msgstr ""
+
+#: templates/student/replanish.html:16
+msgid "On your account"
+msgstr ""
+
+#: templates/student_menu.html:3
+msgid "My courses"
+msgstr ""

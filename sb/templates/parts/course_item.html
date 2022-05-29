@@ -1,0 +1,47 @@
+ {% load i18n %} 
+<tr>
+    <td style="width: 16.66%">
+    <img class="img-fluid" src="{{ item.image.url }}" alt="#" />
+    </td>
+    <td>
+        
+            <a href="{% url 'detail-course-student' course_id=item.pk %}" 
+            >{{ item.name }}</a>
+        
+        <div class="color-black">{{ item.desc | safe}}</div>  
+
+        <p>{% trans 'Уроков' %}: <span class="text-bold">{{ item.count_lessons }}</span>. {% trans 'Лабораторных работ' %}: <span class="text-bold">{{ item.count_labs }}</span>.</p>  
+        <!--        
+        <p>{% trans 'Стоимость' %}: <span class="text-bold">1 300 - 1 500 грн.</span></p>
+        -->     
+    </td>
+    <!-- 
+    <td>
+    {% if user.is_authenticated %}
+        
+        {% if user.student %}
+            {%  if item.pk not in joined_courses  %}
+                <a href="{% url 'join-course-student' course_id=item.pk %}" class="btn btn-sm btn-secondary">{% trans 'Join' %}</a>
+            {% else %}
+                <a href="{% url 'detail-course-student' course_id=item.pk %}" 
+            class="btn btn-sm btn-primary">{% trans 'Detail' %}</a>
+            {% endif %}        
+        {% endif %}
+        
+
+        {% if user.mentor %}
+            {%  if item.pk not in joined_courses  %}
+                <a href="{% url 'join-course-mentor' course_id=item.pk %}" class="btn btn-sm btn-secondary">{% trans 'Be a mentor' %}</a>
+            {% else %}
+                <a href="{% url 'detail-course-student' course_id=item.pk %}" 
+            class="btn btn-sm btn-primary">{% trans 'Detail' %}</a>
+            {% endif %}        
+        {% endif %}
+    {% endif %}
+
+        <a href="/prepay/{{item.pk}}" class="btn btn-primary btn-user btn-block">{% trans 'Купить' %}</a>
+
+    </td>
+    -->
+
+</tr>  

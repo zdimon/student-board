@@ -14,4 +14,5 @@ System for the education.
 
     ./bin/run
 
+[иконки](https://ampsinc.net/font-awesome-icons/)
 

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{%  block content %}
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% trans 'Replanish account' %}</h1>
+    </div>
+
+
+
+<div class="card shadow mb-4">
+    
+    <div class="card-body">
+        <div class="table-responsive">
+
+          <h4>{% trans 'On your account' %}: {{ user.student.account }} </h4>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

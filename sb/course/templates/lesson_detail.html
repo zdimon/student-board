@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+{% block carousel %} {% endblock %}
+
+
+{% block meta_title %} {{ lesson.course.meta_title }} | {{ lesson.meta_title }} {% endblock %}
+
+{% block meta_description %} {{ lesson.course.meta_title }} | {{ lesson.meta_description }} {% endblock %}
+
+{% block meta_keywords %} {{ lesson.meta_keywords }} {% endblock %}
+
+{% block content %}
+<div class="section margin-top_50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 layout_padding_2">
+                {% if is_free %}
+                <div class="full">
+                    <div class="heading_main text_align_left">
+                       <h2>
+                           <a href="{% url 'course_detail' slug=lesson.course.name_slug %}">{{ lesson.course }}</a>/
+                           {{ lesson.title }}
+                        </h2>
+                    </div>
+                    {% include 'parts/tags.html' with lesson=lesson %}
+                    <div class="text_align_right">
+                        <a href="{{ lesson.course.get_absolute_url }}">Назад</a>
+                     </div>
+                    {% for topic in topics %}
+                        <div class="full"> 
+                            <div class="heading_main2">
+                                <h2></h2>
+                            </div>
+                            <div style="text-align: center;" class="full">
+                            {{topic.video_tag}}
+                            </div>
+                            <div style="clear: both;"></div>
+                            {{ topic.content }}
+
+                        </div>   
+                    {% endfor %} 
+               
+                </div>
+                {% else %}
+                
+                    <div class="full">
+                        <div class="heading_main text_align_left">
+                            <h2>
+                                <a href="{% url 'course_detail' slug=lesson.course.name_slug %}">{{ lesson.course }}</a>/
+                                {{ lesson.title }}
+                            </h2>
+                        </div>
+                        
+                            {% for topic in topics %}
+                                <div class="full"> 
+                                    {{ topic.short_content | safe }}
+                                </div>   
+                            {% endfor %}
+                    </div>
+
+                  
+                    {% include 'includes/pay_block.html' %}
+                {% endif %}
+
+                <div class="text_align_right">
+                    <a href="{{ lesson.course.get_absolute_url }}">Назад</a>
+                 </div> 
+            </div>
+        </div>        
+    </div>
+</div>
+
+
+<div class="section contact_section" style="background:#12385b;">
+    <div class="container">
+        <div class="row">
+            <div class="layout_padding col-lg-12 col-md-12 col-sm-12">
+                <div class="contact_form">
+                    <span class="white-title">Задать вопрос, прокомментировать.</span>
+                    <form action="{% url 'save_comment' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="lesson_id" value="{{ lesson.id }}" />
+                    <fieldset>
+                        
+                        <div class="full field">
+                            <textarea placeholder="Сообщение" name="message"></textarea>
+                        </div>
+                        <div class="full field">
+                            <div class="center"><button>Отправить</button></div>
+                        </div>
+                    </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block customjs %} 
+<script>
+    	$(window).on('load', function() { 
+		$('img').each(function(){
+            $(this).addClass('img-responsive');
+        }) 
+		
+	});
+</script>
+<style>
+    video {
+        width: 100%; 
+    }
+</style>
+{% endblock %} 
