@@ -11,9 +11,38 @@
 <div class="card shadow mb-4">
     
     <div class="card-body">
-        <div class="table-responsive">
+        <div >
 
           <h4>{% trans 'On your account' %}: {{ user.student.account }} </h4>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                    {% trans 'Выберите сумму' %}:
+                        <select class="form-control form-control-user" 
+                            name="amount"
+                            >
+                            <option value="50">50 грн.</option>
+                            <option value="50">100 грн.</option>
+                            <option value="50">200 грн.</option>
+                            <option value="50">500 грн.</option>
+                            <option value="50">1000 грн.</option>
+                            <option value="50">2000 грн.</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                            {% trans 'Пополнить' %}
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            {% if form %}
+                {{  form | safe }}
+            {% endif %}
 
         </div>
     </div>

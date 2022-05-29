@@ -17,5 +17,5 @@ urlpatterns = [
    path('pay/process',pay_process, name="pay-process"),
    path('prepay/<int:course_id>/<int:lesson_id>',prepay, name="prepay"),
    path('pay/kursak/<int:kursak_id>',pay_kursak, name="pay-kursak"),
-   path('pay/test/<int:order_id>',test_pay, name="test-pay"),
+   path('pay/test/<int:order_id>',test_pay, name="test-pay")
 ]
