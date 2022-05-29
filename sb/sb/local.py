@@ -3,6 +3,12 @@ ALL_FREE=True
 VIDEO_DIR = '/home/zdimon/Videos/course-data'
 DOMAIN='http://localhost:8001'
 
+LIQPAY_PUBLIC_KEY   = '...'
+LIQPAY_PRIVATE_KEY  = '...'
+LIQPAY_PROCESS_URL  = 'https://learning.webmonstr.com/liqpay/process'
+EMAIL_ADMIN = 'zdimon77@gmail.com'
+
+
 import os
 from .settings import BASE_DIR
 DATABASES = {

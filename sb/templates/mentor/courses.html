@@ -24,7 +24,7 @@
                     {% for course in courses  %}
                         <tr>
                             <td>
-                                <a href="{% url 'mentor-course-detail' course_id=course.pk %}">{{ course.course.name }}</a>
+                                <a href="{% url 'mentor-course-detail' course_id=course.course.pk %}">{{ course.course.name }}</a>
                             </td>
                             <td>
 
