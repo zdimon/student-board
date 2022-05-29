@@ -29,7 +29,8 @@ def invite(request):
             t = Template(content)
             cmname = '%s (%s)' % (invitation.course.name, invitation.group.name)
             c = Context({"name": invitation.name, 
-                         "coursename": invitation.group.name,
+                         "coursename": cmname,
+                         "sitename": DOMAIN,
                          "link": link})
             content = t.render(c)
             plain_message = strip_tags(content)
