@@ -30,7 +30,10 @@ def invite(request, uuid):
         student.fname = invitation.name
         student.email = invitation.email
         student.set_password(paswd)
-        student.save()
-        login(request, student)
+        try:
+            student.save()
+            login(request, student)
+        except:
+            messages.add_message(request, messages.ERROR, _('Произошла ошибка!'))
         
     return render(request,'student/invite.html', {'paswd': paswd})
