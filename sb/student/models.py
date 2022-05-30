@@ -27,7 +27,7 @@ class Student(User):
     surname = models.CharField(max_length=50)
     lname = models.CharField(max_length=50)
     image = models.ImageField(upload_to='student_images')
-    account = models.IntegerField(default=0)
+    account = models.IntegerField(default=100)
     phone = models.CharField(max_length=100)
     group = models.ForeignKey(StudentGroup, on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
