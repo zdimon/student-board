@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Student, Student2Kursak, StudentGroup, Student2Course, Student2Lab, StudentPayment, Exam, Student2ExamQuestion, ExamQuestion, Student2ExamAnswer, EmailTemplate, StudentGroup2Course, LessonPayment
+from .models import Student, Student2Kursak, StudentGroup, Student2Course, Student2Lab, StudentPayment, Exam, Student2ExamQuestion, ExamQuestion, Student2ExamAnswer, EmailTemplate, StudentGroup2Course, LessonPayment, Replanishment
 
 # Register your models here.
 
@@ -60,3 +60,8 @@ class StudentGroup2CourseAdmin(admin.ModelAdmin):
 @admin.register(LessonPayment)
 class LessonPaymentAdmin(admin.ModelAdmin):
     list_display = ['lesson', 'user']
+
+
+@admin.register(Replanishment)
+class ReplanishmentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'ammount', 'is_approved']

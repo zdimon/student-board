@@ -158,3 +158,10 @@ class LessonPayment(models.Model):
     user = models.ForeignKey(Student,on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+
+class Replanishment(models.Model):
+    user = models.ForeignKey(Student,on_delete=models.CASCADE)
+    ammount = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    is_approved = models.BooleanField(default=False)
