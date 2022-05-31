@@ -38,6 +38,7 @@ class CourseLoader(object):
         print('Saving meta for %s' % self.course.name_slug)
         meta = self.get_meta(path)
         self.course.name = meta['title']
+        self.course.is_active = meta['is_active']
         self.course.meta_keywords = meta['meta_keywords']
         self.course.meta_title = meta['meta_title']
         self.course.meta_description = meta['meta_description']
