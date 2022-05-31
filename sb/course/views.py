@@ -159,7 +159,7 @@ def comment_detail(request,id):
 
 
 def sitemap(request):
-    courses = Course.objects.all().order_by('-id')
+    courses = Course.objects.filter(is_active=True).order_by('-id')
     return render(request,'map.html',{'courses': courses})
 
 

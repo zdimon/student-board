@@ -27,7 +27,7 @@ def start(update: Updater, context: CallbackContext):
     for message in HELLO_MESSAGES:
         bot.send_message(chat_id=room_id, text=message,parse_mode='HTML') 
         time.sleep(randrange(3,8))
-    for course in Course.objects.all():
+    for course in Course.objects.filter(is_active=True):
         mes = '<a href="https://webmonstr.com%s">%s</a>' % (course.get_absolute_url(),course.name)
         bot.send_message(chat_id=room_id, text=mes,parse_mode='HTML') 
         time.sleep(3)  

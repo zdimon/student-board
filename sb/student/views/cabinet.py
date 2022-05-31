@@ -4,7 +4,7 @@ from django.contrib import messages
 from student.models import Student2Course, Exam
 
 def cabinet(request):
-    courses = Course.objects.all()
+    courses = Course.objects.filter(is_active=True)
     exams = Exam.objects.filter(group=request.user.student.group)
     joined_courses = []
     for c in Student2Course.objects.filter(user=request.user.student):

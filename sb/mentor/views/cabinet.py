@@ -6,7 +6,7 @@ from course.models import Course
 
 def cabinet(request):
     joined_courses = []
-    courses = Course.objects.all()
+    courses = Course.objects.filter(is_active=True)
     for c in Mentor2Course.objects.filter(user=request.user.mentor):
         joined_courses.append(c.course.pk)
     return render(request,'mentor/cabinet.html',{"courses": courses, "joined_courses": joined_courses})
