@@ -4,7 +4,7 @@ from sb.settings import DATA_DIR
 from course.models import Course, Kursak
 
 def index(request):
-    courses = Course.objects.all()
+    courses = Course.objects.filter(is_active=True)
     # kursaks = Kursak.objects.all()
     path = DATA_DIR+f'/index_ru.md'
     #f = open(path, 'r')
