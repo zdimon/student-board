@@ -1,7 +1,7 @@
 git add --all
 git commit -m 'auto'
 git push
-cd /home/zdimon/Desktop/work/hntu-material
+cd /home/zdimon/www/course-resourse
 git add --all
 git commit -m 'auto'
 git push
