@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import index, login, logout, courses, set_lang, buy_course, pay_success, pay_process, prepay, oferta, delivery, confident, about, pay_kursak, test_pay
+from .views import index, login, logout, courses, set_lang, buy_course, pay_success, pay_process, prepay, oferta, delivery, confident, about, pay_kursak, test_pay, pay_course_process
 
 
 urlpatterns = [ 
@@ -17,5 +17,6 @@ urlpatterns = [
    path('pay/process',pay_process, name="pay-process"),
    path('prepay/<int:course_id>/<int:lesson_id>',prepay, name="prepay"),
    path('pay/kursak/<int:kursak_id>',pay_kursak, name="pay-kursak"),
-   path('pay/test/<int:order_id>',test_pay, name="test-pay")
+   path('pay/test/<int:order_id>',test_pay, name="test-pay"),
+   path('pay/course/process',pay_course_process, name="pay-course-process"),
 ]

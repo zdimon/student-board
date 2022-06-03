@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{%  block content %}
+
+    
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% trans 'Покупка курса' %}</h1>
+    </div>
+    <div class="card-body">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">{{ course.name }}</h1>
+            </div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <input type="email" 
+                    name="username"
+                    class="form-control form-control-user"
+                            id="exampleInputEmail" aria-describedby="emailHelp"
+                            placeholder="Введите емейл">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" 
+                    name="name"
+                    class="form-control form-control-user"
+                            id="exampleInputEmail" aria-describedby="emailHelp"
+                            placeholder="Имя">
+                </div>             
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                            Оплатить {{ course.cost }} грн.
+                    </button>
+                </div>
+            </form>
+    </div>
+
+
+
+
+
+
+{% endblock %}

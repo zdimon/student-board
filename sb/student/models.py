@@ -159,6 +159,11 @@ class LessonPayment(models.Model):
     lesson = models.ForeignKey(Lesson,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
+class CoursePayment(models.Model):
+    user = models.ForeignKey(Student,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
 
 class Replanishment(models.Model):
     user = models.ForeignKey(Student,on_delete=models.CASCADE)

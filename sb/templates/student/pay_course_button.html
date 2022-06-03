@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{%  block content %}
+
+    
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% trans 'Переход на страницу оплаты' %}</h1>
+    </div>
+
+    <div class="card-body">
+        <p> Курс: {{ payment.course.name }}</p>
+        <p> Пользователь:  {{ payment.user.email }}</p>
+        <p> Сумма:  {{ payment.course.cost }} грн.</p>
+        {{  form | safe }}
+    </div>
+
+
+
+
+
+
+{% endblock %}

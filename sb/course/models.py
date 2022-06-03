@@ -34,6 +34,7 @@ class Course(models.Model):
     name_slug = models.CharField(verbose_name='Name slug',max_length=250, blank=True, null = True)
     is_active = models.BooleanField(verbose_name=_('Is published?'), default=False)
     order = models.IntegerField(default=0)
+    cost = models.IntegerField(default=0)
 
     @property
     def lessons(self):

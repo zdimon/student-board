@@ -14,3 +14,4 @@ from .mygroup import *
 from .invite import *
 from .newlesson import *
 from .paylesson import *
+from .pay_course import *
