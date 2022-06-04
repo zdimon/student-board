@@ -81,15 +81,19 @@ class Course(models.Model):
 
     @staticmethod
     def is_paid(user,lesson):
-        from student.models import LessonPayment
+        from student.models import LessonPayment, CoursePayment
         if ALL_FREE:
             return True
         try:
             LessonPayment.objects.get(user=user, lesson=lesson)
             return True
         except:
-            return False
-            
+            try:
+                CoursePayment.objects.get(user=user, course=lesson.course)
+                return True
+            except:
+                return False
+
 class Lesson(models.Model):
     title = models.CharField(max_length=250, blank=True, verbose_name=_(u'Name'))
     number = models.IntegerField(default=0, verbose_name=_(u'Number'))
