@@ -163,6 +163,7 @@ class CoursePayment(models.Model):
     user = models.ForeignKey(Student,on_delete=models.CASCADE)
     course = models.ForeignKey(Course,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    is_approved = models.BooleanField(default=False)
 
 
 class Replanishment(models.Model):

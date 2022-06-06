@@ -80,6 +80,17 @@ class Course(models.Model):
         return mark_safe('<img width="60" src="%s" />' % self.image.url)
 
     @staticmethod
+    def is_course_paid(user,course):
+        from student.models import CoursePayment
+        if ALL_FREE:
+            return True
+        try:
+            CoursePayment.objects.get(user=user, course=course, is_approved=True)
+            return True
+        except:
+            return False
+
+    @staticmethod
     def is_paid(user,lesson):
         from student.models import LessonPayment, CoursePayment
         if ALL_FREE:

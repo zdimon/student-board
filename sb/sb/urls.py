@@ -48,7 +48,8 @@ urlpatterns = [
     path('rosetta/', include('rosetta.urls')),
 
     path('v1/api/', include([
-        path('', include('student.api.urls'))
+        path('', include('student.api.urls')),
+        path('', include('course.api.urls'))
     ])),
 
 ]

@@ -64,7 +64,8 @@ class LessonPaymentAdmin(admin.ModelAdmin):
 
 @admin.register(CoursePayment)
 class CoursePaymentAdmin(admin.ModelAdmin):
-    list_display = ['course', 'user']
+    list_display = ['course', 'user', 'is_approved']
+    list_editable = ['is_approved']
 
 @admin.register(Replanishment)
 class ReplanishmentAdmin(admin.ModelAdmin):
