@@ -7,6 +7,7 @@ from student.models import Student, LessonPayment
 from course.models import Lesson
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from student.tasks import pay_lesson_notification
 
 
 def paylesson(request, lesson_id):
@@ -19,6 +20,7 @@ def paylesson(request, lesson_id):
         request.user.student.account = request.user.student.account - 50
         request.user.student.save()
         messages.add_message(request, messages.INFO, _('Вы успешно оплатили урок'))
+        pay_lesson_notification(lesson, request.user.student)
     else:
         messages.add_message(request, messages.INFO, _('У вас недостаточно средств на счету'))
     return redirect(reverse('detail-lesson-student', kwargs={"lesson_id": lesson_id}))

@@ -13,7 +13,6 @@ from django.contrib import messages
 
 def send_notification(user,lesson):
     tpl = EmailTemplate.objects.get(alias="lesson-notification")
-    print(user)
     title = tpl.title
     url = '%s/%s/%s/%s' % (DOMAIN,'student/newlesson',user.uuid,lesson.pk)
     link = '<a href="%s">%s</a>' % (url,url)

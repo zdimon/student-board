@@ -15,3 +15,4 @@ from .invite import *
 from .newlesson import *
 from .paylesson import *
 from .pay_course import *
+from .paidlogin import *

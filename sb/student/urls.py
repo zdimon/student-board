@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import profile, registration, cabinet, join_course, detail_course, detail_lesson, labs, replanish, detail_lab, delete_lab, user_login, detail_kursak, exam_pass, mygroup, invite, newlesson, paylesson, pay_course, pay_course_button, pay_course_test,pay_course_from_account
+from .views import profile, registration, cabinet, join_course, detail_course, detail_lesson, labs, replanish, detail_lab, delete_lab, user_login, detail_kursak, exam_pass, mygroup, invite, newlesson, paylesson, pay_course, pay_course_button, pay_course_test,pay_course_from_account, paid_lesson, paid_course
 
 urlpatterns = [ 
     path('user-login',user_login, name="user-login"),
@@ -24,5 +24,10 @@ urlpatterns = [
     path('pay_course_button/<int:payment_id>', pay_course_button, name="pay-course-button"),
     path('pay_course_test/<int:course_id>', pay_course_test, name="pay-course-test"),
     path('pay_course_from_account/<int:course_id>', pay_course_from_account, name="pay-course-from-account"),
+
+    path('paidcourse/<str:uuid>/<str:course_id>', paid_course, name="paid_course"),
+
+    path('paidlesson/<str:uuid>/<str:lesson_id>', paid_lesson, name="paid_lesson"),
+
 ]
 

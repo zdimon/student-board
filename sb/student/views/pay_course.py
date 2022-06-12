@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from student.models import Student, CoursePayment
 import random
+from student.tasks import pay_course_notification
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.utils.translation import ugettext as _
@@ -86,5 +87,6 @@ def pay_course_from_account(request,course_id):
         order = CoursePayment.objects.create(user=request.user.student, course=course)
     order.is_approved = True
     order.save()
+    pay_course_notification(course,student)
     messages.info(request, _('Вы оплатили курс.'))    
     return redirect(reverse('detail-course-student', kwargs ={"course_id":course.pk}))

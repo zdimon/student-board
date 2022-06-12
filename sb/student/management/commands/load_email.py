@@ -35,3 +35,29 @@ class Command(BaseCommand):
         tpl.title = title
         tpl.content = content
         tpl.save()
+
+        title = 'Оплата курса'
+        content = '''
+            Зравствуте {{ name }}.
+            Вы успешно оплатили курс "{{ course_name }}".
+            Для того, чтобы ознакомиться с курсом нажмите ссылку ниже.
+            {{ link }}
+        '''
+        tpl = EmailTemplate()
+        tpl.alias = 'pay-course'
+        tpl.title = title
+        tpl.content = content
+        tpl.save()
+
+        title = 'Оплата урока'
+        content = '''
+            Зравствуте {{ name }}.
+            Вы успешно оплатили урок "{{ lesson_name }}" курса "{{ course_name }}".
+            Для того, чтобы ознакомиться с уроком нажмите ссылку ниже.
+            {{ link }}
+        '''
+        tpl = EmailTemplate()
+        tpl.alias = 'pay-lesson'
+        tpl.title = title
+        tpl.content = content
+        tpl.save()
