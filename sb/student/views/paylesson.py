@@ -12,7 +12,7 @@ from student.tasks import pay_lesson_notification
 
 def paylesson(request, lesson_id):
     lesson = Lesson.objects.get(pk=lesson_id)
-    if request.user.student.account > 50:
+    if request.user.student.account > 49:
         lp = LessonPayment()
         lp.user = request.user.student
         lp.lesson = lesson
