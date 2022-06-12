@@ -4,7 +4,7 @@ from student.models import Student2Course
 
 
 def courses(request):
-    courses = Course.objects.all()
+    courses = Course.objects.filter(is_active=True)
     for course in courses:
         course.is_paid = Course.is_course_paid(request.user.student, course)
     joined_courses = []
