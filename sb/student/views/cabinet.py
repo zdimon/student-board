@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from course.models import Course
 from django.contrib import messages
-from student.models import Student2Course, Exam
+from student.models import Student2Course, Exam, CoursePayment
 
 def cabinet(request):
-    courses = Course.objects.filter(is_active=True)
+    pc = CoursePayment.objects.filter(user=request.user.student)
+    courses = []
+    for it in pc:
+        courses.append(it.course)
     for course in courses:
         course.is_paid = Course.is_course_paid(request.user.student, course)
     exams = Exam.objects.filter(group=request.user.student.group)

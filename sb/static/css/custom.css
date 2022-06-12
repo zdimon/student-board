@@ -72,3 +72,19 @@ h3 {
 .lang-block {
     text-align: center;
 }
+
+.pay-block {
+    display: flex;
+}
+
+.pay-block a {
+    margin: 10px;
+}
+
+.pay-course-block {
+   
+}
+
+.div-marging-5 {
+    margin: 5px;
+}

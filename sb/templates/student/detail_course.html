@@ -7,7 +7,7 @@
                 <a 
         class="btn btn-primary"
         href="{% url 'student-course-labs' course_id=course.pk %}">
-           {% trans 'Labs' %}
+           {% trans 'Практические задания' %}
         </a>
     </div>
 
@@ -39,18 +39,11 @@
                         </p>
                     {% endif %}
                     {% if l.has_lab %}
-                        <a href="{% url 'detail-lab-student' lab_id=l.get_lab.pk %}">Лабораторные работы</a>
+                    <div class="row div-marging-5" >
+                        <a class="btn btn-success" href="{% url 'detail-lab-student' lab_id=l.get_lab.pk %}">{% trans 'Пройти практику'%}</a>
+                    </div>
                     {% endif %}
                     </td>
-                   
-                    <td>
-                      {% if l.has_lab %}
-                          <a href="{% url 'detail-lab-student' lab_id=l.get_lab.pk %}" class="btn btn-primary">
-                            {% trans 'Pass of the lab'%}
-                          </a>
-                      {% endif %}
-                    </td>
-                   
                 </tr>            
             {% endfor %}
 

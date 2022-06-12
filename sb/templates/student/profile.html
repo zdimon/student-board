@@ -1,8 +1,18 @@
 {% extends 'layout.html' %}
+{% load i18n %} 
 {% load crispy_forms_tags %}
 {%  block content %}
 
-<div class="p-5">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 class="h4 text-gray-900 mb-4">{% trans 'У вас на счету' %}: {{ user.student.account }} грн.</h1>
+               <a href="{% url 'replanish' %}" class="btn btn-success">
+            {% trans "Пополнить счет" %}
+        </a>
+        </div>
+    </div>
+
     <div class="">
         <h1 class="h4 text-gray-900 mb-4">My profile</h1>
 
@@ -27,5 +37,5 @@
         </form>
 
     </div>
-</div>
+
 {% endblock %}

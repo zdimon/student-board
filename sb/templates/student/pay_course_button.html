@@ -6,12 +6,27 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{% trans 'Переход на страницу оплаты' %}</h1>
     </div>
+    <div class="pay-course-block" >
+        <div class="card-body">
+            <p> {% trans 'Курс' %}: {{ payment.course.name }}</p>
+            <p> {% trans 'Пользователь' %}:  {{ payment.user.email }}</p>
+            <p> {% trans 'Сумма'%} :  {{ payment.course.cost }} грн.</p>
+            {{  form | safe }}
 
-    <div class="card-body">
-        <p> Курс: {{ payment.course.name }}</p>
-        <p> Пользователь:  {{ payment.user.email }}</p>
-        <p> Сумма:  {{ payment.course.cost }} грн.</p>
-        {{  form | safe }}
+            {% if test_mode %}
+            <a href="{% url 'pay-course-test' course_id=payment.course.pk%}">
+                Тестовая оплата
+            </a>
+        {% endif %}
+        </div>
+        <div>
+            {% trans 'У вас на счету' %}: {{ user.student.account }} грн.
+            {% if user.student.account > payment.course.cost %}
+            <a style="width: 300px" href="{% url 'pay-course-from-account' course_id=payment.course.pk %}" class="btn btn-primary btn-user btn-block">
+                {% trans 'Оплатить со счета' %}
+              </a>  
+            {% endif %}
+        </div>
     </div>
 
 
