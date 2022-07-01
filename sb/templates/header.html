@@ -5,6 +5,18 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
+                    <div class="top-logo">
+                        <a href="/"> WEBMONSTR  </a>
+                    </div>
+                    {% if not user.is_authenticated %}
+                    <a href="{% url 'user-login' %}" class="btn btn-primary mr-3">
+                        {% trans 'Вход' %}
+                    </a>
+                    <a href="{% url 'student-registration' %}" class="btn btn-primary mr-3">
+                        {% trans 'Регистрация' %}
+                    </a>
+                    {% endif %}
+
                     <div>
                         {% if role == 'student' %}
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">
@@ -54,6 +66,7 @@
                             </div>
                         </li>
 
+
                         <!-- Nav Item 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -91,7 +104,7 @@
                             <a class="nav-link" href="{% url 'user-login' %}" >
                                <i class="fas fa-sign-in-alt fa-lg fa-fw mr-2 text-gray-400"></i>
                             </a>
-                           
+                          
                                                            
                             {% endif %}
                         </li>

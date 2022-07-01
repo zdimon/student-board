@@ -31,7 +31,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        {% include 'menu.html' %}
+       
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -71,10 +71,14 @@
                             <a class="color-blue link-small" href="{% url 'oferta' %}">{% trans 'ПУБЛИЧНАЯ ОФЕРТА' %}</a>
                             <a class="color-blue link-small" href="{% url 'delivery' %}">{% trans 'ДОГОВОР О ДОСТАВКЕ' %}</a>
                             <a class="color-blue link-small" href="{% url 'confident' %}">{% trans 'ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ' %}</a>
+                            <a class="color-blue link-small" href="{% url 'about' %}">{% trans 'ОБ АВТОРЕ' %}</a>
                         </div>
                     </div>
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; hntu.ks.ua 2021</span>
+                        <br />
+                        <img width="150" src="/static/img/liq.png" />
+                        <br />
+                        <span>Copyright &copy; webmonstr.com 2022</span>
                     </div>
                 </div>
             </footer>

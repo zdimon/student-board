@@ -88,3 +88,9 @@ h3 {
 .div-marging-5 {
     margin: 5px;
 }
+
+.top-logo {
+    color: #2F56C8;
+    font-weight: bold;
+    padding-right: 10px;
+}
