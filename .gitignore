@@ -6,3 +6,5 @@ sb/db.sqlite3
 sb/media/**
 sb/sb/local.py
 sb/static/build/**
+react-app/package-lock.json
+react-app/yarn.lock
