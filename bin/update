@@ -1,0 +1,3 @@
+cd sb
+. ./venv/bin/activate
+./manage.py load_course

@@ -1,4 +1,5 @@
 {% load i18n %} 
+{% get_current_language as LANGUAGE_CODE %}
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
@@ -109,6 +110,7 @@
                             {% endif %}
                         </li>
 
+
                         <div class="topbar-divider d-none d-sm-block"></div>
                                
                         <!-- Nav Item - User Information -->
@@ -173,7 +175,17 @@
                                 class="nav-link"> 
                                 <i class="fas fa-address-card fa-lg fa-fw mr-2 text-gray-400"></i>
                                  </a>
-                                
+
+                               <!-- 
+                                 <a class="nav-link" href="/en" class="lang-link">
+                                 <img src="/static/img/en.svg" />
+                                 </a>
+                                 <a class="nav-link" href="/uk" class="lang-link">
+                                 <img src="/static/img/ua.svg" />
+                                 </a>
+                            --> 
+
+                            
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="regDropdown">
                                 <h6 class="dropdown-header">
@@ -195,6 +207,52 @@
                             </div>
 
                             {% endif %}
+
+                        </li>
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a 
+                            class="nav-link dropdown-toggle" 
+                            href="#" id="langDropdown" 
+                            role="button" 
+                            data-toggle="dropdown" 
+                            aria-haspopup="true" 
+                            aria-expanded="false">
+                            <img class="img-profile rounded-circle" src="/static/img/{{LANGUAGE_CODE}}.svg" />
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" 
+                            aria-labelledby="langDropdown">
+                            {% if LANGUAGE_CODE == 'ru' %}
+                                <a class="dropdown-item" href="/en">
+                                    <img class="img-lang rounded-circle" src="/static/img/en.svg" />
+                                    {% trans 'Английский' %}
+                                </a>
+                                <a class="dropdown-item" href="/uk">
+                                    <img class="img-lang rounded-circle" src="/static/img/uk.svg" />
+                                    {% trans 'Украинский' %}
+                                </a>
+                            {% endif %}
+                            {% if LANGUAGE_CODE == 'uk' %}
+                                <a class="dropdown-item" href="/en">
+                                    <img class="img-lang rounded-circle" src="/static/img/en.svg" />
+                                    {% trans 'Английский' %}
+                                </a>
+                                <a class="dropdown-item" href="/ru">
+                                    <img class="img-lang rounded-circle" src="/static/img/ru.svg" />
+                                    {% trans 'Русский' %}
+                                </a>
+                            {% endif %}
+                            {% if LANGUAGE_CODE == 'en' %}
+                                <a class="dropdown-item" href="/uk">
+                                    <img class="img-lang rounded-circle" src="/static/img/uk.svg" />
+                                    {% trans 'Украинский' %}
+                                </a>
+                                <a class="dropdown-item" href="/ru">
+                                    <img class="img-lang rounded-circle" src="/static/img/ru.svg" />
+                                    {% trans 'Русский' %}
+                                </a>
+                            {% endif %}
+                            </div>
 
                         </li>
 
