@@ -43,6 +43,7 @@ class CourseLoader(object):
         self.course.meta_title = meta['meta_title']
         self.course.meta_description = meta['meta_description']
         self.course.desc = meta['desc']
+        self.course.lang = meta['lang']
         try:
             self.course.cost = meta['cost']
         except:

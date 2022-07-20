@@ -3,3 +3,7 @@ cd sb
 ./manage.py makemessages -l en -i "venv"
 ./manage.py makemessages -l ru -i "venv"
 ./manage.py makemessages -l ua -i "venv"
+./manage.py makemessages -l en -i "venv"
+./manage.py makemessages -l ru -i "venv"
+./manage.py makemessages -l ua -i "venv"
+./manage.py compilemessages -i "venv"

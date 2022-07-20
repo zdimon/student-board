@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-12 10:38+0000\n"
+"POT-Creation-Date: 2022-07-20 08:18+0000\n"
 "PO-Revision-Date: 2021-09-12 10:47+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,19 +16,22 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.7\n"
 
-#: course/models.py:28 course/models.py:74 course/models.py:156
-#: course/models.py:266 course/models.py:329 templates/dash/courses.html:20
+#: course/models.py:28 course/models.py:109 course/models.py:209
+#: course/models.py:319 course/models.py:382 course/models.py:460
+#: student/models.py:127
 msgid "Name"
 msgstr "Имя"
 
-#: course/models.py:29 course/models.py:80
+#: course/models.py:29 course/models.py:115
 msgid "Description"
 msgstr "Описание"
 
-#: course/models.py:30 course/models.py:77
+#: course/models.py:30 course/models.py:112
 msgid "Image"
 msgstr "Изображение"
 
@@ -36,41 +39,45 @@ msgstr "Изображение"
 msgid "Is published?"
 msgstr "Опубликовано?"
 
-#: course/models.py:75
+#: course/models.py:110
 msgid "Number"
 msgstr "Номер"
 
-#: course/models.py:76
+#: course/models.py:111
 msgid "Is active?"
 msgstr "Активно?"
 
-#: course/models.py:78 course/models.py:159
+#: course/models.py:113 course/models.py:212
 msgid "Course"
 msgstr "Курс"
 
-#: course/models.py:84
+#: course/models.py:119
 msgid "Is new?"
 msgstr "Новый?"
 
-#: course/models.py:158
+#: course/models.py:211
 msgid "Lesson"
 msgstr "Урок"
 
-#: course/models.py:267
+#: course/models.py:320
 msgid "Variants"
 msgstr "Вариант"
 
-#: course/models.py:325
+#: course/models.py:378 templates/mentor/invite.html:17
 msgid "Email"
 msgstr "емейл"
 
-#: course/models.py:335 course/models.py:372
+#: course/models.py:388 course/models.py:425
 msgid "Title"
 msgstr "Заголовок"
 
-#: course/models.py:373
+#: course/models.py:426
 msgid "Content"
 msgstr "Содержимое"
+
+#: course/models.py:463
+msgid "Slug"
+msgstr ""
 
 #: course/templates/admin/newsletter_list.html:150
 msgid "Home"
@@ -97,87 +104,395 @@ msgstr ""
 msgid "Save"
 msgstr "Сохранить"
 
-#: student/models.py:37
-msgid "Link to the git repo"
-msgstr "Ссылка на репозиторий."
-
-#: student/models.py:38
-msgid "File or zip archive"
-msgstr "Файл или zip архив."
-
-#: student/views/detail_lab.py:26
-msgid "You already sent this lab!"
-msgstr "Вы уже послали эту лабораторную работу!"
-
-#: student/views/detail_lab.py:29
-msgid "Thank you. Your work has saved and sended to the mentor."
-msgstr "Спасибо. Ваша работа сохранена и отправлена на проверку."
-
+#: dash/views/login.py:17 mentor/views/join_course.py:18
 #: student/views/join_course.py:15
 msgid "You was joined to this course."
 msgstr "Вы присоединились к этому курсу."
+
+#: dash/views/login.py:20
+msgid "Wrong email or password!"
+msgstr ""
+
+#: dash/views/pay_kursak.py:47
+msgid "Вы были зарегистрированы на сайте с указанным логином и паролем."
+msgstr ""
+
+#: student/models.py:51
+msgid "Экзамена нет"
+msgstr ""
+
+#: student/models.py:71
+msgid "Text answer. For example your source code."
+msgstr ""
+
+#: student/models.py:72
+msgid "Link to the git repo"
+msgstr "Ссылка на репозиторий."
+
+#: student/models.py:73
+msgid "File or zip archive"
+msgstr "Файл или zip архив."
+
+#: student/models.py:128
+msgid "Alias"
+msgstr ""
+
+#: student/models.py:136
+msgid "Text"
+msgstr ""
+
+#: student/views/detail_lab.py:28
+msgid "You already sent this lab!"
+msgstr "Вы уже послали эту лабораторную работу!"
+
+#: student/views/detail_lab.py:31 student/views/exam_pass.py:56
+msgid "Thank you. Your work has saved and sended to the mentor."
+msgstr "Спасибо. Ваша работа сохранена и отправлена на проверку."
+
+#: student/views/exam_pass.py:58
+msgid "Error."
+msgstr ""
+
+#: student/views/invite.py:19
+msgid " заполните пожалуйста свой профиль."
+msgstr ""
+
+#: student/views/invite.py:37
+msgid "Произошла ошибка!"
+msgstr ""
 
 #: student/views/labs.py:29
 msgid "Your report was deleted."
 msgstr "Ваш отчет был удален."
 
+#: student/views/login.py:21
+msgid "Добро пожаловать на сайт."
+msgstr ""
+
+#: student/views/login.py:24
+msgid "Ошибка. Неправильный логин или пароль"
+msgstr ""
+
+#: student/views/pay_course.py:42
+msgid ""
+"Вы были зарегистрированы, авторизованы, и вам выслан емейл с паролем на "
+"сайт. Можно оплачивать курс."
+msgstr ""
+
+#: student/views/pay_course.py:72 student/views/pay_course.py:91
+msgid "Вы оплатили курс."
+msgstr ""
+
+#: student/views/pay_course.py:82
+msgid "У вас недостаточно средств на счету."
+msgstr ""
+
+#: student/views/paylesson.py:22
+msgid "Вы успешно оплатили урок"
+msgstr ""
+
+#: student/views/paylesson.py:25
+msgid "У вас недостаточно средств на счету"
+msgstr ""
+
+#: student/views/registration.py:16
+msgid "User with this email already exists!"
+msgstr ""
+
+#: student/views/registration.py:30
+msgid ""
+"You have been successfuly registrated. Now you can join to any courses you "
+"need."
+msgstr ""
+
+#: templates/dash/buy_course.html:4
+msgid "Оформление платежа"
+msgstr ""
+
+#: templates/dash/buy_course.html:6 templates/dash/need_topay.html:6
+msgid "Стоимость покупки"
+msgstr ""
+
 #: templates/dash/courses.html:6
 msgid "All courses"
 msgstr "Все курсы"
 
-#: templates/dash/courses.html:21
-msgid "Actions"
-msgstr "Действия"
-
 #: templates/dash/index.html:6
-msgid "System of the remote education."
-msgstr "Система дистанционного обучения."
+msgid "Об авторе"
+msgstr ""
 
-#: templates/menu.html:10
-msgid "HNTU"
-msgstr "ХНТУ"
+#: templates/dash/index.html:16 templates/mentor/course_detail.html:7
+#: templates/mentor/courses.html:6 templates/mentor_menu.html:17
+msgid "Курсы"
+msgstr ""
 
-#: templates/menu.html:10
-msgid "Student board"
-msgstr "доска студентов"
+#: templates/dash/need_topay.html:4
+msgid "Вы не оплатили курс"
+msgstr ""
 
-#: templates/menu.html:20
+#: templates/dash/pay_kursak.html:5
+msgid "Покупка курсовой работы."
+msgstr ""
+
+#: templates/dash/pay_success.html:5
+msgid "Спасибо! Вы успешно совершили оплату."
+msgstr ""
+
+#: templates/dash/prepay.html:6
+msgid "Покупка урока или курса"
+msgstr ""
+
+#: templates/dash/prepay.html:14 templates/student/pay_course_button.html:23
+#: templates/student/profile.html:9
+msgid "У вас на счету"
+msgstr ""
+
+#: templates/dash/prepay.html:18
+msgid "Стоимость урока"
+msgstr ""
+
+#: templates/dash/prepay.html:21
+msgid "Стоимость курса"
+msgstr ""
+
+#: templates/dash/prepay.html:26 templates/student/profile.html:11
+msgid "Пополнить счет"
+msgstr ""
+
+#: templates/dash/prepay.html:29
+msgid "Оплатить урок со счета."
+msgstr ""
+
+#: templates/dash/prepay.html:32
+msgid "Оплатить весь курс."
+msgstr ""
+
+#: templates/header.html:14
+msgid "Вход"
+msgstr ""
+
+#: templates/header.html:17
+msgid "Регистрация"
+msgstr ""
+
+#: templates/header.html:24 templates/header.html:123
+msgid "На счету"
+msgstr ""
+
+#: templates/header.html:228 templates/header.html:238
+msgid "Английский"
+msgstr ""
+
+#: templates/header.html:232 templates/header.html:248
+msgid "Украинский"
+msgstr ""
+
+#: templates/header.html:242 templates/header.html:252
+msgid "Русский"
+msgstr ""
+
+#: templates/layout.html:71
+msgid "ПУБЛИЧНАЯ ОФЕРТА"
+msgstr ""
+
+#: templates/layout.html:72
+msgid "ДОГОВОР О ДОСТАВКЕ"
+msgstr ""
+
+#: templates/layout.html:73
+msgid "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ"
+msgstr ""
+
+#: templates/layout.html:74
+msgid "ОБ АВТОРЕ"
+msgstr ""
+
+#: templates/mentor/cabinet.html:6
+#, fuzzy
+#| msgid "Mentor registration"
+msgid "Mentor cabinet"
+msgstr "Регистрация преподавателя"
+
+#: templates/mentor/cabinet.html:13
 msgid "Courses"
 msgstr "Курсы"
 
-#: templates/menu.html:37
-msgid "Student registration"
-msgstr "Регистрация студента"
+#: templates/mentor/course_detail.html:21
+msgid "#"
+msgstr ""
 
-#: templates/menu.html:42
+#: templates/mentor/course_detail.html:24 templates/mentor/courses.html:16
+msgid "Название"
+msgstr ""
+
+#: templates/mentor/course_detail.html:27 templates/mentor/courses.html:19
+#: templates/mentor/students.html:30
+msgid "Действия"
+msgstr ""
+
+#: templates/mentor/course_detail.html:41
+msgid "Уведомление"
+msgstr ""
+
+#: templates/mentor/groups.html:6
+msgid "Мои группы"
+msgstr ""
+
+#: templates/mentor/groups.html:25 templates/mentor/students.html:21
+msgid "ФИО"
+msgstr ""
+
+#: templates/mentor/groups.html:28
+msgid "Экзамен"
+msgstr ""
+
+#: templates/mentor/invite.html:6 templates/mentor/students.html:7
+msgid "Пригласить студента"
+msgstr ""
+
+#: templates/mentor/invite.html:20 templates/student/mygroup.html:25
+msgid "Имя"
+msgstr ""
+
+#: templates/mentor/invite.html:23
+msgid "Группа"
+msgstr ""
+
+#: templates/mentor/invite.html:27 templates/mentor/students.html:27
+#: templates/student/pay_course_button.html:11
+msgid "Курс"
+msgstr ""
+
+#: templates/mentor/invite.html:33
+msgid "Отправить приглашение"
+msgstr ""
+
+#: templates/mentor/notify.html:6
+msgid "Уведомление о новом уроке"
+msgstr ""
+
+#: templates/mentor/notify.html:33
+msgid "Отправить уведомление"
+msgstr ""
+
+#: templates/mentor/registration.html:7 templates/menu.html:49
 msgid "Mentor registration"
 msgstr "Регистрация преподавателя"
 
-#: templates/parts/course_item.html:14
-msgid "Mentor"
-msgstr "Преподаватель"
+#: templates/mentor/registration.html:15 templates/parts/pay_form.html:18
+#: templates/student/registration.html:15
+msgid "First Name"
+msgstr "Имя"
 
-#: templates/parts/course_item.html:15
-msgid "Lessons"
-msgstr "Урок"
+#: templates/mentor/registration.html:20 templates/parts/pay_form.html:24
+#: templates/student/registration.html:25
+msgid "Last Name"
+msgstr "Отчество"
+
+#: templates/mentor/registration.html:25 templates/parts/pay_form.html:12
+#: templates/student/registration.html:20
+msgid "Surname"
+msgstr "Фамилия"
+
+#: templates/mentor/students.html:6
+#, fuzzy
+#| msgid "Student board"
+msgid "Students"
+msgstr "доска студентов"
+
+#: templates/mentor/students.html:24
+msgid "Дата регистрации"
+msgstr ""
+
+#: templates/mentor_menu.html:5
+msgid "Группы"
+msgstr ""
+
+#: templates/mentor_menu.html:11
+msgid "Студенты"
+msgstr ""
+
+#: templates/menu.html:9
+msgid "webmonstr"
+msgstr ""
+
+#: templates/menu.html:20
+msgid "Все курсы"
+msgstr ""
+
+#: templates/menu.html:44 templates/student/registration.html:7
+msgid "Student registration"
+msgstr "Регистрация студента"
+
+#: templates/parts/course_item.html:14
+msgid "Уроков"
+msgstr ""
+
+#: templates/parts/course_item.html:14
+msgid "Лабораторных работ"
+msgstr ""
+
+#: templates/parts/course_item.html:15 templates/parts/course_item.html:26
+msgid "Стоимость"
+msgstr ""
 
 #: templates/parts/course_item.html:20
-msgid "Join"
-msgstr "Присоединиться"
+msgid "Бесплатно"
+msgstr ""
 
-#: templates/parts/course_item.html:23
-msgid "Detail"
-msgstr "Информация"
+#: templates/parts/course_item.html:29
+msgid "Купить курс"
+msgstr ""
+
+#: templates/parts/exam_item.html:7
+msgid "Сдать экзамен"
+msgstr ""
+
+#: templates/parts/exam_item.html:11
+msgid "Вопросы"
+msgstr ""
+
+#: templates/parts/pay_form.html:49 templates/student/registration.html:35
+msgid "Select the group"
+msgstr "Выберите группу"
+
+#: templates/parts/pay_form.html:62 templates/parts/pay_form.html:80
+msgid "Желаемый уровень"
+msgstr ""
+
+#: templates/parts/pay_form.html:92
+msgid "Продолжить покупку"
+msgstr ""
+
+#: templates/student/cabinet.html:6
+#, fuzzy
+#| msgid "Student board"
+msgid "Student cabinet"
+msgstr "доска студентов"
+
+#: templates/student/cabinet.html:12
+msgid "Экзамены"
+msgstr ""
+
+#: templates/student/cabinet.html:33
+msgid "Ваши курсы"
+msgstr ""
 
 #: templates/student/detail_course.html:10
-#: templates/student/detail_lab.html:12 templates/student/labs.html:6
-#: templates/student_menu.html:16
-msgid "Labs"
-msgstr "Лабы"
+msgid "Практические задания"
+msgstr ""
 
 #: templates/student/detail_course.html:18
 msgid "Educational material"
 msgstr "Материал"
+
+#: templates/student/detail_course.html:43
+msgid "Пройти практику"
+msgstr ""
+
+#: templates/student/detail_lab.html:12 templates/student/labs.html:6
+msgid "Labs"
+msgstr "Лабы"
 
 #: templates/student/detail_lab.html:26
 msgid "Report"
@@ -199,6 +514,38 @@ msgstr "Послать лабу на проверку"
 msgid "Pass of the lab"
 msgstr "Сдать лабу"
 
+#: templates/student/exam_pass.html:13
+msgid "Экзамен не активен!"
+msgstr ""
+
+#: templates/student/exam_pass.html:16
+msgid "Начало экзамена:"
+msgstr ""
+
+#: templates/student/exam_pass.html:24
+msgid "Ваш билет"
+msgstr ""
+
+#: templates/student/exam_pass.html:38
+msgid "Ответ"
+msgstr ""
+
+#: templates/student/exam_pass.html:43
+msgid "Загрузить файл"
+msgstr ""
+
+#: templates/student/invite.html:6
+msgid "Приглашение на обучение"
+msgstr ""
+
+#: templates/student/invite.html:11
+msgid "Ваш пароль в систему"
+msgstr ""
+
+#: templates/student/invite.html:15
+msgid "Перейти к заполнению профиля"
+msgstr ""
+
 #: templates/student/labs.html:40
 msgid "Empty!"
 msgstr "Не сдано!"
@@ -211,23 +558,43 @@ msgstr "Сдать"
 msgid "Done!"
 msgstr "Сдано!"
 
-#: templates/student/registration.html:15
-msgid "First Name"
-msgstr "Имя"
+#: templates/student/login.html:4
+msgid "Вход на сайт"
+msgstr ""
 
-#: templates/student/registration.html:20
-msgid "Surname"
-msgstr "Фамилия"
+#: templates/student/mygroup.html:6 templates/student_menu.html:37
+msgid "Моя группа"
+msgstr ""
 
-#: templates/student/registration.html:25
-msgid "Last Name"
-msgstr "Отчество"
+#: templates/student/mygroup.html:22
+msgid "Фамилия"
+msgstr ""
 
-#: templates/student/registration.html:35
-msgid "Select the group"
-msgstr "Выберите группу"
+#: templates/student/mygroup.html:28
+msgid "Отчество"
+msgstr ""
 
-#: templates/student/replanish.html:6 templates/student_menu.html:25
+#: templates/student/pay_course.html:7
+msgid "Покупка курса"
+msgstr ""
+
+#: templates/student/pay_course_button.html:7
+msgid "Переход на страницу оплаты"
+msgstr ""
+
+#: templates/student/pay_course_button.html:12
+msgid "Пользователь"
+msgstr ""
+
+#: templates/student/pay_course_button.html:13
+msgid "Сумма"
+msgstr ""
+
+#: templates/student/pay_course_button.html:26
+msgid "Оплатить со счета"
+msgstr ""
+
+#: templates/student/replanish.html:6 templates/student_menu.html:51
 msgid "Replanish account"
 msgstr "Пополнить счет"
 
@@ -235,6 +602,50 @@ msgstr "Пополнить счет"
 msgid "On your account"
 msgstr "На вашем счету"
 
-#: templates/student_menu.html:3
-msgid "My courses"
-msgstr "Мои курсы"
+#: templates/student/replanish.html:21
+msgid "Выберите сумму"
+msgstr ""
+
+#: templates/student/replanish.html:37
+msgid "Пополнить"
+msgstr ""
+
+#: templates/student_menu.html:5
+msgid "Купленные курсы"
+msgstr ""
+
+#: templates/student_menu.html:16
+msgid "Купленные курсовые"
+msgstr ""
+
+#: templates/student_menu.html:32
+msgid "Кабинет"
+msgstr ""
+
+#: templates/student_menu.html:42
+msgid "Практика"
+msgstr ""
+
+#~ msgid "Actions"
+#~ msgstr "Действия"
+
+#~ msgid "System of the remote education."
+#~ msgstr "Система дистанционного обучения."
+
+#~ msgid "HNTU"
+#~ msgstr "ХНТУ"
+
+#~ msgid "Mentor"
+#~ msgstr "Преподаватель"
+
+#~ msgid "Lessons"
+#~ msgstr "Урок"
+
+#~ msgid "Join"
+#~ msgstr "Присоединиться"
+
+#~ msgid "Detail"
+#~ msgstr "Информация"
+
+#~ msgid "My courses"
+#~ msgstr "Мои курсы"

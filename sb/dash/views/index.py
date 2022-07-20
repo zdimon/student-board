@@ -5,7 +5,7 @@ from course.models import Course, Kursak
 from django.utils import translation
 
 def index(request):
-    courses = Course.objects.filter(is_active=True)
+    courses = Course.objects.filter(is_active=True, lang=translation.get_language())
     # kursaks = Kursak.objects.all()
     path = DATA_DIR+f'/about-{translation.get_language()}.md'
     f = open(path, 'r')

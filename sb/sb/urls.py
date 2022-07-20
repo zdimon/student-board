@@ -46,7 +46,7 @@ urlpatterns = [
     path('api', schema_view.with_ui('swagger', cache_timeout=0), 
     name='schema-swagger-ui'),
     path('rosetta/', include('rosetta.urls')),
-
+    path('i18n/', include('django.conf.urls.i18n')),
     path('v1/api/', include([
         path('', include('student.api.urls')),
         path('', include('course.api.urls'))

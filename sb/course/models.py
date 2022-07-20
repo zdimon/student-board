@@ -35,6 +35,7 @@ class Course(models.Model):
     is_active = models.BooleanField(verbose_name=_('Is published?'), default=False)
     order = models.IntegerField(default=0)
     cost = models.IntegerField(default=0)
+    lang = models.CharField(max_length=5, default='ua')
 
     @property
     def lessons(self):

@@ -10,7 +10,7 @@ from django.contrib import messages
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ['image_tag', 'name_slug', 'name', 'meta_title', 'order', 'is_active']
+    list_display = ['image_tag', 'name_slug', 'name', 'meta_title', 'order', 'is_active', 'lang']
     list_editable = ['order', 'is_active']
 from django.contrib import messages
 from .models import NewsLetter

@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-20 08:18+0000\n"
-"PO-Revision-Date: 2022-07-20 09:01+0000\n"
+"PO-Revision-Date: 2022-07-20 09:03+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: course/models.py:28 course/models.py:109 course/models.py:209
@@ -209,7 +208,7 @@ msgstr ""
 
 #: templates/dash/buy_course.html:6 templates/dash/need_topay.html:6
 msgid "Стоимость покупки"
-msgstr ""
+msgstr "Вартість покупки"
 
 #: templates/dash/courses.html:6
 msgid "All courses"
@@ -217,12 +216,12 @@ msgstr ""
 
 #: templates/dash/index.html:6
 msgid "Об авторе"
-msgstr "About author."
+msgstr "Про автора"
 
 #: templates/dash/index.html:16 templates/mentor/course_detail.html:7
 #: templates/mentor/courses.html:6 templates/mentor_menu.html:17
 msgid "Курсы"
-msgstr "Courses"
+msgstr ""
 
 #: templates/dash/need_topay.html:4
 msgid "Вы не оплатили курс"
@@ -247,11 +246,11 @@ msgstr ""
 
 #: templates/dash/prepay.html:18
 msgid "Стоимость урока"
-msgstr ""
+msgstr "Вартість урока"
 
 #: templates/dash/prepay.html:21
 msgid "Стоимость курса"
-msgstr ""
+msgstr "Вартість курса"
 
 #: templates/dash/prepay.html:26 templates/student/profile.html:11
 msgid "Пополнить счет"
@@ -267,7 +266,7 @@ msgstr ""
 
 #: templates/header.html:14
 msgid "Вход"
-msgstr ""
+msgstr "Вхід"
 
 #: templates/header.html:17
 msgid "Регистрация"
@@ -291,19 +290,19 @@ msgstr ""
 
 #: templates/layout.html:71
 msgid "ПУБЛИЧНАЯ ОФЕРТА"
-msgstr "PUBLIC OFFER"
+msgstr "ПУБЛІЧНА ОФЕРТА"
 
 #: templates/layout.html:72
 msgid "ДОГОВОР О ДОСТАВКЕ"
-msgstr "DELIVERY CONTRACT"
+msgstr "ДОГОВІР ПРО ДОСТАВКУ"
 
 #: templates/layout.html:73
 msgid "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ"
-msgstr "PRIVACY POLICY"
+msgstr "ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ"
 
 #: templates/layout.html:74
 msgid "ОБ АВТОРЕ"
-msgstr "ABOUT AUTHOR"
+msgstr "ПРО АВТОРА"
 
 #: templates/mentor/cabinet.html:6
 msgid "Mentor cabinet"
@@ -396,7 +395,7 @@ msgstr ""
 
 #: templates/mentor/students.html:24
 msgid "Дата регистрации"
-msgstr ""
+msgstr "Регістрація"
 
 #: templates/mentor_menu.html:5
 msgid "Группы"
@@ -412,7 +411,7 @@ msgstr ""
 
 #: templates/menu.html:20
 msgid "Все курсы"
-msgstr "All courses"
+msgstr ""
 
 #: templates/menu.html:44 templates/student/registration.html:7
 msgid "Student registration"
@@ -420,15 +419,15 @@ msgstr ""
 
 #: templates/parts/course_item.html:14
 msgid "Уроков"
-msgstr ""
+msgstr "Уроків"
 
 #: templates/parts/course_item.html:14
 msgid "Лабораторных работ"
-msgstr ""
+msgstr "Лабораторних робіт"
 
 #: templates/parts/course_item.html:15 templates/parts/course_item.html:26
 msgid "Стоимость"
-msgstr ""
+msgstr "Вартість"
 
 #: templates/parts/course_item.html:20
 msgid "Бесплатно"
@@ -436,7 +435,7 @@ msgstr ""
 
 #: templates/parts/course_item.html:29
 msgid "Купить курс"
-msgstr "Buy course"
+msgstr "Купити курс"
 
 #: templates/parts/exam_item.html:7
 msgid "Сдать экзамен"
@@ -468,7 +467,7 @@ msgstr ""
 
 #: templates/student/cabinet.html:33
 msgid "Ваши курсы"
-msgstr "Your courses"
+msgstr ""
 
 #: templates/student/detail_course.html:10
 msgid "Практические задания"
@@ -552,7 +551,7 @@ msgstr ""
 
 #: templates/student/login.html:4
 msgid "Вход на сайт"
-msgstr ""
+msgstr "Вхід на сайт"
 
 #: templates/student/mygroup.html:6 templates/student_menu.html:37
 msgid "Моя группа"
@@ -604,7 +603,7 @@ msgstr ""
 
 #: templates/student_menu.html:5
 msgid "Купленные курсы"
-msgstr "Courses you bought"
+msgstr ""
 
 #: templates/student_menu.html:16
 msgid "Купленные курсовые"

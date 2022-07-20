@@ -1,3 +1,4 @@
 cd sb
 . ./venv/bin/activate
+./manage.py migrate
 ./manage.py load_course

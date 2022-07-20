@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 ]
 LOGINAS_REDIRECT_URL = '/'
 MIDDLEWARE = [
+    'sb.lang_middleware.ForceDefaultLanguageMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,7 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware'
+    'django.middleware.locale.LocaleMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'sb.urls'
@@ -109,12 +111,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'uk'
+LANGUAGE_CODE = 'ua'
 
 LANGUAGES = [
     ('en','English'),
     ('ru', 'Russian'),
-    ('uk', 'Ukranian')
+    ('ua', 'Ukranian')
 ]
 ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
 YANDEX_TRANSLATE_KEY = 'trnsl.1.1.20140521T130035Z.1014ae2799c685e3.97b1345108ab3a8520d96f730016a9dac947049b'
