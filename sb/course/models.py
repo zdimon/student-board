@@ -78,7 +78,10 @@ class Course(models.Model):
 
     @property
     def image_tag(self):
-        return mark_safe('<img width="60" src="%s" />' % self.image.url)
+        try:
+            return mark_safe('<img width="60" src="%s" />' % self.image.url)
+        except:
+            return f'error {self.image.path}'
 
     @staticmethod
     def is_course_paid(user,course):
