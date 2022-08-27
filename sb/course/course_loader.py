@@ -106,10 +106,14 @@ class CourseLoader(object):
                     lesson.created_at = data['created']
                 except:
                     lesson.created_at = '2000-01-01'
-
-                lesson.meta_keywords = data['meta_keywords']
-                lesson.meta_title = data['meta_title']
-                lesson.meta_description = data['meta_description']
+                try:
+                    lesson.meta_keywords = data['meta_keywords']
+                    lesson.meta_title = data['meta_title']
+                    lesson.meta_description = data['meta_description']
+                except Exception as e:
+                    print(e)
+                    print(lesson.title)
+                    
                 lesson.course = self.course
                 lesson.save()
                 ## add tags
