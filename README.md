@@ -12,6 +12,8 @@ Rename sb/sb/_local.py to sb/sb/local.py
 
     ./bin/install
 
+Edit 
+
 Create a simlink in sb/static directory.
 
     ln -s /home/webmaster/it-course/ course
