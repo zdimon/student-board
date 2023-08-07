@@ -8,6 +8,8 @@ System for the education.
 
 # Installation
 
+Rename sb/sb/_local.py to sb/sb/local.py 
+
     ./bin/install
 
 # Run server
