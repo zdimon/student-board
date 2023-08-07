@@ -3,3 +3,6 @@ python3 -m venv venv
 . ./venv/bin/activate
 pip install -r ./requirements.txt
 ./manage.py migrate
+cd ../react-app
+npm install
+npm run build
