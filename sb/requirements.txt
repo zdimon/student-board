@@ -24,4 +24,4 @@ djangorestframework
 drf-yasg
 django-rosetta
 django-loginas
-uwsgiß
+uwsgi
