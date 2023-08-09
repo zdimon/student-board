@@ -96,6 +96,10 @@ class Course(models.Model):
 
     @staticmethod
     def is_paid(user,lesson):
+        try:
+            user = user.student
+        except:
+            pass
         from student.models import LessonPayment, CoursePayment
         if ALL_FREE:
             return True
