@@ -7,6 +7,6 @@ uwsgi --http-socket :8003 \
 --stderr_logfile /home/webmaster/student-board/logs/supervisor-wsgi_err.log \
 --virtualenv /home/webmaster/student-board/sb/venv/ \
 --processes 2 \
---threads 2
---uid webmaster
+--threads 2 \
+--uid webmaster \
 --gid webmaster
