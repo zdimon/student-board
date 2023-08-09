@@ -1,6 +1,1 @@
-uwsgi --http :8000 --module sb.sb.wsgi
-
-uwsgi --http :8080 --home /Users/dima/develop/student-board/sb/venv --chdir /Users/dima/develop/student-board/sb  --module sb.wsgi
-
-
-uwsgi --http :8080 --home /home/webmaster/student-board/sb/venv --chdir /home/webmaster/develop/student-board/sb  --module sb.wsgi
+uwsgi --http-socket :8001 --plugins python3 --chdir /home/webmaster/student-board/sb  --module sb.wsgi -H /home/webmaster/student-board/sb/venv
