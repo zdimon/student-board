@@ -3,8 +3,7 @@ uwsgi --http-socket :8003 \
  --chdir /home/webmaster/student-board/sb  \
  --module sb.wsgi \
  -H /home/webmaster/student-board/sb/venv \
---stdout_logfile /home/webmaster/student-board/logs/supervisor-wsgi.log \
---stderr_logfile /home/webmaster/student-board/logs/supervisor-wsgi_err.log \
+--logto  /home/webmaster/student-board/logs/supervisor-wsgi.log \
 --virtualenv /home/webmaster/student-board/sb/venv/ \
 --processes 2 \
 --threads 2 \
