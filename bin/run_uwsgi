@@ -1,11 +1,10 @@
-uwsgi --http-socket :8003 \
+uwsgi --http-socket home/webmaster/student-board/sb_supervisor.sock \
  --plugins python3 \
  --chdir /home/webmaster/student-board/sb  \
  --module sb.wsgi \
- -H /home/webmaster/student-board/sb/venv \
---logto  /home/webmaster/student-board/logs/supervisor-wsgi.log \
---virtualenv /home/webmaster/student-board/sb/venv/ \
---processes 2 \
---threads 2 \
---uid webmaster \
---gid webmaster
+ --virtualenv /home/webmaster/student-board/sb/venv \
+ --buffer-size 32768 \
+ --uid webmaster \
+ --gid webmaster \
+ --processes 2 \
+ --threads 2 
