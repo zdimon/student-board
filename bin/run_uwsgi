@@ -1,4 +1,4 @@
-uwsgi --http-socket home/webmaster/student-board/sb_supervisor.sock \
+uwsgi --http-socket /home/webmaster/student-board/sb_supervisor.sock \
  --plugins python3 \
  --chdir /home/webmaster/student-board/sb  \
  --module sb.wsgi \
