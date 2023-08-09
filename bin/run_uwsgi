@@ -8,3 +8,5 @@ uwsgi --http-socket :8003 \
 --virtualenv /home/webmaster/student-board/sb/venv/ \
 --processes 2 \
 --threads 2
+--uid webmaster
+--gid webmaster
