@@ -37,13 +37,16 @@ class CourseLoader(object):
         path = DATA_DIR+'/'+self.dir+'/meta.yml'
         print('Saving meta for %s' % self.course.name_slug)
         meta = self.get_meta(path)
-        self.course.name = meta['title']
-        self.course.is_active = meta['is_active']
-        self.course.meta_keywords = meta['meta_keywords']
-        self.course.meta_title = meta['meta_title']
-        self.course.meta_description = meta['meta_description']
-        self.course.desc = meta['desc']
-        self.course.lang = meta['lang']
+        try:
+            self.course.name = meta['title']
+            self.course.is_active = meta['is_active']
+            self.course.meta_keywords = meta['meta_keywords']
+            self.course.meta_title = meta['meta_title']
+            self.course.meta_description = meta['meta_description']
+            self.course.desc = meta['desc']
+            self.course.lang = meta['lang']
+        except:
+            print('Error ',self.get_meta(path),'in parameters')
         try:
             self.course.cost = meta['cost']
         except:
