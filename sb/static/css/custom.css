@@ -98,3 +98,8 @@ h3 {
 .img-lang {
     width: 50px;
 }
+
+container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    padding-left: 5px !important;
+    padding-right: 0 !important;
+}
