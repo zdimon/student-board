@@ -5,7 +5,7 @@
     </td>
     <td>
         
-            <a href="{% url 'detail-course-student' course_id=item.pk %}" 
+            <a href="{% url 'detail-course-student' course_name_slug=item.name_slug %}" 
             >{{ item.name }}</a>
         
         <div class="color-black">{{ item.desc | safe}}</div>  

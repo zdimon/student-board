@@ -230,7 +230,7 @@
                                     <img class="img-lang rounded-circle" src="/static/img/en.svg" />
                                     {% trans 'Английский' %}
                                 </a>
-                                <a class="dropdown-item" href="{% url 'set-lang' lang='en' %}?next={{ request.path }}">
+                                <a class="dropdown-item" href="{% url 'set-lang' lang='ua' %}?next={{ request.path }}">
                                     <img class="img-lang rounded-circle" src="/static/img/ua.svg" />
                                     {% trans 'Украинский' %}
                                 </a>
@@ -240,17 +240,17 @@
                                     <img class="img-lang rounded-circle" src="/static/img/en.svg" />
                                     {% trans 'Английский' %}
                                 </a>
-                                <a class="dropdown-item" href="{% url 'set-lang' lang='en' %}?next={{ request.path }}">
+                                <a class="dropdown-item" href="{% url 'set-lang' lang='ru' %}?next={{ request.path }}">
                                     <img class="img-lang rounded-circle" src="/static/img/ru.svg" />
                                     {% trans 'Русский' %}
                                 </a>
                             {% endif %}
                             {% if LANGUAGE_CODE == 'en' %}
-                                <a class="dropdown-item" href="{% url 'set-lang' lang='en' %}?next={{ request.path }}">
+                                <a class="dropdown-item" href="{% url 'set-lang' lang='ua' %}?next={{ request.path }}">
                                     <img class="img-lang rounded-circle" src="/static/img/ua.svg" />
                                     {% trans 'Украинский' %}
                                 </a>
-                                <a class="dropdown-item" href="{% url 'set-lang' lang='en' %}?next={{ request.path }}">
+                                <a class="dropdown-item" href="{% url 'set-lang' lang='ru' %}?next={{ request.path }}">
                                     <img class="img-lang rounded-circle" src="/static/img/ru.svg" />
                                     {% trans 'Русский' %}
                                 </a>
