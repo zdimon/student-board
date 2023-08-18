@@ -5,7 +5,8 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ lesson }}</h1>
         {% if lab %}
-        <a href="{% url 'detail-lab-student' lab_id=lab.pk %}" class="btn btn-primary">
+        <a href="{% url 'detail-lab-student' lab_id=lab.pk %}" 
+        class="btn btn-primary">
           {% trans 'Pass of the lab'%}
         </a>
         {% endif %}
