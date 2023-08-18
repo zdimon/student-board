@@ -24,11 +24,11 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: 22
         script: |
-          cd ~/student-board
-          git pull 
-          cd sb
-          source ./venv/bin/activate
-          pip install -r requirements.txt
-          python3 manage.py migrate
+          cd ~/student-board &&
+          git pull &&
+          cd sb &&
+          source ./venv/bin/activate &&
+          pip install -r requirements.txt &&
+          python3 manage.py migrate &&
           touch /home/webmaster/uwsgireload
 
