@@ -1,0 +1,116 @@
+*** Starting uWSGI 2.0.20-debian (64bit) on [Wed Aug  9 16:25:25 2023] ***
+compiled with version: 11.2.0 on 21 March 2022 11:00:44
+os: Linux-5.15.0-78-generic #85-Ubuntu SMP Fri Jul 7 15:25:09 UTC 2023
+nodename: webmonstr
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/webmaster
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/webmaster/student-board/sb
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15078
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+bind(): No such file or directory [core/socket.c line 230]
+*** Starting uWSGI 2.0.20-debian (64bit) on [Wed Aug  9 16:25:31 2023] ***
+compiled with version: 11.2.0 on 21 March 2022 11:00:44
+os: Linux-5.15.0-78-generic #85-Ubuntu SMP Fri Jul 7 15:25:09 UTC 2023
+nodename: webmonstr
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/webmaster
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/webmaster/student-board/sb
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15078
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+bind(): No such file or directory [core/socket.c line 230]
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
+supervisor: couldn't exec /home/webmaster/student-board/bin/run_uwsgi: ENOEXEC
+supervisor: child process was not spawned
