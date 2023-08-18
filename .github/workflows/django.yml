@@ -28,25 +28,6 @@ jobs:
           git pull &&
           cd sb &&
           source ./venv/bin/activate &&
-          pip install -r requirements.txt
-
-
-  deploy:
-    runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-         python-version: [3.7, 3.8, 3.9]
-
-    steps:
-    - name: Deploy using ssh
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: 22
-        script: |
-          python3 manage.py migrate
-          touch /home/webmaster/uwsgireload
-
+          pip install -r requirements.txt &&
+          python3 manage.py migrate 
+          touch /home/${{ secrets.USERNAME }}/uwsgireload
