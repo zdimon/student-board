@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load i18n %} 
+{% load crispy_forms_tags %}
+{%  block content %}
+
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            
+            <h6 class="m-0 font-weight-bold text-primary">
+            <a href="{% url 'detail-course-student' course_name_slug=topic.lesson.course.name_slug %}"> 
+                {{ topic.lesson.course }} 
+            </a> /
+            <a href="{% url 'detail-lesson-student' lesson_id=topic.lesson.id %}">
+                {{topic.lesson.title}}
+            </a> /
+            {{ topic.title }}
+            </h6>
+        </div>
+        {{topic.video_tag}}
+        <div class="card-body">
+            {{ topic.content }}
+        </div>
+    </div>
+
+{% endblock %}

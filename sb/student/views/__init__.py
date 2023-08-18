@@ -16,3 +16,4 @@ from .newlesson import *
 from .paylesson import *
 from .pay_course import *
 from .paidlogin import *
+from .detail_topic import *

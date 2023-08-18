@@ -37,6 +37,15 @@
                         <p>
                             {{ l.desc|safe }}
                         </p>
+                        <p>
+                            <ul>
+                                {% for t in l.topic_set.all %}
+                                    <li>
+                                        <a href="{{t.get_absolute_url}}">{{ t.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </p>
                     {% endif %}
                     {% if l.has_lab %}
                     <div class="row div-marging-5" >
