@@ -10,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 def registration(request):
     groups = StudentGroup.objects.all().order_by('name')
     if request.method == 'POST':
-        group = StudentGroup.objects.get(pk=request.POST['group'])
+        group = StudentGroup.objects.all().first()
         try:
             s = Student.objects.get(username=request.POST['email'])
             messages.error(request, _('User with this email already exists!'))
