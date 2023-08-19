@@ -9,6 +9,7 @@ pre {
     color: white;
     padding: 10px;
     border-radius: 6px;
+    margin-top: 10px;
 }
 
 p {
@@ -102,4 +103,24 @@ h3 {
 container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
     padding-left: 5px !important;
     padding-right: 0 !important;
+}
+
+.topic-content p {
+    font-size: 20px ;
+}
+
+.course-list a {
+    font-size: 20px;
+}
+
+.lesson-list a {
+    font-size: 20px;
+}
+
+.lesson-list p {
+    font-size: 20px;
+}
+
+.card-body {
+    min-width: 350px;
 }
