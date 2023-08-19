@@ -123,4 +123,6 @@ container, .container-fluid, .container-lg, .container-md, .container-sm, .conta
 
 .card-body {
     min-width: 350px;
+    font-size: 20px;
+    padding-top: 5px;
 }
