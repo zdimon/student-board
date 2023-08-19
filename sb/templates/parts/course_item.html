@@ -12,6 +12,7 @@
 
         <div style="display: flex">
             <div style="width: 100%">{% trans 'Уроков' %}: <span class="text-bold">{{ item.count_lessons }}</span>. {% trans 'Лабораторных работ' %}: <span class="text-bold">{{ item.count_labs }}</span>.
+                <!-- 
                 <span>{% trans 'Стоимость' %}: 
                     {% if item.cost > 0 %}
                     <span class="text-bold">{{ item.cost }} грн.</span>
@@ -21,13 +22,16 @@
                     </span>
                     {% endif %}
                 </span>
+                -->
             </div>  
             <!--        
             <p>{% trans 'Стоимость' %}: <span class="text-bold">1 300 - 1 500 грн.</span></p>
-            -->     
+                
             {% if not item.is_paid and item.cost > 0 %}
                 <a href="{% url 'pay-course' course_id=item.name_slug %}" class="btn btn-success" style="width: 200px"> {% trans 'Купить курс' %} </a>
             {% endif %}
+
+            --> 
         </div>
     </td>
 

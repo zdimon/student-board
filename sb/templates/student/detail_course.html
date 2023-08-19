@@ -42,6 +42,7 @@
                                 {% for t in l.topic_set.all %}
                                     <li>
                                         <a href="{{t.get_absolute_url}}">{{ t.title }}</a>
+                                        <a href="{% url 'topic-detail-empty' lesson=t.lesson.name_slug topic=t.filename  %}">.</a>
                                     </li>
                                 {% endfor %}
                             </ul>

@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends layout %}
 {% load i18n %} 
 {% load crispy_forms_tags %}
 {%  block content %}
@@ -11,7 +11,7 @@
             <a href="{% url 'detail-course-student' course_name_slug=topic.lesson.course.name_slug %}"> 
                 {{ topic.lesson.course }} 
             </a> /
-            <a href="{% url 'detail-lesson-student' lesson_id=topic.lesson.id %}">
+            <a href="{% url 'detail-lesson-student' lesson=topic.lesson.name_slug %}">
                 {{topic.lesson.title}}
             </a> /
             {{ topic.title }}

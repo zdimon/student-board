@@ -10,6 +10,11 @@ from django.shortcuts import redirect
 def detail_topic(request, lesson, topic):
     key = lesson+'--'+topic
     topic = Topic.objects.filter(alias=key).first()
-    print(key)
-    print(topic)
-    return render(request,'student/detail_topic.html', {"topic": topic})
+    layout = 'layout.html'
+    return render(request,'student/detail_topic.html', {"topic": topic, "layout": layout})
+
+def detail_topic_empty(request, lesson, topic):
+    key = lesson+'--'+topic
+    topic = Topic.objects.filter(alias=key).first()
+    layout = 'layout_empty.html'
+    return render(request,'student/detail_topic.html', {"topic": topic, "layout": layout})
