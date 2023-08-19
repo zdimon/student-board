@@ -30,7 +30,7 @@
                      {{ l.get_image }}
                    </td>
                     <td>
-                    <a href="{% url 'detail-lesson-student' lesson_id=l.pk %}">
+                    <a href="{{ l.get_absolute_url }}">
                         {{ l.number }}. {{ l.title }}
                     </a>
                     {% if l.desc %}

@@ -152,8 +152,9 @@ class Lesson(models.Model):
     def __str__(self):
         return self.title
 
+    @property
     def get_absolute_url(self):
-        return reverse('lesson_detail', kwargs={'slug': self.name_slug })
+        return reverse('detail-lesson-student', kwargs={'lesson': self.name_slug })
 
     # @property
     # def tags(self):    
