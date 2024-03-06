@@ -17,4 +17,4 @@ def set_lang(request,lang):
     #     next = next.replace('-'+get_language(),lang)
         
     next = '/'+lang
-    return HttpResponseRedirect('%s/%s' %  (DOMAIN,next))
+    return HttpResponseRedirect('%s%s' %  (DOMAIN,next))
