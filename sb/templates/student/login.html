@@ -1,11 +1,15 @@
 {% extends 'layout.html' %}
 {% load i18n %} 
 {%  block content %}
-        <h1>{% trans 'Вход на сайт' %}</h1>
+        <h1></h1>
         
 <div class="dropdown-list shadow animated--grow-in">
                                
-<div class="p-5">
+<div class="row p-3">
+    <div class="col-lg-4">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">{% trans 'Вход на сайт' %}</h1>
+        </div>
         <form method="POST" action="" class="user">
         {% csrf_token %}
                 <div class="form-group">
@@ -25,9 +29,75 @@
                 <button type="submit" class="btn btn-primary btn-user btn-block">
                 Login
                 </button>
-                
+
         </form>
+    </div>
+    <div class="col lg-8">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">{% trans 'Student registration' %}</h1>
         </div>
+        <form class="user" method="POST" action="{% url 'student-registration' %}">
+        {% csrf_token %}
+            <div class="form-group row">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" 
+                    name="first_name"
+                    id="exampleFirstName" placeholder="{% trans 'First Name' %}">
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control form-control-user" 
+                    name="surname"
+                    id="exampleLastName" placeholder="{% trans 'Surname' %}">
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control form-control-user" 
+                    name="last_name"
+                    id="exampleLastName" placeholder="{% trans 'Last Name' %}">
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <!-- 
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                  
+                   <select 
+                   name="group"
+                   class="form-control">
+                   <option value="0">{% trans 'Select the group' %}</option>
+                   {% for g in groups  %}
+                        <option value="{{ g.id }}">{{ g.name }}</option>                                       
+                   
+                   {% endfor %}
+                   </select>
+                   
+                </div>
+                -->
+                <div class="col-sm-6">
+                    <input type="email" 
+                    name="email"
+                    class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Email">
+                </div>
+                <div class="col-sm-6">
+                    <input type="password" 
+                    name="password"
+                    class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary btn-user btn-block">
+                {% trans 'Register Account' %}
+            </button>
+            <!-- 
+            <hr>
+            <a href="index.html" class="btn btn-google btn-user btn-block">
+                <i class="fab fa-google fa-fw"></i> Register with Google
+            </a>
+            <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+            </a>
+            -->
+        </form>
+    </div>
 </div>
 
   

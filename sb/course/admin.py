@@ -74,7 +74,7 @@ class LessonAdmin(admin.ModelAdmin):
 
 @admin.register(Topic)
 class TopicAdmin(admin.ModelAdmin):
-    list_display = ['title', 'filename', 'course', 'lesson', 'video', 'has_video', 'is_youtube', 'order']
+    list_display = ['title', 'filename', 'course', 'lesson', 'alias','has_video','order']
     list_filter = ['has_video']
     list_editable = ['order']
     search_fields = ['filename']

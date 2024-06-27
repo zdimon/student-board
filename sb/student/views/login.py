@@ -12,6 +12,7 @@ from django.shortcuts import redirect
 
 
 def user_login(request):
+    groups = StudentGroup.objects.all().order_by('name')
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -22,5 +23,5 @@ def user_login(request):
             return redirect('/')         
         else:
             messages.info(request, _('Ошибка. Неправильный логин или пароль'))            
-    return render(request,'student/login.html',{})
+    return render(request,'student/login.html',{"groups": groups})
 

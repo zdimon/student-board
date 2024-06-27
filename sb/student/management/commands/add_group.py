@@ -9,7 +9,9 @@ import random
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        print('Clear groups')
+        print('Add group')
+        StudentGroup.objects.create(name='Begginer').save()
+        ''' 
         for group in StudentGroup.objects.all():
             cnt = Student.objects.filter(group=group).count()
             if cnt == 0:
@@ -17,4 +19,5 @@ class Command(BaseCommand):
                 group.delete()
             else:
                 print('Leaving %s cnt %s' % (group.name, cnt))
+        '''
        

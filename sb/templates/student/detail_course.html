@@ -21,7 +21,7 @@
     <div class="card-body">
         <div class="table-responsive">
 
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <table class="table table-bordered lesson-list" id="dataTable" width="100%" cellspacing="0">
            
             <tbody>
             {% for l in lessons  %}
@@ -30,12 +30,22 @@
                      {{ l.get_image }}
                    </td>
                     <td>
-                    <a href="{% url 'detail-lesson-student' lesson_id=l.pk %}">
+                    <a href="{{ l.get_absolute_url }}">
                         {{ l.number }}. {{ l.title }}
                     </a>
                     {% if l.desc %}
                         <p>
                             {{ l.desc|safe }}
+                        </p>
+                        <p>
+                            <ul>
+                                {% for t in l.topic_set.all %}
+                                    <li>
+                                        <a href="{{t.get_absolute_url}}">{{ t.title }}</a>
+                                        <a href="{% url 'topic-detail-empty' lesson=t.lesson.name_slug topic=t.filename  %}">.</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </p>
                     {% endif %}
                     {% if l.has_lab %}

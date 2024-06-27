@@ -96,6 +96,10 @@ class Course(models.Model):
 
     @staticmethod
     def is_paid(user,lesson):
+        try:
+            user = user.student
+        except:
+            pass
         from student.models import LessonPayment, CoursePayment
         if ALL_FREE:
             return True
@@ -148,8 +152,9 @@ class Lesson(models.Model):
     def __str__(self):
         return self.title
 
+    @property
     def get_absolute_url(self):
-        return reverse('lesson_detail', kwargs={'slug': self.name_slug })
+        return reverse('detail-lesson-student', kwargs={'lesson': self.name_slug })
 
     # @property
     # def tags(self):    
@@ -219,11 +224,15 @@ class Topic(models.Model):
     is_youtube = models.BooleanField(default=False)
     order = models.IntegerField(default=0)
     created_at = models.DateField()
+    alias = models.CharField(max_length=250, default='')
 
     def get_clear_lesson_slug(self):
         return self.lesson.name_slug.split('--')[1]
 
-
+    def save(self, *args, **kwargs):
+        self.alias = self.lesson.name_slug+'--'+self.filename
+        super(Topic, self).save(*args, **kwargs)
+ 
 
     @property
     def short_content(self):
@@ -316,6 +325,9 @@ class Topic(models.Model):
         pathtosubject = '/media/course/%s/%s' % (self.lesson.course.name_slug, self.get_clear_lesson_slug())
         txt = txt.replace('{path-to-subject}',pathtosubject)
         return txt
+    @property
+    def get_absolute_url(self):
+        return reverse("topic-detail", kwargs={"lesson": self.lesson.name_slug, "topic": self.filename})
 
 
 
