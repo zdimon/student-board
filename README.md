@@ -1,4 +1,4 @@
-# Studend board
+# Studend board.
 
 System for the education.
 
